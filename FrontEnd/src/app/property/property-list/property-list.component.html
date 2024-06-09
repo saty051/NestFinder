@@ -1,1 +1,7 @@
-<p>property-list works!</p>
+<div class="row">
+    <div *ngFor="let property of properties" class="col-md-4 mb-4">       <!-- Used col-md-4 on the card container div to ensure three cards fit in a row on medium and     larger screens.Added mb-4 to add some margin at the bottom of each card to space them out vertically. -->
+        <div class="shadow-lg p-3">
+            <app-property-card [property]="property"></app-property-card>
+        </div>
+    </div>
+</div>
