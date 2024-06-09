@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-4 mb-4">       <!-- Used col-md-4 on the card container div to ensure three cards fit in a row on medium and     larger screens.Added mb-4 to add some margin at the bottom of each card to space them out vertically. -->
+        <div class="shadow-lg p-3">
+            <div class="card h-100">         <!-- Used h-100 on the card to ensure it takes the full height of the column -->
+                <div class="p-2">
+                    <img class="card-img-top propImg" src="assets/images/house_default.jpg" alt="Property Image">
+                </div>
+                <div class="card-body p-2">
+                    <h1>{{ Property.Name }}</h1>
+                    <h1>{{ Property.Type }}</h1>
+                    <h1>{{ Property.Price }}</h1>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
