@@ -9,7 +9,7 @@ import { IProperty } from '../IProperty.interface';
   styleUrls: ['./property-list.component.css']
 })
 export class PropertyListComponent implements OnInit{
-  properties : Array<IProperty> = [];
+  properties! : Array<IProperty>;
 
   constructor(private housingService:HousingService){}
 
@@ -19,7 +19,7 @@ export class PropertyListComponent implements OnInit{
       console.log(data);
       },
       error=>{
-        console.log(error);
+        console.error(error);
       }
     );
   }
