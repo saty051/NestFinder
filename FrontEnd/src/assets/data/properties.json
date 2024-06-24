@@ -1,45 +1,66 @@
 [
     {
       "Id": 1,
+      "SellRent": 1,
       "Name": "Birla House",
       "Type": "House",
-      "Price": 12000
+      "Price": 12000,
+      "Image":"prop1"
     },
     {
       "Id": 2,
+      "SellRent": 1,
       "Name": "Sunset Villa",
       "Type": "Villa",
-      "Price": 25000
+      "Price": 25000,
+      "Image":"prop2"
     },
     {
       "Id": 3,
+      "SellRent": 2,
       "Name": "Maple Apartments",
       "Type": "Apartment",
-      "Price": 15000
+      "Price": 15000,
+      "Image":"prop3"
     },
     {
       "Id": 4,
+      "SellRent": 2,
       "Name": "Oakwood Cottage",
       "Type": "Cottage",
-      "Price": 18000
+      "Price": 18000,
+      "Image":"prop4"
     },
     {
       "Id": 5,
+      "SellRent": 1,
       "Name": "Seaside Bungalow",
       "Type": "Bungalow",
-      "Price": 30000
+      "Price": 30000,
+      "Image":"prop5"
     },
     {
       "Id": 6,
+      "SellRent": 2,
       "Name": "Mountain Retreat",
       "Type": "Retreat",
-      "Price": 35000
+      "Price": 35000,
+      "Image":"prop6"
     },
     {
       "Id": 7,
+      "SellRent": 2,
       "Name": "Urban Loft",
       "Type": "Loft",
-      "Price": 20000
+      "Price": 20000,
+      "Image":"prop7"
+    },
+    {
+      "Id": 8,
+      "SellRent": 1,
+      "Name": "Spooky Mansion",
+      "Type": "Haunted",
+      "Price": 66666 
     }
   ]
   

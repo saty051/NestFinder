@@ -1,6 +1,7 @@
 <div class="card h-100">         <!-- Used h-100 on the card to ensure it takes the full height of the column -->
     <div class="card-img-wrapper p-2">
-        <img class="card-img-top" src="assets/images/house_default.jpg" alt="Property Image">
+        <img *ngIf="property.Image" class="card-img-top" src="assets/images/{{property.Image}}.jpg" alt="Property Image">
+        <img *ngIf="!property.Image" class="card-img-top" src="assets/images/house_default.jpg" alt="Property Image">
         <ul class="list-inline text-center member-icons animate">
             <li class="list-inline-item">
                 <button class="btn btn-primary" routerLink='/property-detail/{{property.Id}}'><i class="fa-solid fa-file-pen"></i></button>
