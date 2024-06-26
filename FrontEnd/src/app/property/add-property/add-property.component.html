@@ -1,4 +1,39 @@
-<p>
-  add-property works!
-  <button class="btn btn-primary" (click)="onBack()">Back</button>
-</p>
+<div class="card">
+  <div class="card-header">
+    Add New Property
+  </div>
+  <div class="card-body">
+    <form #apform="ngForm" (ngSubmit)="OnSubmit()">
+      <div class="form-group col-12">
+        <label for="name">Property Name</label>
+        <input type="text" id="name" name="Name" ngModel required #name="ngModel" class="form-control" minlength="5">
+        <div *ngIf="name.errors?.['required'] && name.touched" class="error">
+          Property Name is required.
+        </div> 
+        <div *ngIf="name.errors?.['minlength'] && name.touched" class="error">
+          Property Name must have 5 characters
+        </div>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="type">Property Type</label>
+        <input type="text" id="type" name="Type" ngModel required #type="ngModel" class="form-control">
+        <div *ngIf="type.invalid && type.touched" class="error">
+          Property Type is required.
+        </div> 
+      </div>
+
+      <div class="form-group col-12">
+        <label for="price">Property Price</label>
+        <input type="number" id="price" name="Price" ngModel required #price="ngModel" class="form-control">
+        <div *ngIf="price.invalid && price.touched" class="error">
+          Property Price is required.
+        </div> 
+      </div>
+      <div class="form-group col-12">
+        <button type="submit" class="btn btn-primary" [disabled]="apform.invalid" style="margin-right: 10px;">Submit</button>
+        <button type="reset" class="btn btn-primary">Cancel</button>
+    </div>
+    </form>
+  </div>
+</div>

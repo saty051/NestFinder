@@ -9,6 +9,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HousingService } from './services/housing.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [HousingService],
   bootstrap: [AppComponent]
