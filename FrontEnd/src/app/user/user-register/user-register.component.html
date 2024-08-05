@@ -11,7 +11,7 @@
                         <input type="text" id="name" class="form-control" formControlName="username"> 
                     </div>
                         <div 
-                        *ngIf="username?.errors?.['required'] && username?.touched" 
+                        *ngIf="username?.errors?.['required'] && username?.touched || userSubmitted" 
                         class="error">Username is required.
                         </div>
                     <div class="form-group col-12">
@@ -19,7 +19,7 @@
                         <input type="email" id="email" class="form-control" formControlName="email"> 
                     </div>
                         <div
-                        *ngIf="email?.errors?.['required'] && email?.touched"
+                        *ngIf="email?.errors?.['required'] && email?.touched || userSubmitted"
                         class="error">
                             Email is required.
                         </div>
@@ -33,7 +33,7 @@
                         <input type="password" id="password" class="form-control" formControlName="password">
                     </div>
                         <div
-                        *ngIf="password?.errors?.['required'] && password?.touched"
+                        *ngIf="password?.errors?.['required'] && password?.touched || userSubmitted"
                         class="error">
                             Password is required.
                         </div>
@@ -47,7 +47,7 @@
                         <input type="password" id="confirmpassword" class="form-control" formControlName="confirmpassword">
                     </div>
                         <div
-                        *ngIf="confirmpassword?.errors?.['required'] && confirmpassword?.touched"
+                        *ngIf="confirmpassword?.errors?.['required'] && confirmpassword?.touched || userSubmitted"
                         class="error">
                             Confirm Password is required.
                         </div>
@@ -61,7 +61,7 @@
                         <input type="number" id="mobile" class="form-control" formControlName="mobile">
                     </div>
                         <div
-                        *ngIf="mobile?.errors?.['required'] && mobile?.touched"
+                        *ngIf="mobile?.errors?.['required'] && mobile?.touched || userSubmitted"
                         class="error">
                             Mobile is required.
                         </div>
