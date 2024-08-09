@@ -58,7 +58,7 @@
                         </div>
                     <div class="form-group col-12">
                         <label for="mobile" class="form-label">Mobile</label>
-                        <input type="number" id="mobile" class="form-control" formControlName="mobile">
+                        <input type="text" id="mobile" class="form-control" formControlName="mobile">
                     </div>
                         <div
                         *ngIf="mobile?.errors?.['required'] && mobile?.touched || userSubmitted"
@@ -71,8 +71,8 @@
                             Mobile must have 10 digits
                         </div><br>
                     <div class="form-group col-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-secondary" style="margin-left: 10px;">Cancel</button>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Cancel</button>
                     </div>
                 </form>
             </div>

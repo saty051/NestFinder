@@ -31,7 +31,7 @@ export class UserLoginComponent implements OnInit{
         this.router.navigate(['/']);
       }
       else{
-        this.alertify.error("UserName or passowrd is wrong");
+        this.alertify.error("User Name or Passowrd is wrong");
       }
   }
 

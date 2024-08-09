@@ -7,7 +7,7 @@
         <div class="card-body">
           <form #loginForm = "ngForm" (ngSubmit)="onLogin()">
             <div class="form-group col-12">
-              <label for="name">Name</label>
+              <label for="name">User Name</label>
               <input class="form-control" id="name" name="userName" ngModel required>
             </div>
 
@@ -19,7 +19,7 @@
 
             <div class="form-group col-12"><br>
               <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
-              <button type="button" class="btn btn-secondary" style="margin-left: 10px">Cancel</button>
+              <button type="button" class="btn btn-secondary ms-2">Cancel</button>
             </div>
           </form>
         </div>
