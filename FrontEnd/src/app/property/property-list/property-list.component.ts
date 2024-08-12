@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { HousingService } from 'src/app/services/housing.service';
-import { IPropertyBase } from 'src/app/model/IPropertyBase';
+import { IPropertyBase } from 'src/app/model/Ipropertybase';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { ActivatedRoute } from '@angular/router';
 
@@ -22,6 +22,7 @@ export class PropertyListComponent implements OnInit{
     }
     this.housingService.getAllProperties(this.SellRent).subscribe(
       data=>{this.properties = data;
+        
       console.log(data);
       console.log(this.route.snapshot.url.toString());  
       },

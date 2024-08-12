@@ -10,4 +10,5 @@ export interface IPropertyBase {
     BuiltArea: number | null;
     Price:number | null;
     Image?:string | null;
+    estPossessionOn?: string;
 }

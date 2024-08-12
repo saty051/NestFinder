@@ -2,9 +2,19 @@
     min-height: 400px;
 }
 
+.card-body h1{
+    font-family: fantasy;
+    color: #0069d9;
+}
+
 .card-img-wrapper{
     overflow: hidden;
     position: relative;
+}
+
+.font-highlight{
+font-style: italic;
+color: red;
 }
 
 .card:hover img{
