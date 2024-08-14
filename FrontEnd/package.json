@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "@daelmaak/ngx-gallery": "^3.0.4",
+    "@kolkov/ngx-gallery": "^2.0.1",
     "alertifyjs": "^1.14.0",
     "bootstrap": "^5.3.3",
     "ngx-bootstrap": "^18.0.2",
