@@ -6,8 +6,6 @@ import {NgxGalleryOptions} from '@kolkov/ngx-gallery';
 import {NgxGalleryImage} from '@kolkov/ngx-gallery';
 import {NgxGalleryAnimation} from '@kolkov/ngx-gallery';
 
-// Define an interface for the route data
-
 
 @Component({
   selector: 'app-property-detail',

@@ -20,9 +20,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { PropertyDetailResolverService } from 'src/app/property/property-detail/property-detail-resolver.service';
+import { PropertyDetailResolverService } from './property/property-detail/property-detail-resolver.service';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
-
+import { FilterPipe } from './Pipes/filter.pipe';
+import { SortPipe } from './Pipes/sort.pipe';
 
 @NgModule({
   declarations: [	
@@ -33,7 +34,9 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
     AddPropertyComponent,
     PropertyDetailComponent,
     UserRegisterComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    FilterPipe,
+    SortPipe
    ],
   imports: [
     BrowserModule,
