@@ -50,7 +50,6 @@ NestFinder is a web application that allows users to search, list, and manage pr
 2. Navigate to the project directory:
 
     ```bash
-    Copy code
     cd NestFinder
 
 
@@ -63,7 +62,6 @@ NestFinder is a web application that allows users to search, list, and manage pr
 4. Build the Angular application:
 
     ```bash
-    Copy code
     ng build
 
 5. Set up the backend:
