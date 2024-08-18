@@ -28,6 +28,13 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
@@ -40,5 +47,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-
-
