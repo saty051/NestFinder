@@ -115,7 +115,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ### Contact
 For any inquiries or feedback, feel free to contact:
 
-Name: Satyam Verma
-GitHub: saty051
-Email: satyamverma0102@gmail.com
+* Name: Satyam Verma
+* GitHub: saty051
+* Email: satyamverma0102@gmail.com
 
