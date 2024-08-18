@@ -63,8 +63,8 @@
                   <div class="dropdown-wrapper">
                   <select id="city" class="form-control border-primary shadow-sm bg-light" formControlName="City" (input)="propertyView.City = City.value">
                     <option value="" disabled selected>--Select City--</option>
-                    <option *ngFor="let city of cityList" [value]="city">
-                      {{city}}
+                    <option *ngFor="let city of cityList" value={{city.id}}>
+                      {{city.name}}
                     </option>
                   </select>
                   <span class="dropdown-icon"><i class="fas fa-chevron-down"></i></span> <!-- Font Awesome dropdown icon -->

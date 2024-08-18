@@ -1,10 +1,19 @@
 using Microsoft.AspNetCore.Cors;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using WebAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Enable globalization support is fully enabled
+AppContext.SetSwitch("System.Globalization.Invariant", false);
 
+// Register the DbContext
+builder.Services.AddDbContext<DataContext>(options => 
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+
+// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
