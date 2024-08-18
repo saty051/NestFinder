@@ -17,6 +17,7 @@ export class AddPropertyComponent implements OnInit {
   addPropertyForm!: FormGroup;
   nextClicked!: boolean;
   property = new Property();
+  cityList!: string[];
 
   // will come from masters
   propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex'];
@@ -29,21 +30,27 @@ export class AddPropertyComponent implements OnInit {
     FType: null,
     Price: null,
     BHK: null,
-    City: '',
+    City: '', // Keeping it empty for initial state
     RTM: null,
     BuiltArea: null
   };
 
-  constructor(private router: Router, private fb: FormBuilder, private housingService: HousingService, private alertify: AlertifyService) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private housingService: HousingService,
+    private alertify: AlertifyService
+  ) {}
 
   ngOnInit() {
     this.CreateAddPropertyForm();
-    this.housingService.getAllCities().subscribe(data=>{
+    this.housingService.getAllCities().subscribe(data => {
+      this.cityList = data;
       console.log(data);
-    })
+    });
   }
 
-  CreateAddPropertyForm(){
+  CreateAddPropertyForm() {
     this.addPropertyForm = this.fb.group({
       BasicInfo: this.fb.group({
         SellRent: [null, Validators.required],
@@ -51,7 +58,7 @@ export class AddPropertyComponent implements OnInit {
         PType: [null, Validators.required],
         FType: [null, Validators.required],
         Name: [null, Validators.required],
-        City: [null, Validators.required]
+        City: ['', Validators.required] // Set to empty string to match the default dropdown value
       }),
       PriceInfo: this.fb.group({
         Price: [null, Validators.required],
@@ -94,118 +101,117 @@ export class AddPropertyComponent implements OnInit {
   get OtherInfo() {
     return this.addPropertyForm.get('OtherInfo') as FormGroup;
   }
-
   //#endregion
 
   // #region <FormControl>
-  get SellRent(){
+  get SellRent() {
     return this.BasicInfo.controls['SellRent'] as FormControl;
   }
   
-  get BHK(){
+  get BHK() {
     return this.BasicInfo.controls['BHK'] as FormControl;
   }
   
-  get PType(){
+  get PType() {
     return this.BasicInfo.controls['PType'] as FormControl;
   }
   
-  get FType(){
+  get FType() {
     return this.BasicInfo.controls['FType'] as FormControl;
   }
   
-  get Name(){
+  get Name() {
     return this.BasicInfo.controls['Name'] as FormControl;
   }
   
-  get City(){
+  get City() {
     return this.BasicInfo.controls['City'] as FormControl;
   }
   
-  get Price(){
+  get Price() {
     return this.PriceInfo.controls['Price'] as FormControl;
   }
   
-  get BuiltArea(){
+  get BuiltArea() {
     return this.PriceInfo.controls['BuiltArea'] as FormControl;
   }
   
-  get CarpetArea(){
+  get CarpetArea() {
     return this.PriceInfo.controls['CarpetArea'] as FormControl;
   }
   
-  get Security(){
+  get Security() {
     return this.PriceInfo.controls['Security'] as FormControl;
   }
   
-  get Maintenance(){
+  get Maintenance() {
     return this.PriceInfo.controls['Maintenance'] as FormControl;
   }
   
-  get FloorNo(){
+  get FloorNo() {
     return this.AddressInfo.controls['FloorNo'] as FormControl;
   }
   
-  get TotalFloor(){
-    return this.AddressInfo.controls['TotalFoor'] as FormControl;
+  get TotalFloor() {
+    return this.AddressInfo.controls['TotalFloor'] as FormControl; // Fixed the typo from TotalFoor to TotalFloor
   }
   
-  get Address(){
+  get Address() {
     return this.AddressInfo.controls['Address'] as FormControl;
   }
   
-  get LandMark(){
+  get LandMark() {
     return this.AddressInfo.controls['LandMark'] as FormControl;
   }
   
-  get RTM(){
+  get RTM() {
     return this.OtherInfo.controls['RTM'] as FormControl;
   }
   
-  get PossessionOn(){
+  get PossessionOn() {
     return this.OtherInfo.controls['PossessionOn'] as FormControl;
   }
   
-  get AOP(){
+  get AOP() {
     return this.OtherInfo.controls['AOP'] as FormControl;
   }
   
-  get Gated(){
+  get Gated() {
     return this.OtherInfo.controls['Gated'] as FormControl;
   }
   
-  get MainEntrance(){
+  get MainEntrance() {
     return this.OtherInfo.controls['MainEntrance'] as FormControl;
   }
   
-  get Description(){
+  get Description() {
     return this.OtherInfo.controls['Description'] as FormControl;
   }
-  
   //#endregion
 
-  allTabsValid(): boolean{
-    if(this.BasicInfo.invalid){
+  allTabsValid(): boolean {
+    if (this.BasicInfo.invalid) {
       this.formTabs.tabs[0].active = true;
       return false;
     }
 
-    if(this.PriceInfo.invalid){
+    if (this.PriceInfo.invalid) {
       this.formTabs.tabs[1].active = true;
       return false;
     }
 
-    if(this.AddressInfo.invalid){
+    if (this.AddressInfo.invalid) {
       this.formTabs.tabs[2].active = true;
       return false;
     }
 
-    if(this.OtherInfo.invalid){
+    if (this.OtherInfo.invalid) {
       this.formTabs.tabs[3].active = true;
       return false;
     }
     return true;
   }
+
   onSubmit() {
     this.nextClicked = true;
     if (this.allTabsValid()) {
@@ -213,15 +219,13 @@ export class AddPropertyComponent implements OnInit {
       this.housingService.addProperty(this.property);
       this.alertify.success("Congrats, your property listed successfully on our website");
       console.log(this.addPropertyForm.value);
-    }
-    else{
-      this.alertify.error("Please review the form and provide all valid enteries");
+    } else {
+      this.alertify.error("Please review the form and provide all valid entries");
     }
 
-    if(this.SellRent.value==="2"){
+    if (this.SellRent.value === "2") {
       this.router.navigate(['/rent-property']);
-    }
-    else{
+    } else {
       this.router.navigate(['/']);
     }
   }
@@ -232,7 +236,7 @@ export class AddPropertyComponent implements OnInit {
     if (this.BHK) this.property.BHK = this.BHK.value || 0;
     if (this.PType) this.property.PType = this.PType.value || '';
     if (this.Name) this.property.Name = this.Name.value || '';
-    if (this.City) this.property.City = this.City.value || '';
+    if (this.City) this.property.City = this.City.value || ''; // This will now be empty string initially
     if (this.FType) this.property.FType = this.FType.value || '';
     if (this.Price) this.property.Price = this.Price.value || 0;
     if (this.Security) this.property.Security = this.Security.value || 0;
@@ -240,7 +244,7 @@ export class AddPropertyComponent implements OnInit {
     if (this.BuiltArea) this.property.BuiltArea = this.BuiltArea.value || 0;
     if (this.CarpetArea) this.property.CarpetArea = this.CarpetArea.value || 0;
     if (this.FloorNo) this.property.FloorNo = this.FloorNo.value || 0;
-    if (this.TotalFloor) this.property.TotalFloor = this.TotalFloor.value || 0  ;
+    if (this.TotalFloor) this.property.TotalFloor = this.TotalFloor.value || 0;
     if (this.Address) this.property.Address = this.Address.value || '';
     if (this.LandMark) this.property.Address2 = this.LandMark.value || '';
     if (this.RTM) this.property.RTM = this.RTM.value || '';
@@ -250,8 +254,7 @@ export class AddPropertyComponent implements OnInit {
     if (this.PossessionOn) this.property.PossessionOn = this.PossessionOn.value || '';
     if (this.Description) this.property.Description = this.Description.value || '';
     this.property.PostedOn = new Date().toString();
-}
-
+  }
 
   selectTab(NextTabId: number, IsCurrentTabValid: boolean) {
     this.nextClicked = true;

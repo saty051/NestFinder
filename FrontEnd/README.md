@@ -1,27 +1,123 @@
-# FrontEnd
+# NestFinder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+NestFinder is a web application that allows users to search, list, and manage properties. Built with Angular and ASP.NET Core Web API, it provides a robust platform for real estate management.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Search properties by location, price, and type.
+- Add and manage property listings.
+- User authentication and authorization.
+- Responsive design.
+- Property filtering and sorting.
+- Interactive map integration.
 
-## Build
+## Tech Stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Frontend**: Angular 16, Bootstrap
+- **Backend**: ASP.NET Core Web API
+- **Database**: SQL Server 2022
+- **Tools**: Visual Studio, SQL Server Management Studio (SSMS)
+- **Other**: ngx-gallery for image galleries, AlertifyJS for notifications
 
-## Running unit tests
+## Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prerequisites
 
-## Running end-to-end tests
+- Node.js and npm installed
+- Angular CLI installed
+- .NET 6 SDK installed
+- SQL Server 2022
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Installation
 
-## Further help
+1. Clone the repository:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    ```bash
+   git clone https://github.com/saty051/NestFinder.git
+
+
+2. Navigate to the project directory:
+
+    ```bash
+    Copy code
+    cd NestFinder
+
+
+3. Install frontend dependencies:
+
+    ```bash
+    cd FrontEnd
+    npm install
+
+4. Build the Angular application:
+
+    ```bash
+    Copy code
+    ng build
+
+5. Set up the backend:
+
+Navigate to the BackEnd/WebAPI directory.
+Open the solution in Visual Studio.
+Restore NuGet packages.
+Update appsettings.json with your database connection string.
+   
+6. Run the application:
+
+Start the backend API from Visual Studio.
+
+Serve the frontend with Angular CLI:
+    ```bash
+    ng serve
+    The application should be running on http://localhost:4200/.
+    
+
+
+### Usage
+Property Listings
+   * Users can view, search, and filter properties.
+   *  Authenticated users can add new property listings.
+
+ User Authentication
+   * Register and log in to access restricted features.
+
+Admin Panel
+    * Admin users can manage all property listings and user accounts.    
+
+
+### API Documentation
+The backend API is built with ASP.NET Core Web API and provides various endpoints for managing properties, users, and other resources.
+
+
+### Contributing
+Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature/your-feature-name).
+3. Commit your changes (git commit -m 'Add some feature').
+4. Push to the branch (git push origin feature/your-feature-name).
+5. Open a Pull Request.
+
+
+### License
+This project is licensed under the MIT License - see the LICENSE file for details.
+[MIT License](LICENSE)
+
+### Contact
+For any inquiries or feedback, feel free to contact:
+
+Name: Satyam Verma
+GitHub: saty051
+Email: satyamverma0102@gmail.com
+

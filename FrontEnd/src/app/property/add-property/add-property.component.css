@@ -5,3 +5,17 @@
     border: 1px dashed blue;
     margin: 5px;
 }
+
+.dropdown-wrapper {
+    position: relative;
+  }
+  
+  .dropdown-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensures clicks go through to the select */
+    color: #36454f; /* Change color as needed */
+    font-size: 1.2em; /* Adjust size as needed */
+  }
