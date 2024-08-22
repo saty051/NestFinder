@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "WebAPI.Controllers.CityController",
+    "Method": "GetCities",
+    "RelativePath": "api/City",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.CityController",
+    "Method": "DeleteCity",
+    "RelativePath": "api/City/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.CityController",
+    "Method": "AddCity",
+    "RelativePath": "api/City/post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "city",
+        "Type": "WebAPI.Models.City",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

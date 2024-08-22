@@ -1,6 +1,12 @@
+# Ignore all .vs directory files
+BackEnd/WebAPI/.vs/*
 
-BackEnd/WebAPI/WebAPI.csproj
-BackEnd/WebAPI/obj
-BackEnd/WebAPI/bin
-BackEnd/WebAPI/.vs
-C:/Users/archa/OneDrive/Desktop/NestFinder/Backend/WebAPI/.vs/
+# Ignore specific files in the .vs directory
+BackEnd/WebAPI/.vs/ProjectEvaluation/webapi.metadata.v9.bin
+BackEnd/WebAPI/.vs/ProjectEvaluation/webapi.projects.v9.bin
+BackEnd/WebAPI/.vs/ProjectEvaluation/webapi.strings.v9.bin
+BackEnd/WebAPI/.vs/WebAPI/DesignTimeBuild/.dtbcache.v2
+BackEnd/WebAPI/.vs/WebAPI/config/applicationhost.config
+BackEnd/WebAPI/.vs/WebAPI/v17/.futdcache.v2
+BackEnd/WebAPI/.vs/WebAPI/v17/.suo
+
