@@ -1,6 +1,6 @@
 ﻿using WebAPI.Models;
 
-namespace WebAPI.Repo
+namespace WebAPI.Interfaces
 {
     public interface ICityRepository
     {
@@ -9,7 +9,5 @@ namespace WebAPI.Repo
         void AddCity(City city);
 
         void DeleteCity(int cityId);
-
-        Task<bool> SaveAsync();
     }
 }
