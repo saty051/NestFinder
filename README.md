@@ -79,7 +79,7 @@ Serve the frontend with Angular CLI:
     
     ```bash
     ng serve
-    The application should be running on http://localhost:4200/.
+The application should be running on http://localhost:4200/.
     
 
 
