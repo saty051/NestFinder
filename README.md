@@ -77,8 +77,10 @@ Start the backend API from Visual Studio.
 
 Serve the frontend with Angular CLI:
     
-    ```bash
+```bash
     ng serve
+```
+
 The application should be running on http://localhost:4200/.
     
 
