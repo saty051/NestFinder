@@ -76,6 +76,7 @@ Update appsettings.json with your database connection string.
 Start the backend API from Visual Studio.
 
 Serve the frontend with Angular CLI:
+    
     ```bash
     ng serve
     The application should be running on http://localhost:4200/.
@@ -91,7 +92,7 @@ Property Listings
    * Register and log in to access restricted features.
 
 Admin Panel
-    * Admin users can manage all property listings and user accounts.    
+   * Admin users can manage all property listings and user accounts.    
 
 
 ### API Documentation
