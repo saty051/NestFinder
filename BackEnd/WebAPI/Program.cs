@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using WebAPI.Data;
-using WebAPI.Interfaces;
+using WebAPI.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,11 +23,7 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 });
-
-
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-
+builder.Services.AddScoped<ICityRepository, CityRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
