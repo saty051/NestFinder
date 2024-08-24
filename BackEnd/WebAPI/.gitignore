@@ -1,0 +1,7 @@
+﻿bin/
+obj/
+WebAPI.csproj
+WebAPI.csproj.user
+WebAPI.sln
+appsettings.Development.json
+appsettings.json
