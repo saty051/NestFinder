@@ -9,5 +9,7 @@ namespace WebAPI.Interfaces
         void AddCity(City city);
 
         void DeleteCity(int cityId);
+
+        Task<City> FindCity(int id);
     }
 }

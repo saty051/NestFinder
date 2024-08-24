@@ -1,3 +1,4 @@
+using FluentAssertions.Common;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Data;
 using WebAPI.Helpers;
@@ -10,8 +11,9 @@ AppContext.SetSwitch("System.Globalization.Invariant", false);
 
 // Register the DbContext
 builder.Services.AddDbContext<DataContext>(options => 
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddControllers().AddNewtonsoftJson();
 
 // Add services to the container.
 builder.Services.AddControllers();
