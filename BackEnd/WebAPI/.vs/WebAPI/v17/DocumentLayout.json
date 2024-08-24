@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|c:\\users\\archa\\onedrive\\desktop\\nestfinder\\backend\\webapi\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|solutionrelative:interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+>>>>>>> fffdb4469878602cf32d6fdecb601f067b9758fb
       "AbsoluteMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|c:\\users\\archa\\onedrive\\desktop\\nestfinder\\backend\\webapi\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|solutionrelative:controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|c:\\users\\archa\\onedrive\\desktop\\nestfinder\\backend\\webapi\\data\\repo\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|solutionrelative:data\\repo\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|c:\\users\\archa\\onedrive\\desktop\\nestfinder\\backend\\webapi\\interfaces\\icityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|solutionrelative:interfaces\\icityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|c:\\users\\archa\\onedrive\\desktop\\nestfinder\\backend\\webapi\\interfaces\\icityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|solutionrelative:interfaces\\icityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|c:\\users\\archa\\onedrive\\desktop\\nestfinder\\backend\\webapi\\repo\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|solutionrelative:repo\\cityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> fffdb4469878602cf32d6fdecb601f067b9758fb
     },
     {
       "AbsoluteMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|c:\\users\\archa\\onedrive\\desktop\\nestfinder\\backend\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,12 +39,17 @@
       "RelativeMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|solutionrelative:data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|c:\\users\\archa\\onedrive\\desktop\\nestfinder\\backend\\webapi\\models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|solutionrelative:models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+=======
+      "AbsoluteMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|c:\\users\\archa\\onedrive\\desktop\\nestfinder\\backend\\webapi\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83E144CE-79D7-4C3D-B2BB-B3B93FD793A1}|WebAPI.csproj|solutionrelative:interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> fffdb4469878602cf32d6fdecb601f067b9758fb
     }
   ],
   "DocumentGroupContainers": [
@@ -42,11 +59,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 2,
+=======
+          "SelectedChildIndex": 5,
+>>>>>>> fffdb4469878602cf32d6fdecb601f067b9758fb
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
+<<<<<<< HEAD
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -124,17 +146,85 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-23T22:48:13.239Z",
+=======
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Data\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Data\\UnitOfWork.cs",
+              "ToolTip": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Data\\UnitOfWork.cs*",
+              "RelativeToolTip": "Data\\UnitOfWork.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T17:42:55.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Interfaces\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Interfaces\\IUnitOfWork.cs*",
+              "RelativeToolTip": "Interfaces\\IUnitOfWork.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T17:40:54.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CityRepository.cs",
+              "DocumentMoniker": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Repo\\CityRepository.cs",
+              "RelativeDocumentMoniker": "Repo\\CityRepository.cs",
+              "ToolTip": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Repo\\CityRepository.cs*",
+              "RelativeToolTip": "Repo\\CityRepository.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T06:56:50.64Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ICityRepository.cs",
+              "DocumentMoniker": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Interfaces\\ICityRepository.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ICityRepository.cs",
+              "ToolTip": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Interfaces\\ICityRepository.cs*",
+              "RelativeToolTip": "Interfaces\\ICityRepository.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T06:51:38.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T04:42:59.422Z",
+>>>>>>> fffdb4469878602cf32d6fdecb601f067b9758fb
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "CityController.cs",
               "DocumentMoniker": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Controllers\\CityController.cs",
               "RelativeDocumentMoniker": "Controllers\\CityController.cs",
+<<<<<<< HEAD
               "ToolTip": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Controllers\\CityController.cs",
               "RelativeToolTip": "Controllers\\CityController.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAADMAAAAfAAAAAAAAAA==",
+=======
+              "ToolTip": "C:\\Users\\archa\\OneDrive\\Desktop\\NestFinder\\BackEnd\\WebAPI\\Controllers\\CityController.cs*",
+              "RelativeToolTip": "Controllers\\CityController.cs*",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADMAAAAWAAAAAAAAAA==",
+>>>>>>> fffdb4469878602cf32d6fdecb601f067b9758fb
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-23T22:36:54.296Z",
               "EditorCaption": ""
