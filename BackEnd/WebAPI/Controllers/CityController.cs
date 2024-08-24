@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebAPI.Interfaces;
 using WebAPI.Models;
 using WebAPI.Repo;
 
@@ -8,9 +9,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CityController : ControllerBase
     {
-        public readonly ICityRepository _repo;
-        public CityController(ICityRepository repo) {
-            _repo = repo;
+        public readonly IUnitOfWork _uow;
+        public CityController(IUnitOfWork uow) {
+            _uow = uow;
         }
 
 
@@ -18,7 +19,7 @@ namespace WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCities()
         {
-            var cities = await _repo.GetCitiesAsync();
+            var cities = await _uow.CityRepository.GetCitiesAsync();
             return Ok(cities);
         }
 
@@ -40,16 +41,16 @@ namespace WebAPI.Controllers
         [HttpPost("post")]
         public async Task<IActionResult> AddCity(City city)
         {
-            _repo.AddCity(city);
-            await _repo.SaveAsync();
+            _uow.CityRepository.AddCity(city);
+            await _uow.SaveAsync();
             return StatusCode(201);
         }
 
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteCity(int id)
         {
-            _repo.DeleteCity(id);
-            await _repo.SaveAsync();
+            _uow.CityRepository.DeleteCity(id);
+            await _uow.SaveAsync();
             return Ok(id);
         }
 

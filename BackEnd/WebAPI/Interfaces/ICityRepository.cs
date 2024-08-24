@@ -9,7 +9,5 @@ namespace WebAPI.Repo
         void AddCity(City city);
 
         void DeleteCity(int cityId);
-
-        Task<bool> SaveAsync();
     }
 }
