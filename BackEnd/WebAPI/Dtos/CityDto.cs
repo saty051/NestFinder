@@ -1,13 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebAPI.Models
+namespace WebAPI.Dtos
 {
-    public class City
+    public class CityDto
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string? Name { get; set; }
-        public DateTime LastUpdatedOn { get; set; }
-        public int LatestUpdatedBy { get; set; }
     }
 }

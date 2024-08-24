@@ -25,10 +25,6 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-<<<<<<< HEAD
-=======
-
->>>>>>> fffdb4469878602cf32d6fdecb601f067b9758fb
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

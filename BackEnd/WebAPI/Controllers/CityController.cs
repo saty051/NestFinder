@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebAPI.Dtos;
 using WebAPI.Interfaces;
 using WebAPI.Models;
 
@@ -38,8 +39,14 @@ namespace WebAPI.Controllers
 
         // Post api/City/post/Los Angeles  --Post the data in JSON Format
         [HttpPost("post")]
-        public async Task<IActionResult> AddCity(City city)
+        public async Task<IActionResult> AddCity(CityDto cityDto)
         {
+            var city = new City
+            {
+                Name = cityDto.Name,
+                LatestUpdatedBy = 1,
+                LastUpdatedOn = DateTime.Now
+            };
             _uow.CityRepository.AddCity(city);
             await _uow.SaveAsync();
             return StatusCode(201);
