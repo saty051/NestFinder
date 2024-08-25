@@ -1,7 +1,74 @@
-﻿bin/
+﻿# Build Folders
+bin/
 obj/
-WebAPI.csproj
-WebAPI.csproj.user
-WebAPI.sln
-appsettings.Development.json
+
+# Visual Studio Files
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+*.psess
+*.pidb
+*.userprefs
+
+# Visual Studio Code Files
+.vscode/
+
+# NuGet Packages
+packages/
+*.nupkg
+*.snupkg
+.nuget/
+
+# Resharper Files
+_ReSharper*/
+*.DotSettings.user
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+
+# Configuration Files
 appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+
+# Generated Files
+Generated\
+
+# Database Files
+*.mdf
+*.ldf
+
+# Publish Web Output
+publish/
+*.PublishXml
+*.pubxml
+*.pubxml.user
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Rider IDE Files
+.idea/
+*.iml
+
+# Test Result Files
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.cov
+
+# JetBrains Rider
+*.sln.iml
+
+# Other Project Files
+WebAPI.csproj
+WebAPI.sln
