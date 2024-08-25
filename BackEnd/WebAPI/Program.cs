@@ -3,34 +3,53 @@ using Microsoft.EntityFrameworkCore;
 using WebAPI.Data;
 using WebAPI.Helpers;
 using WebAPI.Interfaces;
+using Microsoft.OpenApi.Models;
+using WebAPI.Dtos;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Enable globalization support is fully enabled
+// Enable globalization support
 AppContext.SetSwitch("System.Globalization.Invariant", false);
 
 // Register the DbContext
-builder.Services.AddDbContext<DataContext>(options => 
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
+
+// Add CORS support
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",policy =>
+    options.AddPolicy("AllowAll", policy =>
         policy.AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
+              .AllowAnyMethod()
+              .AllowAnyHeader());
 });
 
+// Add AutoMapper
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
+
+// Add UnitOfWork service
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// Configure Swagger with custom schema for CityDto
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+
+    // Custom example schema for CityDto
+    c.MapType<CityDto>(() => new OpenApiSchema
+    {
+        Type = "object",
+        Properties = new Dictionary<string, OpenApiSchema>
+        {
+            ["id"] = new OpenApiSchema { Type = "integer", Example = new Microsoft.OpenApi.Any.OpenApiInteger(0) },
+            ["name"] = new OpenApiSchema { Type = "string", Example = new Microsoft.OpenApi.Any.OpenApiString("New York") },
+            ["country"] = new OpenApiSchema { Type = "string", Example = new Microsoft.OpenApi.Any.OpenApiString("USA") }
+        }
+    });
+});
 
 var app = builder.Build();
 
