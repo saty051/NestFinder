@@ -5,8 +5,8 @@ using WebAPI.Helpers;
 using WebAPI.Interfaces;
 using Microsoft.OpenApi.Models;
 using WebAPI.Dtos;
-using WebAPI.Models;
-using WebAPI.Middlewares;  // Import the namespace where your extension method is located
+using WebAPI.Middlewares;
+using WebAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,10 +55,19 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+// Obtain the environment instance
+var env = builder.Environment;  // This line is added to define 'env'
+
 // Configure the HTTP request pipeline.
-// Call the extension method to configure exception handling.
-app.UseMiddleware<ExceptionMiddleware>();
-app.ConfigureExceptionHandler(app.Environment);
+app.ConfigureExceptionHandler(env);
+
+//app.ConfigureBuiltinExceptionHandler(env);
+
+if (env.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseHttpsRedirection();
 
