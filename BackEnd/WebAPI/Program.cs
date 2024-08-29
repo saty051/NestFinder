@@ -7,6 +7,9 @@ using Microsoft.OpenApi.Models;
 using WebAPI.Dtos;
 using WebAPI.Middlewares;
 using WebAPI.Extensions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,10 +42,53 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 // Add UnitOfWork service
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-// Configure Swagger with custom schema for CityDto
+// Get secret key from configuration
+var secretKey = builder.Configuration.GetSection("AppSettings:Key").Value;
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+
+// Configure JWT authentication
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(opt =>
+    {
+        opt.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            IssuerSigningKey = key
+        };
+    });
+
+// Configure Swagger with JWT Authentication support
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+
+    // Add JWT Authentication to Swagger
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\""
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
 
     // Custom example schema for CityDto
     c.MapType<CityDto>(() => new OpenApiSchema
@@ -60,7 +106,7 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 // Obtain the environment instance
-var env = builder.Environment;  // This line is added to define 'env'
+var env = builder.Environment;
 
 // Configure the HTTP request pipeline.
 app.ConfigureExceptionHandler(env);
@@ -76,6 +122,8 @@ if (env.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
