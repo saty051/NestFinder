@@ -18,7 +18,11 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+    });
 
 // Add CORS support
 builder.Services.AddCors(options =>

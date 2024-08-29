@@ -30,10 +30,9 @@ namespace WebAPI.Middlewares
                 ApiError response;                          // Object to hold error response details.
                 HttpStatusCode statusCode = HttpStatusCode.InternalServerError;  // Default to 500 Internal Server Error.
                 string message;                             // Holds the error message to be sent in the response.
-                var exceptionType = ex.GetType();           // Get the type of the exception.
 
                 // Check for specific exception types and set appropriate status code and message.
-                if (exceptionType == typeof(UnauthorizedAccessException))
+                if (ex is UnauthorizedAccessException)
                 {
                     statusCode = HttpStatusCode.Forbidden;
                     message = "You are not authorized";
@@ -47,7 +46,7 @@ namespace WebAPI.Middlewares
                 // If in development environment, include the stack trace in the error response.
                 if (_env.IsDevelopment())
                 {
-                    response = new ApiError((int)statusCode, ex.Message, ex.StackTrace.ToString());
+                    response = new ApiError((int)statusCode, ex.Message, ex.StackTrace?.ToString());
                 }
                 else
                 {
