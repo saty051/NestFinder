@@ -10,15 +10,33 @@ using WebAPI.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add environment variables with the prefix "NESTFINDER"
+builder.Configuration.AddEnvironmentVariables(prefix: "NESTFINDER_");
 
 // Enable globalization support
 AppContext.SetSwitch("System.Globalization.Invariant", false);
 
-// Register the DbContext
+// Create a SqlConnectionStringBuilder using the connection string from configuration
+var sqlBuilder = new SqlConnectionStringBuilder(
+    builder.Configuration.GetConnectionString("DefaultConnection2"));
+
+// Set the password using the environment variable or configuration setting
+sqlBuilder.Password = builder.Configuration.GetSection("DBPassword").Value;
+
+// Add this line to bypass SSL certificate validation
+sqlBuilder.TrustServerCertificate = true;
+
+
+// Get the final connection string with the password included
+var connectionString = sqlBuilder.ConnectionString;
+
+// Register the DbContext using the constructed connection string
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllers()
