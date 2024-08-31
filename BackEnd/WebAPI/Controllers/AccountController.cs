@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
         }
 
         // api/account/login
-        [HttpPost("Login")]
+        [HttpPost("login")]
         public async Task<IActionResult> Login(LoginReqDto loginReq)
         {
             var user = await _uow.UserRepository.Authenticate(loginReq.Username, loginReq.Password);
@@ -39,6 +39,17 @@ namespace WebAPI.Controllers
             loginRes.Token = CreateJWT(user);
 
             return Ok(loginRes);
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(LoginReqDto loginReq)
+        {
+            if (await _uow.UserRepository.UserAlreadyExists(loginReq.Username))
+                return BadRequest("User already exist, plaease try something else");
+
+            _uow.UserRepository.Register(loginReq.Username, loginReq.Password);
+            await _uow.SaveAsync();
+            return StatusCode(201);        
         }
 
         private string CreateJWT(User user)
