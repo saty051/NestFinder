@@ -1,10 +1,10 @@
-<label>Filter City: &nbsp; </label>
-<input [(ngModel)]="City">
+<label for="cityFilter">Filter City: &nbsp; </label>
+<input id="cityFilter" [(ngModel)]="City">
 <button type="button" (click)="onCityFilter()">Search</button>
 <button type="button" (click)="onCityFilterClear()" class="me-3">Clear</button>
 
-<label>Sort by: &nbsp;</label>
-<select [(ngModel)]="SortbyParam">
+<label for="sortBy">Sort by: &nbsp;</label>
+<select id="sortBy" [(ngModel)]="SortbyParam">
     <option value="City">City</option>
     <option value="Price">Price</option>
 </select>
@@ -12,8 +12,9 @@
     <i *ngIf="SortOrder==='asc'" class="fas fa-sort-alpha-down"></i>
     <i *ngIf="SortOrder==='desc'" class="fas fa-sort-alpha-up"></i>
 </button>
+
 <div class="row">
-    <div *ngFor="let property of properties|filter:SearchCity: 'City'|sort:[SortbyParam, SortOrder]" class="col-md-4 mb-4">       <!-- Used col-md-4 on the card container div to ensure three cards fit in a row on medium and     larger screens.Added mb-4 to add some margin at the bottom of each card to space them out vertically. -->
+    <div *ngFor="let property of properties | filter:SearchCity: 'City' | sort:[SortbyParam, SortOrder]" class="col-md-4 mb-4">
         <div class="shadow-lg p-3">
             <app-property-card [property]="property"></app-property-card>
         </div>

@@ -15,25 +15,27 @@ export class UserLoginComponent implements OnInit{
  @ViewChild('loginForm') 
  loginForm!: NgForm;
 
-  constructor(private authService: AuthService,
-              private alertify: AlertifyService,
-              private router: Router
-  ) { }
-  ngOnInit() {
-    }
-
-    onLogin(){
-      console.log(this.loginForm.value);
-      const token = this.authService.authUser(this.loginForm.value);
-      if(token){
-        localStorage.setItem('token', token.userName)
-        this.alertify.success("Login Successful");
-        this.router.navigate(['/']);
-      }
-      else{
-        this.alertify.error("User Name or Passowrd is wrong");
-      }
-  }
-
+ constructor(private authService: AuthService,
+  private alertify: AlertifyService,
+  private router: Router
+) {
+// Constructor logic will be added here later
 }
 
+  ngOnInit() {
+    // Initialization logic will be added here later
+  }
+  
+
+  onLogin(){
+    console.log(this.loginForm.value);
+    const token = this.authService.authUser(this.loginForm.value);
+    if(token){
+      localStorage.setItem('token', token.userName);
+      this.alertify.success("Login Successful");
+      this.router.navigate(['/']);
+    } else {
+      this.alertify.error("User Name or Password is wrong");
+    }
+  }
+}

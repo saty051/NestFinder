@@ -16,7 +16,7 @@ export class NavBarComponent implements OnInit {
 
   // Lifecycle hook to perform initialization logic
   ngOnInit() {
-    // You can add initialization logic here if needed
+      // You can add initialization logic here if needed
   }
 
   // Method to check if the user is logged in and retrieve their information

@@ -10,59 +10,59 @@ import { Property } from '../model/property';
 })
 export class HousingService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-
-  getAllCities(): Observable<string[]>{
+  getAllCities(): Observable<string[]> {
     return this.http.get<string[]>('https://localhost:7177/api/City');
   }
-  getProperty(id: number){
+
+  getProperty(id: number) {
     return this.getAllProperties().pipe(
       map(propertiesArray => {
-       // throw new Error("Some error");
+        // throw new Error("Some error");
         return propertiesArray.find(property => property.Id === id) as Property; 
       })
     );
   }
 
-  getAllProperties(SellRent?:number): Observable<Property[]>{
+  getAllProperties(SellRent?: number): Observable<Property[]> {
     return this.http.get<Property[]>('assets/data/properties.json').pipe(
       map(data => {
         const propertiesArray: Array<Property> = [];
 
         const localProperties = JSON.parse(localStorage.getItem('newProp') || '{}');
-        if(localProperties){
-          for(const id in localProperties){
-            if(SellRent){
-              if(localProperties.hasOwnProperty(id)&& localProperties[id].SellRent === SellRent){
+        if (localProperties) {
+          for (const id in localProperties) {
+            if (SellRent) {
+              // Safely check if the object has the property using Object.prototype.hasOwnProperty.call
+              if (Object.prototype.hasOwnProperty.call(localProperties, id) && localProperties[id].SellRent === SellRent) {
                 propertiesArray.push(localProperties[id]);
               }
-            }else{
+            } else {
               propertiesArray.push(localProperties[id]);
             }
-            
-            }
+          }
         }
 
-        for(const id in data){
-          if(SellRent){
-            if(data.hasOwnProperty(id)&& data[id].SellRent === SellRent){
+        for (const id in data) {
+          if (SellRent) {
+            // Safely check if the object has the property using Object.prototype.hasOwnProperty.call
+            if (Object.prototype.hasOwnProperty.call(data, id) && data[id].SellRent === SellRent) {
               propertiesArray.push(data[id]);
             }
-          }
-          else{
+          } else {
             propertiesArray.push(data[id]);
           }
         }
         return propertiesArray;
-      }
-    )
-    )
+      })
+    );
   }
-  addProperty(property: Property){
+
+  addProperty(property: Property) {
     let newProp: Property[] = [property];
 
-    if(localStorage.getItem('newProp')){
+    if (localStorage.getItem('newProp')) {
       newProp = [property, ...JSON.parse(localStorage.getItem('newProp') || '{}')];
     }
     localStorage.setItem('newProp', JSON.stringify(newProp));
@@ -79,5 +79,5 @@ export class HousingService {
         localStorage.setItem('PID', '101'); // Set the default PID if it was null
         return 101; // Return the default value
     }
-}
+  }
 }

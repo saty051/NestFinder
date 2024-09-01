@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Register(LoginReqDto loginReq)
         {
             if (await _uow.UserRepository.UserAlreadyExists(loginReq.Username))
-                return BadRequest("User already exist, plaease try something else");
+                return BadRequest("Registration failed: The username you entered is already in use. Please choose a different username and try again.");
 
             _uow.UserRepository.Register(loginReq.Username, loginReq.Password);
             await _uow.SaveAsync();

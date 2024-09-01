@@ -28,8 +28,8 @@
     </div>
     <div>
         <strong>Available for: </strong>
-        <span *ngIf="property.SellRent == 1">Purchase</span>
-        <span *ngIf="property.SellRent == 2">Rent</span>
+        <span *ngIf="property.SellRent === 1">Purchase</span>
+        <span *ngIf="property.SellRent === 2">Rent</span>
     </div>
   </div>
   <div class="card-footer">
