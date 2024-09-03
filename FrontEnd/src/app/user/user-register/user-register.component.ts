@@ -1,8 +1,9 @@
+/* eslint-disable @angular-eslint/use-lifecycle-interface */
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/model/user';
+import { UserForRegister } from 'src/app/model/user';
 import { AlertifyService } from 'src/app/services/alertify.service';
-import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -12,9 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserRegisterComponent {
   registrationForm!: FormGroup;
-  user!: User;
+  user!: UserForRegister;
   userSubmitted!: boolean;
-  constructor(private fb: FormBuilder, private userService: UserService, private alertify: AlertifyService){ }
+  constructor(private fb: FormBuilder, private authService: AuthService, private alertify: AlertifyService){ }
 
   ngOnInit(){
     this.registrationForm = this.fb.group({
@@ -36,16 +37,23 @@ export class UserRegisterComponent {
 
     if(this.registrationForm.valid){
      // this.user = Object.assign(this.user,this.registrationForm.value);
-      this.userService.addUser(this.UserData());
-      this.registrationForm.reset();
-      this.userSubmitted = false;
-      this.alertify.success('Congratulations, you are successfully registered!');
-    } else{
-      this.alertify.error('Please provide valid required data!');
+      this.authService.registerUser(this.UserData()).subscribe(() =>
+        {
+          this.onReset();
+          this.alertify.success('Congratulations, you are successfully registered!');
+        }, error => {
+          this.alertify.error(error.error);
+          console.log(error);
+        });
     }
   }
 
-  UserData(): User{
+  onReset(){
+    this.userSubmitted = false;
+    this.registrationForm.reset();
+  }
+
+  UserData(): UserForRegister{
     return this.user = {
       userName: this.username.value,
       email: this.email.value,

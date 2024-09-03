@@ -12,7 +12,6 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
-import { UserService } from './services/user.service';
 import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -51,7 +50,7 @@ import { SortPipe } from './Pipes/sort.pipe';
     BsDatepickerModule.forRoot(),
     NgxGalleryModule,
   ],
-  providers: [HousingService, UserService, AlertifyService, AuthService, PropertyDetailResolverService],
+  providers: [HousingService, AlertifyService, AuthService, PropertyDetailResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

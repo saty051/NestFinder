@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "lint",
+			"path": "FrontEnd",
+			"problemMatcher": "$eslint-stylish",
+			"label": "npm: lint - FrontEnd",
+			"detail": "ng lint"
+		}
+	]
+}

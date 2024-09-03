@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 import { AlertifyService } from '../services/alertify.service';
 
@@ -22,7 +23,7 @@ export class NavBarComponent implements OnInit {
   // Method to check if the user is logged in and retrieve their information
   loggedIn() {
     // Retrieve the token from local storage, which indicates if the user is logged in
-    this.loggedInUser = localStorage.getItem('token');
+    this.loggedInUser = localStorage.getItem('userName');
     // Return the token (or null) based on its presence
     return this.loggedInUser;
   }
@@ -31,6 +32,7 @@ export class NavBarComponent implements OnInit {
   onLogout() {
     // Remove the token from local storage to log the user out
     localStorage.removeItem('token');
+    localStorage.removeItem('userName');
     // Display a success message using AlertifyService
     this.alertify.success("You are logged out!");
   }

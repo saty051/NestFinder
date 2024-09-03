@@ -1,6 +1,8 @@
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserForLogin } from 'src/app/model/user';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit{
-[x: string]: any;
+[x: string]: unknown;
   
  @ViewChild('loginForm') 
  loginForm!: NgForm;
@@ -29,13 +31,25 @@ export class UserLoginComponent implements OnInit{
 
   onLogin(){
     console.log(this.loginForm.value);
-    const token = this.authService.authUser(this.loginForm.value);
-    if(token){
-      localStorage.setItem('token', token.userName);
-      this.alertify.success("Login Successful");
-      this.router.navigate(['/']);
-    } else {
-      this.alertify.error("User Name or Password is wrong");
-    }
+    this.authService.authUser(this.loginForm.value).subscribe(
+      (response: UserForLogin) => {
+        console.log(response);
+        const user = response;
+        localStorage.setItem('token', user.token);
+        localStorage.setItem('userName', user.userName);
+        this.alertify.success("Login Successful");
+        this.router.navigate(['/']);
+      }, error => {
+        console.log(error);
+        this.alertify.error(error.error);
+      }
+    );
+    // if(token){
+    //   localStorage.setItem('token', token.userName);
+    //   this.alertify.success("Login Successful");
+    //   this.router.navigate(['/']);
+    // } else {
+    //   this.alertify.error("User Name or Password is wrong");
+    // }
   }
 }

@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
 
             if (user == null)
             {
-                return Unauthorized();
+                return Unauthorized("Invalid User Name or Password");
             }
 
             var loginRes = new LoginResDto();
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Register(LoginReqDto loginReq)
         {
             if (await _uow.UserRepository.UserAlreadyExists(loginReq.Username))
-                return BadRequest("Registration failed: The username you entered is already in use. Please choose a different username and try again.");
+                return BadRequest("Registration failed: The User Name you entered is already in use. Please choose a different User Name and try again.");
 
             _uow.UserRepository.Register(loginReq.Username, loginReq.Password);
             await _uow.SaveAsync();
