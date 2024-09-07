@@ -41,9 +41,6 @@ export class UserRegisterComponent {
         {
           this.onReset();
           this.alertify.success('Congratulations, you are successfully registered!');
-        }, error => {
-          this.alertify.error(error.error);
-          console.log(error);
         });
     }
   }

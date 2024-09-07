@@ -17,7 +17,7 @@ namespace WebAPI.Data.Repo
 
         public async Task<User> Authenticate(string username, string passwordText)
         {
-             var user = await _dataContext.Users.FirstOrDefaultAsync(x => x.Username == username); //&& x.Password == password
+            var user = await _dataContext.Users.FirstOrDefaultAsync(x => x.Username == username); //&& x.Password == password
             if(user == null || user.PasswordKey == null)
                 return null;
            

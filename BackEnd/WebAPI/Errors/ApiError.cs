@@ -5,6 +5,8 @@ namespace WebAPI.Errors
     // This class represents a standardized error response that can be used in an API.
     public class ApiError
     {
+
+        public ApiError() { }
         // Constructor to initialize the ApiError object with required and optional properties.
         // errorCode: The unique code representing the error type.
         // errorMessage: A brief message describing the error.
@@ -28,7 +30,11 @@ namespace WebAPI.Errors
         // Overrides the default ToString() method to return a JSON string representation of the ApiError object.
         public override string ToString()
         {
-            return JsonSerializer.Serialize(this);
+            var options = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+            return JsonSerializer.Serialize(this, options);
         }
     }
 }
