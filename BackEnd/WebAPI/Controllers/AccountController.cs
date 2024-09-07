@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using WebAPI.Dtos;
 using WebAPI.Errors;
+using WebAPI.Extensions;
 using WebAPI.Interfaces;
 using WebAPI.Models;
 
@@ -54,7 +55,7 @@ namespace WebAPI.Controllers
             ApiError apiError = new ApiError();
 
             // Validate empty username or password
-            if (string.IsNullOrWhiteSpace(loginReq.Username) || string.IsNullOrWhiteSpace(loginReq.Password))
+            if (loginReq.Username.IsEmpty() || loginReq.Password.IsEmpty())
             {
                 apiError.ErrorCode = BadRequest().StatusCode;
                 apiError.ErrorMessage = "Username or password cannot be empty.";
@@ -91,7 +92,7 @@ namespace WebAPI.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(1),
+                Expires = DateTime.UtcNow.AddMinutes(10),
                 SigningCredentials = signingCredentials,
             };
 

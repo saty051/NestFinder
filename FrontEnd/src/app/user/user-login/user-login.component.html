@@ -8,7 +8,7 @@
           <form #loginForm = "ngForm" (ngSubmit)="onLogin()">
             <div class="form-group col-12">
               <label for="name">User Name</label>
-              <input class="form-control" id="name" name="userName" ngModel required>
+              <input class="form-control" id="name" name="userName" autocomplete="name" ngModel required>
             </div>
 
             <div class="form-group col-12">
