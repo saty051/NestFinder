@@ -13,7 +13,7 @@ export class HttpErrorInterceptorService implements HttpInterceptor { // Impleme
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log('Intercepting request...');
     return next.handle(request).pipe(
-      retryWhen(error => this.retryRequest(error, )),
+      retryWhen(error => this.retryRequest(error, 5)),
       catchError((error: HttpErrorResponse) => {
         const errorMessage = this.setError(error);
         console.log(error);
