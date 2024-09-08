@@ -142,14 +142,7 @@ namespace WebAPI.Migrations
                     b.Property<int>("FloorNo")
                         .HasColumnType("int");
 
-                    b.Property<int>("FotalFloors")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FurnishingTypeId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("FurnishingTypeId1")
+                    b.Property<int>("FurnishingTypeId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Gated")
@@ -181,11 +174,7 @@ namespace WebAPI.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("PropertyTypeId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PropertyTypeId1")
+                    b.Property<int>("PropertyTypeId")
                         .HasColumnType("int");
 
                     b.Property<bool>("ReadyToMove")
@@ -197,18 +186,18 @@ namespace WebAPI.Migrations
                     b.Property<int?>("SellRent")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("TotalFloors")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CityId");
 
-                    b.HasIndex("FurnishingTypeId1");
+                    b.HasIndex("FurnishingTypeId");
 
-                    b.HasIndex("PropertyTypeId1");
+                    b.HasIndex("PostedBy");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("PropertyTypeId");
 
                     b.ToTable("Properties");
                 });
@@ -288,19 +277,19 @@ namespace WebAPI.Migrations
 
                     b.HasOne("WebAPI.Models.FurnishingType", "FurnishingType")
                         .WithMany()
-                        .HasForeignKey("FurnishingTypeId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebAPI.Models.PropertyType", "PropertyType")
-                        .WithMany()
-                        .HasForeignKey("PropertyTypeId1")
+                        .HasForeignKey("FurnishingTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("WebAPI.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("PostedBy")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebAPI.Models.PropertyType", "PropertyType")
+                        .WithMany()
+                        .HasForeignKey("PropertyTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

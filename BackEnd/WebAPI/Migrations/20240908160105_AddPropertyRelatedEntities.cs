@@ -61,31 +61,31 @@ namespace WebAPI.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SellRent = table.Column<int>(type: "int", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PropertyTypeId = table.Column<int>(type: "int", nullable: false),
-                    BHK = table.Column<int>(type: "int", nullable: false),
-                    FurnishingTypeId = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BuiltArea = table.Column<int>(type: "int", nullable: false),
-                    CarpetArea = table.Column<int>(type: "int", nullable: true),
+                    BHK = table.Column<int>(type: "int", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FurnishingTypeId = table.Column<int>(type: "int", nullable: false),
+                    SellRent = table.Column<int>(type: "int", nullable: true),
+                    BuiltArea = table.Column<int>(type: "int", nullable: false),
+                    CarpetArea = table.Column<int>(type: "int", nullable: true),
                     CityId = table.Column<int>(type: "int", nullable: false),
                     FloorNo = table.Column<int>(type: "int", nullable: false),
-                    FotalFloors = table.Column<int>(type: "int", nullable: false),
+                    TotalFloors = table.Column<int>(type: "int", nullable: false),
                     ReadyToMove = table.Column<bool>(type: "bit", nullable: false),
                     MainEntrance = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Security = table.Column<int>(type: "int", nullable: false),
                     Gated = table.Column<bool>(type: "bit", nullable: false),
                     Maintenance = table.Column<int>(type: "int", nullable: false),
-                    EstPossessionOn = table.Column<DateTime>(type: "datetime", nullable: false),
+                    EstPossessionOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PostedOn = table.Column<DateTime>(nullable: false),
-                    PostedBy = table.Column<int>(nullable:false),
-                    LastUpdatedOn = table.Column<DateTime>(type: "datetime", nullable: false),
-                    LatestUpdatedBy = table.Column<int>(type: "int", nullable: false),
+                    PostedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PostedBy = table.Column<int>(type: "int", nullable: false),
+                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LatestUpdatedBy = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -108,6 +108,12 @@ namespace WebAPI.Migrations
                         principalTable: "PropertyTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Properties_Users_PostedBy",
+                        column: x => x.PostedBy,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -119,7 +125,7 @@ namespace WebAPI.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsPrimary = table.Column<bool>(type: "bit", nullable: false),
                     PropertyId = table.Column<int>(type: "int", nullable: false),
-                    LastUpdatedOn = table.Column<DateTime>(type: "datetime", nullable: false),
+                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LatestUpdatedBy = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -147,6 +153,11 @@ namespace WebAPI.Migrations
                 name: "IX_Properties_FurnishingTypeId",
                 table: "Properties",
                 column: "FurnishingTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Properties_PostedBy",
+                table: "Properties",
+                column: "PostedBy");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Properties_PropertyTypeId",

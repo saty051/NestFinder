@@ -30,13 +30,15 @@ sqlBuilder.Password = builder.Configuration.GetSection("DBPassword").Value;
 // Add this line to bypass SSL certificate validation
 sqlBuilder.TrustServerCertificate = true;
 
-
 // Get the final connection string with the password included
 var connectionString = sqlBuilder.ConnectionString;
 
-// Register the DbContext using the constructed connection string
+// Register the DbContext using the constructed connection string and set the CommandTimeout
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString, sqlOptions =>
+    {
+        sqlOptions.CommandTimeout(300); // Set command timeout to 300 seconds (5 minutes)
+    }));
 
 // Add services to the container.
 builder.Services.AddControllers()
@@ -128,8 +130,6 @@ var env = builder.Environment;
 
 // Configure the HTTP request pipeline.
 app.ConfigureExceptionHandler(env);
-
-//app.ConfigureBuiltinExceptionHandler(env);
 
 if (env.IsDevelopment())
 {
