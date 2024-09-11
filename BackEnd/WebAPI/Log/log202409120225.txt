@@ -1,0 +1,29 @@
+2024-09-12 02:25:38.892 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-12 02:25:39.670 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-12 02:25:39.673 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-12 02:25:39.777 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-12 02:25:39.781 +05:30 [INF] Hosting environment: Development
+2024-09-12 02:25:39.783 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-12 02:25:41.654 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-12 02:25:42.341 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 687.707ms
+2024-09-12 02:25:42.671 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-12 02:25:42.673 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-12 02:25:42.674 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-12 02:25:42.724 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 39.6097ms
+2024-09-12 02:25:42.734 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 62.4554ms
+2024-09-12 02:25:42.828 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 154.6007ms
+2024-09-12 02:25:43.940 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-12 02:25:44.163 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 223.1771ms
+2024-09-12 02:25:52.515 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-12 02:25:52.687 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-12 02:25:52.739 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-12 02:25:53.245 +05:30 [INF] Fetching all cities.
+2024-09-12 02:25:54.120 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-12 02:25:58.447 +05:30 [INF] Executed DbCommand (163ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-12 02:25:58.587 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-12 02:25:58.604 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-12 02:25:58.827 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 6077.0778ms
+2024-09-12 02:25:58.831 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-12 02:25:58.851 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 6335.996ms

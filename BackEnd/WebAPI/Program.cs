@@ -11,8 +11,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Data.SqlClient;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .WriteTo.File("Log/log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Logging.AddSerilog();
 
 // Add environment variables with the prefix "NESTFINDER"
 builder.Configuration.AddEnvironmentVariables(prefix: "NESTFINDER_");
