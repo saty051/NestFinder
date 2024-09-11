@@ -23,16 +23,16 @@ export class AddPropertyComponent implements OnInit {
   propertyTypes: Array<string> = ['House', 'Apartment', 'Duplex'];
   furnishTypes: Array<string> = ['Fully', 'Semi', 'Unfurnished'];
   propertyView: IPropertyBase = {
-    Id: null,
-    SellRent: null,
-    Name: '',
-    PType: null,
-    FType: null,
-    Price: null,
-    BHK: null,
-    City: '', // Keeping it empty for initial state
-    RTM: null,
-    BuiltArea: null
+    id: null,
+    sellRent: null,
+    name: '',
+    propertyType: null,
+    furnishingType: null,
+    price: null,
+    bhk: null,
+    city: '', // Keeping it empty for initial state
+    readyToMove: null,
+    builtArea: null
   };
 
   constructor(
@@ -231,23 +231,23 @@ export class AddPropertyComponent implements OnInit {
   }
 
   mapProperty(): void {
-    this.property.Id = this.housingService.newPropID();
-    if (this.SellRent) this.property.SellRent = +this.SellRent.value || 0;
-    if (this.BHK) this.property.BHK = this.BHK.value || 0;
-    if (this.PType) this.property.PType = this.PType.value || '';
-    if (this.Name) this.property.Name = this.Name.value || '';
-    if (this.City) this.property.City = this.City.value || ''; // This will now be empty string initially
-    if (this.FType) this.property.FType = this.FType.value || '';
-    if (this.Price) this.property.Price = this.Price.value || 0;
+    this.property.id = this.housingService.newPropID();
+    if (this.SellRent) this.property.sellRent = +this.SellRent.value || 0;
+    if (this.BHK) this.property.bhk = this.BHK.value || 0;
+    if (this.PType) this.property.propertyType = this.PType.value || '';
+    if (this.Name) this.property.name = this.Name.value || '';
+    if (this.City) this.property.city = this.City.value || ''; // This will now be empty string initially
+    if (this.FType) this.property.furnishingType = this.FType.value || '';
+    if (this.Price) this.property.price = this.Price.value || 0;
     if (this.Security) this.property.Security = this.Security.value || 0;
     if (this.Maintenance) this.property.Maintenance = this.Maintenance.value || 0;
-    if (this.BuiltArea) this.property.BuiltArea = this.BuiltArea.value || 0;
+    if (this.BuiltArea) this.property.builtArea = this.BuiltArea.value || 0;
     if (this.CarpetArea) this.property.CarpetArea = this.CarpetArea.value || 0;
     if (this.FloorNo) this.property.FloorNo = this.FloorNo.value || 0;
     if (this.TotalFloor) this.property.TotalFloor = this.TotalFloor.value || 0;
     if (this.Address) this.property.Address = this.Address.value || '';
     if (this.LandMark) this.property.Address2 = this.LandMark.value || '';
-    if (this.RTM) this.property.RTM = this.RTM.value || '';
+    if (this.RTM) this.property.readyToMove = this.RTM.value || '';
     if (this.AOP) this.property.AOP = this.AOP.value || '';
     if (this.Gated) this.property.Gated = this.Gated.value || '';
     if (this.MainEntrance) this.property.MainEntrance = this.MainEntrance.value || '';

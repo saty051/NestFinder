@@ -41,7 +41,8 @@ export class PropertyDetailComponent implements OnInit {
         height: '465px',
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
-        preview: true
+        preview: true,
+        previewCloseOnClick: true
       }
     ];
 

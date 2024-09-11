@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { IPropertyBase } from '../model/Ipropertybase';
+import { Observable, of } from 'rxjs';
 import { Property } from '../model/property';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,51 +12,24 @@ export class HousingService {
 
   constructor(private http: HttpClient) { }
 
+    baseUrl = environment.baseUrl;
   getAllCities(): Observable<string[]> {
-    return this.http.get<string[]>('https://localhost:7177/api/City');
+    return this.http.get<string[]>(`${this.baseUrl}City`);
   }
 
   getProperty(id: number) {
-    return this.getAllProperties().pipe(
+    return this.getAllProperties(1).pipe(
       map(propertiesArray => {
         // throw new Error("Some error");
-        return propertiesArray.find(property => property.Id === id) as Property; 
+        return propertiesArray.find(property => property.id === id) as Property; 
       })
     );
   }
 
   getAllProperties(SellRent?: number): Observable<Property[]> {
-    return this.http.get<Property[]>('assets/data/properties.json').pipe(
-      map(data => {
-        const propertiesArray: Array<Property> = [];
-
-        const localProperties = JSON.parse(localStorage.getItem('newProp') || '{}');
-        if (localProperties) {
-          for (const id in localProperties) {
-            if (SellRent) {
-              // Safely check if the object has the property using Object.prototype.hasOwnProperty.call
-              if (Object.prototype.hasOwnProperty.call(localProperties, id) && localProperties[id].SellRent === SellRent) {
-                propertiesArray.push(localProperties[id]);
-              }
-            } else {
-              propertiesArray.push(localProperties[id]);
-            }
-          }
-        }
-
-        for (const id in data) {
-          if (SellRent) {
-            // Safely check if the object has the property using Object.prototype.hasOwnProperty.call
-            if (Object.prototype.hasOwnProperty.call(data, id) && data[id].SellRent === SellRent) {
-              propertiesArray.push(data[id]);
-            }
-          } else {
-            propertiesArray.push(data[id]);
-          }
-        }
-        return propertiesArray;
-      })
-    );
+    if(SellRent === undefined)
+      return of([]);  // Handle undefined SellRent by returning an empty array
+    return this.http.get<Property[]>(`${this.baseUrl}Property/list/${SellRent.toString()}`);
   }
 
   addProperty(property: Property) {

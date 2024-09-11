@@ -17,7 +17,7 @@ import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TabsModule } from 'ngx-bootstrap/tabs'; // Import for tabset
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PropertyDetailResolverService } from './property/property-detail/property-detail-resolver.service';
@@ -45,11 +45,11 @@ import { SortPipe } from './Pipes/sort.pipe';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    BsDropdownModule.forRoot(),
+    BsDropdownModule.forRoot(), 
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    NgxGalleryModule,
+    NgxGalleryModule
   ],
   providers: [
     {
