@@ -10,5 +10,5 @@ export interface IPropertyBase {
     builtArea: number | null;
     price: number | null;
     image?: string | null;
-    estPossessionOn?: string;
+    estPossessionOn?: Date;
 }

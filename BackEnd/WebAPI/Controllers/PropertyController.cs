@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NHibernate.Mapping.ByCode.Impl;
 using WebAPI.Dtos;
 using WebAPI.Interfaces;
 
@@ -46,5 +47,19 @@ namespace WebAPI.Controllers
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }
+
+
+        // property/list/
+        [HttpGet("detail/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetPropertyDetail(int id)
+        {
+            var property = await _uow.PropertyRepository.GetPropertyDetailAsync(id);
+
+            var propertyDto = _mapper.Map<PropertyDetailDto>(property);
+
+            return Ok(propertyDto);
+        }
+
     }
 }

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Property } from '../model/property';
 import { environment } from 'src/environments/environment';
@@ -18,12 +17,7 @@ export class HousingService {
   }
 
   getProperty(id: number) {
-    return this.getAllProperties(1).pipe(
-      map(propertiesArray => {
-        // throw new Error("Some error");
-        return propertiesArray.find(property => property.id === id) as Property; 
-      })
-    );
+    return this.http.get<Property>(`${this.baseUrl}Property/detail/${id.toString()}`);
   }
 
   getAllProperties(SellRent?: number): Observable<Property[]> {
@@ -53,4 +47,30 @@ export class HousingService {
         return 101; // Return the default value
     }
   }
+
+  getPropertyAge(dateofEstablishment: Date): string {
+    const today = new Date();
+    const estDate = new Date(dateofEstablishment);
+  
+    // If the establishment date is in the future
+    if (today < estDate) {
+      return '0';
+    }
+  
+    let age = today.getFullYear() - estDate.getFullYear();
+    const monthDifference = today.getMonth() - estDate.getMonth();
+  
+    // If the current month is before the establishment month, or it's the same month but today's date is earlier
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < estDate.getDate())) {
+      age--;
+    }
+  
+    // Age is less than a year
+    if (age === 0) {
+      return "Less than a year";
+    }
+  
+    return age.toString();
+  }
+   
 }

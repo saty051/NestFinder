@@ -35,6 +35,8 @@ export class PropertyDetailComponent implements OnInit {
       }
     );
 
+    this.property.age = this.housingService.getPropertyAge(this.property.estPossessionOn);
+
     this.galleryOptions = [
       {
         width: '100%',

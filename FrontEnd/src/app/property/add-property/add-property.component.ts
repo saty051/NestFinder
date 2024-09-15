@@ -17,6 +17,7 @@ export class AddPropertyComponent implements OnInit {
   addPropertyForm!: FormGroup;
   nextClicked!: boolean;
   property = new Property();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cityList!: any[];
 
   // will come from masters
@@ -239,21 +240,20 @@ export class AddPropertyComponent implements OnInit {
     if (this.City) this.property.city = this.City.value || ''; // This will now be empty string initially
     if (this.FType) this.property.furnishingType = this.FType.value || '';
     if (this.Price) this.property.price = this.Price.value || 0;
-    if (this.Security) this.property.Security = this.Security.value || 0;
-    if (this.Maintenance) this.property.Maintenance = this.Maintenance.value || 0;
+    if (this.Security) this.property.security = this.Security.value || 0;
+    if (this.Maintenance) this.property.maintenance = this.Maintenance.value || 0;
     if (this.BuiltArea) this.property.builtArea = this.BuiltArea.value || 0;
-    if (this.CarpetArea) this.property.CarpetArea = this.CarpetArea.value || 0;
-    if (this.FloorNo) this.property.FloorNo = this.FloorNo.value || 0;
-    if (this.TotalFloor) this.property.TotalFloor = this.TotalFloor.value || 0;
-    if (this.Address) this.property.Address = this.Address.value || '';
-    if (this.LandMark) this.property.Address2 = this.LandMark.value || '';
+    if (this.CarpetArea) this.property.carpetArea = this.CarpetArea.value || 0;
+    if (this.FloorNo) this.property.floorNo = this.FloorNo.value || 0;
+    if (this.TotalFloor) this.property.totalFloors = this.TotalFloor.value || 0;
+    if (this.Address) this.property.address = this.Address.value || '';
+    if (this.LandMark) this.property.address2 = this.LandMark.value || '';
     if (this.RTM) this.property.readyToMove = this.RTM.value || '';
-    if (this.AOP) this.property.AOP = this.AOP.value || '';
-    if (this.Gated) this.property.Gated = this.Gated.value || '';
-    if (this.MainEntrance) this.property.MainEntrance = this.MainEntrance.value || '';
-    if (this.PossessionOn) this.property.PossessionOn = this.PossessionOn.value || '';
-    if (this.Description) this.property.Description = this.Description.value || '';
-    this.property.PostedOn = new Date().toString();
+    if (this.AOP) this.property.age = this.AOP.value || '';
+    if (this.Gated) this.property.gated = this.Gated.value || '';
+    if (this.MainEntrance) this.property.mainEntrance = this.MainEntrance.value || '';
+    if (this.PossessionOn) this.property.estPossessionOn = this.PossessionOn.value || '';
+    if (this.Description) this.property.description = this.Description.value || '';
   }
 
   selectTab(NextTabId: number, IsCurrentTabValid: boolean) {
