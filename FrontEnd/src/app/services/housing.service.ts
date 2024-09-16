@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Property } from '../model/property';
 import { environment } from 'src/environments/environment';
+import { Ikeyvaluepair } from '../model/Ikeyvaluepair';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,14 @@ export class HousingService {
     baseUrl = environment.baseUrl;
   getAllCities(): Observable<string[]> {
     return this.http.get<string[]>(`${this.baseUrl}City`);
+  }
+
+  getPropertyTypes(): Observable<Ikeyvaluepair[]> {
+    return this.http.get<Ikeyvaluepair[]>(`${this.baseUrl}Propertytype/list`);
+  }
+
+  getfurnishingTypes(): Observable<Ikeyvaluepair[]> {
+    return this.http.get<Ikeyvaluepair[]>(`${this.baseUrl}furnishingtype/list`);
   }
 
   getProperty(id: number) {

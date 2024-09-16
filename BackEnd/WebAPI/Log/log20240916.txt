@@ -1,0 +1,1073 @@
+2024-09-16 00:19:52.049 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-16 00:20:16.734 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-16 00:20:16.742 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-16 00:20:17.083 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-16 00:20:17.090 +05:30 [INF] Hosting environment: Development
+2024-09-16 00:20:17.097 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-16 00:20:53.925 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-16 00:20:54.828 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 906.4185ms
+2024-09-16 00:20:56.112 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-16 00:20:56.112 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-16 00:20:56.134 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 20.0003ms
+2024-09-16 00:20:56.149 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 38.0442ms
+2024-09-16 00:20:56.420 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-16 00:20:57.081 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 661.6412ms
+2024-09-16 00:20:57.738 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-16 00:20:57.923 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 185.083ms
+2024-09-16 00:23:18.193 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/2 - null null
+2024-09-16 00:23:18.230 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:23:19.798 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:23:19.855 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 00:23:19.979 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-16 00:23:19.992 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:23:19.998 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:23:20.007 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 00:23:20.810 +05:30 [INF] Fetching property list for SellRent value: 2
+2024-09-16 00:23:20.815 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-16 00:23:23.493 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-16 00:23:29.054 +05:30 [INF] Executed DbCommand (564ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+WHERE [p].[SellRent] = @__sellRent_0
+2024-09-16 00:23:29.054 +05:30 [INF] Executed DbCommand (564ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+WHERE [p].[SellRent] = @__sellRent_0
+2024-09-16 00:23:29.377 +05:30 [INF] 1 properties found for SellRent value: 1
+2024-09-16 00:23:29.383 +05:30 [INF] 1 properties found for SellRent value: 2
+2024-09-16 00:23:29.403 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 00:23:29.403 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 00:23:29.629 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 9760.9518ms
+2024-09-16 00:23:29.629 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 9593.4053ms
+2024-09-16 00:23:29.634 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:23:29.637 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:23:29.655 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 231 application/json; charset=utf-8 9676.5376ms
+2024-09-16 00:23:29.655 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/2 - 200 231 application/json; charset=utf-8 11461.5995ms
+2024-09-16 00:23:54.139 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-16 00:23:54.164 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:23:54.169 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:23:54.171 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 00:23:54.185 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-16 00:23:54.697 +05:30 [INF] Executed DbCommand (411ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+WHERE [p].[SellRent] = @__sellRent_0
+2024-09-16 00:23:54.712 +05:30 [INF] 1 properties found for SellRent value: 1
+2024-09-16 00:23:54.716 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 00:23:54.720 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 544.9635ms
+2024-09-16 00:23:54.724 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:23:54.728 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 231 application/json; charset=utf-8 591.2236ms
+2024-09-16 00:24:01.046 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/detail/1 - null null
+2024-09-16 00:24:01.052 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:24:01.055 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-16 00:24:01.085 +05:30 [INF] Route matched with {action = "GetPropertyDetail", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyDetail(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 00:24:01.099 +05:30 [INF] Fetching property details for Property ID: 1
+2024-09-16 00:24:01.267 +05:30 [INF] Executed DbCommand (132ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+WHERE [p].[Id] = @__id_0
+2024-09-16 00:24:01.289 +05:30 [INF] Property details found for Property ID: 1
+2024-09-16 00:24:01.293 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.PropertyDetailDto'.
+2024-09-16 00:24:01.310 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI) in 220.1451ms
+2024-09-16 00:24:01.313 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-16 00:24:01.317 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/detail/1 - 200 834 application/json; charset=utf-8 271.0452ms
+2024-09-16 00:24:09.184 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 00:24:09.185 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 00:24:09.186 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 00:24:09.200 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:24:09.205 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:24:09.211 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:24:09.215 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 00:24:09.217 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 00:24:09.221 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 00:24:09.224 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 00:24:09.224 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 00:24:09.228 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 00:24:09.245 +05:30 [INF] Fetching all cities.
+2024-09-16 00:24:09.385 +05:30 [INF] Executed DbCommand (139ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 00:24:09.396 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 00:24:09.401 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 172.9325ms
+2024-09-16 00:24:09.405 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 00:24:09.410 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 223.7286ms
+2024-09-16 00:24:09.440 +05:30 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 00:24:09.453 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 00:24:09.456 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 00:24:09.464 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 226.4927ms
+2024-09-16 00:24:09.469 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 00:24:09.475 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 291.8101ms
+2024-09-16 00:24:09.567 +05:30 [INF] Executed DbCommand (308ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 00:24:09.576 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 00:24:09.579 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 346.228ms
+2024-09-16 00:24:09.583 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 00:24:09.586 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 401.4454ms
+2024-09-16 00:32:09.563 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-16 00:32:10.831 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-16 00:32:10.837 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-16 00:32:10.952 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-16 00:32:10.958 +05:30 [INF] Hosting environment: Development
+2024-09-16 00:32:10.964 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-16 00:32:14.954 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-16 00:32:15.469 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 516.5101ms
+2024-09-16 00:32:15.852 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-16 00:32:15.852 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-16 00:32:15.863 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 10.9809ms
+2024-09-16 00:32:15.888 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 35.4843ms
+2024-09-16 00:32:16.088 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-16 00:32:16.308 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 219.8008ms
+2024-09-16 00:32:17.017 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-16 00:32:17.225 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 208.3059ms
+2024-09-16 00:33:00.328 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-16 00:33:00.369 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:33:00.549 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:33:00.620 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 00:33:01.508 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-16 00:33:02.590 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-16 00:33:18.814 +05:30 [ERR] An error occurred using the connection to database 'NestFinder' on server 'SatyamPC\SQLEXPRESS'.
+2024-09-16 00:33:18.928 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'WebAPI.Data.DataContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=143; handshake=153; [Login] initialization=3; authentication=5; [Post-Login] complete=14042; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c8a922ae-2cbb-4ce0-b3c3-69e38b0c7ee7
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=143; handshake=153; [Login] initialization=3; authentication=5; [Post-Login] complete=14042; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c8a922ae-2cbb-4ce0-b3c3-69e38b0c7ee7
+Error Number:-2,State:0,Class:11
+2024-09-16 00:33:19.902 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/2 - null null
+2024-09-16 00:33:20.060 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:33:20.063 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:33:20.066 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 00:33:20.076 +05:30 [INF] Fetching property list for SellRent value: 2
+2024-09-16 00:33:20.163 +05:30 [ERR] An error occurred using the connection to database 'NestFinder' on server 'SatyamPC\SQLEXPRESS'.
+2024-09-16 00:33:20.187 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'WebAPI.Data.DataContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=143; handshake=153; [Login] initialization=3; authentication=5; [Post-Login] complete=14042; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c8a922ae-2cbb-4ce0-b3c3-69e38b0c7ee7
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=143; handshake=153; [Login] initialization=3; authentication=5; [Post-Login] complete=14042; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c8a922ae-2cbb-4ce0-b3c3-69e38b0c7ee7
+Error Number:-2,State:0,Class:11
+2024-09-16 00:33:20.994 +05:30 [ERR] Error occurred while fetching property list for SellRent value: 1
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=143; handshake=153; [Login] initialization=3; authentication=5; [Post-Login] complete=14042; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at WebAPI.Data.Repo.PropertyRepository.GetPropertiesAsync(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Data\Repo\PropertyRepository.cs:line 26
+   at WebAPI.Controllers.PropertyController.GetPropertyList(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Controllers\PropertyController.cs:line 32
+ClientConnectionId:c8a922ae-2cbb-4ce0-b3c3-69e38b0c7ee7
+Error Number:-2,State:0,Class:11
+2024-09-16 00:33:20.994 +05:30 [ERR] Error occurred while fetching property list for SellRent value: 2
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=143; handshake=153; [Login] initialization=3; authentication=5; [Post-Login] complete=14042; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at WebAPI.Data.Repo.PropertyRepository.GetPropertiesAsync(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Data\Repo\PropertyRepository.cs:line 26
+   at WebAPI.Controllers.PropertyController.GetPropertyList(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Controllers\PropertyController.cs:line 32
+ClientConnectionId:c8a922ae-2cbb-4ce0-b3c3-69e38b0c7ee7
+Error Number:-2,State:0,Class:11
+2024-09-16 00:33:21.028 +05:30 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-09-16 00:33:21.028 +05:30 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-09-16 00:33:21.039 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-16 00:33:21.052 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 964.9017ms
+2024-09-16 00:33:21.052 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 20408.896ms
+2024-09-16 00:33:21.054 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:33:21.056 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:33:21.059 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:33:21.062 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:33:21.066 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 00:33:21.080 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-16 00:33:21.080 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/2 - 500 null text/plain; charset=utf-8 1178.201ms
+2024-09-16 00:33:21.080 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 500 null text/plain; charset=utf-8 20752.0188ms
+2024-09-16 00:33:21.159 +05:30 [ERR] An error occurred using the connection to database 'NestFinder' on server 'SatyamPC\SQLEXPRESS'.
+2024-09-16 00:33:21.191 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'WebAPI.Data.DataContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=143; handshake=153; [Login] initialization=3; authentication=5; [Post-Login] complete=14042; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c8a922ae-2cbb-4ce0-b3c3-69e38b0c7ee7
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=143; handshake=153; [Login] initialization=3; authentication=5; [Post-Login] complete=14042; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:c8a922ae-2cbb-4ce0-b3c3-69e38b0c7ee7
+Error Number:-2,State:0,Class:11
+2024-09-16 00:33:21.383 +05:30 [ERR] Error occurred while fetching property list for SellRent value: 1
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=143; handshake=153; [Login] initialization=3; authentication=5; [Post-Login] complete=14042; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at WebAPI.Data.Repo.PropertyRepository.GetPropertiesAsync(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Data\Repo\PropertyRepository.cs:line 26
+   at WebAPI.Controllers.PropertyController.GetPropertyList(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Controllers\PropertyController.cs:line 32
+ClientConnectionId:c8a922ae-2cbb-4ce0-b3c3-69e38b0c7ee7
+Error Number:-2,State:0,Class:11
+2024-09-16 00:33:21.400 +05:30 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-09-16 00:33:21.404 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 331.9436ms
+2024-09-16 00:33:21.409 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:33:21.411 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 500 null text/plain; charset=utf-8 372.9818ms
+2024-09-16 00:33:30.052 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-16 00:33:30.079 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 27.0255ms
+2024-09-16 00:33:30.147 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-16 00:33:30.152 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-16 00:33:30.174 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-16 00:33:30.165 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 17.9202ms
+2024-09-16 00:33:30.177 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 24.7451ms
+2024-09-16 00:33:30.227 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.9157ms
+2024-09-16 00:33:30.452 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-16 00:33:30.497 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 44.7736ms
+2024-09-16 00:34:26.103 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-16 00:34:26.150 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:34:26.158 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:34:26.163 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 00:34:26.174 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-16 00:34:40.274 +05:30 [ERR] An error occurred using the connection to database 'NestFinder' on server 'SatyamPC\SQLEXPRESS'.
+2024-09-16 00:34:40.314 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'WebAPI.Data.DataContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=3; [Login] initialization=0; authentication=0; [Post-Login] complete=14005; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:6f4e9f32-0a3d-49a6-8713-8ed058dbb32c
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=3; [Login] initialization=0; authentication=0; [Post-Login] complete=14005; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:6f4e9f32-0a3d-49a6-8713-8ed058dbb32c
+Error Number:-2,State:0,Class:11
+2024-09-16 00:34:40.740 +05:30 [ERR] Error occurred while fetching property list for SellRent value: 1
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=3; [Login] initialization=0; authentication=0; [Post-Login] complete=14005; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at WebAPI.Data.Repo.PropertyRepository.GetPropertiesAsync(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Data\Repo\PropertyRepository.cs:line 26
+   at WebAPI.Controllers.PropertyController.GetPropertyList(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Controllers\PropertyController.cs:line 32
+ClientConnectionId:6f4e9f32-0a3d-49a6-8713-8ed058dbb32c
+Error Number:-2,State:0,Class:11
+2024-09-16 00:34:40.759 +05:30 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-09-16 00:34:40.763 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 14595.431ms
+2024-09-16 00:34:40.766 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:34:40.769 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 500 null text/plain; charset=utf-8 14666.0758ms
+2024-09-16 00:35:24.411 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-16 00:35:24.475 +05:30 [INF] CORS policy execution successful.
+2024-09-16 00:35:24.477 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:35:24.479 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 00:35:24.493 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-16 00:35:38.683 +05:30 [ERR] An error occurred using the connection to database 'NestFinder' on server 'SatyamPC\SQLEXPRESS'.
+2024-09-16 00:35:38.783 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'WebAPI.Data.DataContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=2; handshake=52; [Login] initialization=0; authentication=0; [Post-Login] complete=14007; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:f9a77c76-c60f-462d-a40f-39868cd32dfb
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=2; handshake=52; [Login] initialization=0; authentication=0; [Post-Login] complete=14007; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:f9a77c76-c60f-462d-a40f-39868cd32dfb
+Error Number:-2,State:0,Class:11
+2024-09-16 00:35:39.322 +05:30 [ERR] Error occurred while fetching property list for SellRent value: 1
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=2; handshake=52; [Login] initialization=0; authentication=0; [Post-Login] complete=14007; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at WebAPI.Data.Repo.PropertyRepository.GetPropertiesAsync(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Data\Repo\PropertyRepository.cs:line 26
+   at WebAPI.Controllers.PropertyController.GetPropertyList(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Controllers\PropertyController.cs:line 32
+ClientConnectionId:f9a77c76-c60f-462d-a40f-39868cd32dfb
+Error Number:-2,State:0,Class:11
+2024-09-16 00:35:39.345 +05:30 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-09-16 00:35:39.348 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 14861.3012ms
+2024-09-16 00:35:39.351 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 00:35:39.354 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 500 null text/plain; charset=utf-8 14942.9178ms
+2024-09-16 09:23:48.329 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-16 09:23:50.358 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-16 09:23:50.367 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-16 09:23:50.573 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-16 09:23:50.585 +05:30 [INF] Hosting environment: Development
+2024-09-16 09:23:50.598 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-16 09:24:07.712 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-16 09:24:10.525 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 2822.5898ms
+2024-09-16 09:24:11.861 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-16 09:24:11.884 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 22.934ms
+2024-09-16 09:24:11.999 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-16 09:24:12.058 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 59.9378ms
+2024-09-16 09:24:12.322 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-16 09:24:13.443 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1119.6704ms
+2024-09-16 09:24:18.243 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-16 09:24:18.647 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 405.5887ms
+2024-09-16 09:26:01.927 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-16 09:26:02.105 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:26:03.684 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 09:26:03.875 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 09:26:05.119 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-16 09:26:07.704 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-16 09:26:15.941 +05:30 [INF] Executed DbCommand (794ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+WHERE [p].[SellRent] = @__sellRent_0
+2024-09-16 09:26:16.455 +05:30 [INF] 1 properties found for SellRent value: 1
+2024-09-16 09:26:16.486 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:26:16.997 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 13104.137ms
+2024-09-16 09:26:17.002 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 09:26:17.048 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 231 application/json; charset=utf-8 15120.8642ms
+2024-09-16 09:26:37.144 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/detail/1 - null null
+2024-09-16 09:26:37.168 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:26:37.175 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-16 09:26:37.192 +05:30 [INF] Route matched with {action = "GetPropertyDetail", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyDetail(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 09:26:37.216 +05:30 [INF] Fetching property details for Property ID: 1
+2024-09-16 09:26:37.587 +05:30 [INF] Executed DbCommand (242ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+WHERE [p].[Id] = @__id_0
+2024-09-16 09:26:37.625 +05:30 [INF] Property details found for Property ID: 1
+2024-09-16 09:26:37.630 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.PropertyDetailDto'.
+2024-09-16 09:26:37.664 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI) in 464.2783ms
+2024-09-16 09:26:37.671 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-16 09:26:37.676 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/detail/1 - 200 834 application/json; charset=utf-8 532.9036ms
+2024-09-16 09:26:47.256 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:26:47.258 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:26:47.255 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:26:47.290 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:26:47.296 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:26:47.303 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:26:47.312 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:26:47.312 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:26:47.324 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:26:47.326 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:26:47.329 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:26:47.338 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:26:47.365 +05:30 [INF] Fetching all cities.
+2024-09-16 09:26:47.837 +05:30 [INF] Executed DbCommand (241ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:26:47.873 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:26:47.882 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:26:47.892 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 546.1641ms
+2024-09-16 09:26:47.896 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:26:47.900 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 644.5285ms
+2024-09-16 09:26:47.946 +05:30 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:26:47.950 +05:30 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:26:47.963 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:26:47.967 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:26:47.973 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 632.7091ms
+2024-09-16 09:26:47.973 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 638.6885ms
+2024-09-16 09:26:47.978 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:26:47.981 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:26:47.985 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 729.8361ms
+2024-09-16 09:26:47.989 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 731.3674ms
+2024-09-16 09:31:13.081 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:31:13.081 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:31:13.081 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:31:13.095 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:31:13.097 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:31:13.101 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:31:13.107 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:31:13.108 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:31:13.113 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:31:13.113 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:31:13.117 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:31:13.124 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:31:13.143 +05:30 [INF] Fetching all cities.
+2024-09-16 09:31:13.662 +05:30 [INF] Executed DbCommand (502ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:31:13.667 +05:30 [INF] Executed DbCommand (503ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:31:13.722 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:31:13.725 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:31:13.728 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 610.0726ms
+2024-09-16 09:31:13.729 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:31:13.731 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:31:13.734 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 605.9838ms
+2024-09-16 09:31:13.736 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 660.8481ms
+2024-09-16 09:31:13.739 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:31:13.747 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 671.8846ms
+2024-09-16 09:31:15.453 +05:30 [INF] Executed DbCommand (1,795ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:31:15.460 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:31:15.463 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 2342.4717ms
+2024-09-16 09:31:15.467 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:31:15.469 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 2394.0609ms
+2024-09-16 09:31:31.362 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:31:31.363 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:34:56.905 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:34:57.256 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:34:57.315 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:31:31.362 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:34:57.340 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:34:57.342 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:34:57.550 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:34:57.550 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:34:58.022 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:34:58.134 +05:30 [INF] Executed DbCommand (201ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:34:58.147 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:34:58.151 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:34:58.149 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:34:58.467 +05:30 [INF] Fetching all cities.
+2024-09-16 09:34:58.202 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:34:58.339 +05:30 [INF] Executed DbCommand (251ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:34:58.201 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:34:58.201 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:34:58.513 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:34:58.513 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:34:58.516 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:34:58.518 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:34:58.518 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:34:58.524 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:34:58.582 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:34:58.610 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 1053.059ms
+2024-09-16 09:34:58.608 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:34:58.680 +05:30 [INF] Executed DbCommand (116ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:34:58.689 +05:30 [INF] Executed DbCommand (169ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:34:58.694 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:34:58.635 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 1074.6913ms
+2024-09-16 09:34:58.709 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:34:58.706 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 185.5079ms
+2024-09-16 09:34:58.722 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:34:58.725 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:34:58.712 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:34:58.634 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:34:58.682 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:34:58.729 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 528.188ms
+2024-09-16 09:34:58.732 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 580.9723ms
+2024-09-16 09:34:58.735 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 207373.1766ms
+2024-09-16 09:34:58.750 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:34:58.738 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 207375.8935ms
+2024-09-16 09:34:58.748 +05:30 [INF] Fetching all cities.
+2024-09-16 09:34:58.769 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 207406.2936ms
+2024-09-16 09:34:59.706 +05:30 [INF] Executed DbCommand (495ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:34:59.715 +05:30 [INF] Executed DbCommand (642ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:34:59.717 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-16 09:34:59.724 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:34:59.880 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:34:59.882 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:34:59.883 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 09:34:59.886 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 1144.7408ms
+2024-09-16 09:34:59.889 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 09:34:59.889 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:34:59.892 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:34:59.899 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 1370.546ms
+2024-09-16 09:34:59.902 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 1753.0168ms
+2024-09-16 09:34:59.905 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:34:59.916 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 1715.2789ms
+2024-09-16 09:35:00.106 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-16 09:35:01.687 +05:30 [INF] Executed DbCommand (265ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+WHERE [p].[SellRent] = @__sellRent_0
+2024-09-16 09:35:02.153 +05:30 [INF] 1 properties found for SellRent value: 1
+2024-09-16 09:35:02.156 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:02.260 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 2364.0568ms
+2024-09-16 09:35:02.264 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-16 09:35:02.267 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 231 application/json; charset=utf-8 2549.7809ms
+2024-09-16 09:35:04.952 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/detail/1 - null null
+2024-09-16 09:35:04.960 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:04.963 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-16 09:35:04.966 +05:30 [INF] Route matched with {action = "GetPropertyDetail", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyDetail(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-16 09:35:05.019 +05:30 [INF] Fetching property details for Property ID: 1
+2024-09-16 09:35:05.381 +05:30 [INF] Executed DbCommand (123ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+WHERE [p].[Id] = @__id_0
+2024-09-16 09:35:05.394 +05:30 [INF] Property details found for Property ID: 1
+2024-09-16 09:35:05.397 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.PropertyDetailDto'.
+2024-09-16 09:35:05.473 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI) in 502.1855ms
+2024-09-16 09:35:05.476 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-16 09:35:05.479 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/detail/1 - 200 834 application/json; charset=utf-8 527.7825ms
+2024-09-16 09:35:08.729 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:35:08.729 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:35:08.729 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:35:08.737 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:08.743 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:08.750 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:08.752 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:35:08.754 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:35:08.762 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:35:08.759 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:35:08.756 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:35:08.779 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:35:08.793 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:35:08.798 +05:30 [INF] Fetching all cities.
+2024-09-16 09:35:08.824 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:35:08.868 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:35:08.869 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:08.869 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:08.880 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:35:08.881 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 97.1449ms
+2024-09-16 09:35:08.884 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 117.3166ms
+2024-09-16 09:35:08.886 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:08.890 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:35:08.893 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:35:08.897 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 120.4866ms
+2024-09-16 09:35:08.900 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 170.7391ms
+2024-09-16 09:35:08.903 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 173.7196ms
+2024-09-16 09:35:08.906 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:35:08.931 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 201.6932ms
+2024-09-16 09:35:34.170 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:35:34.170 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:35:34.171 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:35:34.190 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:34.211 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:34.240 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:34.243 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:35:34.251 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:35:34.254 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:35:34.258 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:35:34.264 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:35:34.268 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:35:34.389 +05:30 [INF] Fetching all cities.
+2024-09-16 09:35:34.442 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:35:34.517 +05:30 [INF] Executed DbCommand (109ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:35:34.521 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:34.645 +05:30 [INF] Executed DbCommand (101ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:35:34.558 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:34.652 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 377.6483ms
+2024-09-16 09:35:34.672 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:35:34.682 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 400.2078ms
+2024-09-16 09:35:34.688 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:35:34.704 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:34.708 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:35:34.715 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 545.9597ms
+2024-09-16 09:35:34.720 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 431.3199ms
+2024-09-16 09:35:34.724 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 554.313ms
+2024-09-16 09:35:34.743 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:35:34.771 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 600.4697ms
+2024-09-16 09:35:53.085 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:35:53.086 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:35:53.105 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:35:53.279 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:53.294 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:53.329 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:35:53.341 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:35:53.362 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:35:53.372 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:35:53.375 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:35:53.380 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:35:53.388 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:35:53.484 +05:30 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:35:53.517 +05:30 [INF] Fetching all cities.
+2024-09-16 09:35:53.507 +05:30 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:35:53.524 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:53.550 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:53.587 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:35:53.593 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 198.5198ms
+2024-09-16 09:35:53.605 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 179.7228ms
+2024-09-16 09:35:53.683 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:35:53.686 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:35:53.690 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:35:53.694 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:35:53.698 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 612.5465ms
+2024-09-16 09:35:53.704 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 617.5325ms
+2024-09-16 09:35:53.708 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 215.0137ms
+2024-09-16 09:35:53.754 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:35:53.760 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 675.7261ms
+2024-09-16 09:42:16.484 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:42:16.507 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:42:16.549 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:42:16.552 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:42:16.689 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:42:16.557 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:42:16.707 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:42:16.714 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:42:16.717 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:42:16.718 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:42:16.720 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:42:16.749 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:42:16.823 +05:30 [INF] Fetching all cities.
+2024-09-16 09:42:19.929 +05:30 [INF] Executed DbCommand (101ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:42:19.944 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:42:19.965 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 3240.6298ms
+2024-09-16 09:42:19.968 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:42:19.974 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 3490.1619ms
+2024-09-16 09:42:19.977 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:42:19.998 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:42:20.000 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:42:20.004 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 3273.115ms
+2024-09-16 09:42:20.006 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:42:20.010 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 3462.0255ms
+2024-09-16 09:42:20.020 +05:30 [INF] Executed DbCommand (80ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:42:20.026 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:42:20.030 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 3185.6467ms
+2024-09-16 09:42:20.033 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:42:20.036 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 3484.456ms
+2024-09-16 09:42:26.113 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:42:26.113 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:42:26.113 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:42:26.253 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:42:26.255 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:42:26.258 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:42:26.488 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:42:26.489 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:42:26.489 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:42:26.495 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:42:26.496 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:42:26.503 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 239.3926ms
+2024-09-16 09:42:26.505 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:42:26.508 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:42:26.519 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 406.3426ms
+2024-09-16 09:42:26.647 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:42:26.655 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:42:26.649 +05:30 [INF] Fetching all cities.
+2024-09-16 09:42:26.703 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:42:26.748 +05:30 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:42:26.751 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:42:26.761 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 90.3956ms
+2024-09-16 09:42:26.767 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:42:26.770 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 657.1995ms
+2024-09-16 09:42:26.794 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:42:27.548 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:42:27.552 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 1039.7759ms
+2024-09-16 09:42:27.555 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:42:27.558 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 1445.3973ms
+2024-09-16 09:42:34.110 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-09-16 09:42:34.111 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-09-16 09:42:34.111 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-09-16 09:42:34.122 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:42:34.129 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:42:34.135 +05:30 [INF] CORS policy execution successful.
+2024-09-16 09:42:34.139 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:42:34.140 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:42:34.142 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:42:34.145 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-09-16 09:42:34.149 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-09-16 09:42:34.151 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-09-16 09:42:34.161 +05:30 [INF] Fetching all cities.
+2024-09-16 09:42:34.299 +05:30 [INF] Executed DbCommand (103ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-09-16 09:42:34.303 +05:30 [INF] Executed DbCommand (117ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-09-16 09:42:34.308 +05:30 [INF] Executed DbCommand (109ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-09-16 09:42:34.330 +05:30 [INF] 13 cities retrieved successfully.
+2024-09-16 09:42:34.336 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:42:34.343 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:42:34.345 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 09:42:34.348 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 174.033ms
+2024-09-16 09:42:34.351 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 173.0031ms
+2024-09-16 09:42:34.354 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 199.7473ms
+2024-09-16 09:42:34.357 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-09-16 09:42:34.360 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-09-16 09:42:34.363 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-09-16 09:42:34.365 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 254.6311ms
+2024-09-16 09:42:34.369 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 258.5939ms
+2024-09-16 09:42:34.371 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 261.1288ms

@@ -33,7 +33,14 @@
                 <div class="form-group col-12 mb-3">
                   <p class="mb-1">Property Type</p>
                   <div class="btn-group" btnRadioGroup formControlName="PType">
-                    <label *ngFor="let ptype of propertyTypes" [attr.for]="'ptype' + ptype" class="btn btn-outline-primary me-2" [btnRadio]="ptype" (click)="propertyView.propertyType = ptype" (keydown.enter)="propertyView.propertyType = ptype" tabindex="0">{{ptype}}</label>
+                    <label *ngFor="let ptype of propertyTypes" [attr.for]="'ptype' + ptype.id.toString()" 
+                            class="btn btn-outline-primary me-2" 
+                            [btnRadio]="ptype.id" 
+                            (click)="propertyView.propertyType = ptype.name" 
+                            (keydown.enter)="propertyView.propertyType = ptype.name" 
+                            tabindex="0">
+                        {{ ptype.name }}
+                      </label>
                   </div>
                   <div class="error" *ngIf="PType.invalid && nextClicked">
                     Please Select Property Type
@@ -43,7 +50,14 @@
                 <div class="form-group col-12 mb-3">
                   <p class="mb-1">Furnishing Type</p>
                   <div class="btn-group" btnRadioGroup formControlName="FType">
-                    <label *ngFor="let ftype of furnishTypes" [attr.for]="'ftype' + ftype" class="btn btn-outline-primary me-2" [btnRadio]="ftype" (click)="propertyView.furnishingType = ftype" (keydown.enter)="propertyView.furnishingType = ftype" tabindex="0">{{ftype}}</label>
+                    <label *ngFor="let ftype of furnishTypes" [attr.for]="'ftype' + ftype.id.toString()" 
+                            class="btn btn-outline-primary me-2" 
+                            [btnRadio]="ftype.id" 
+                            (click)="propertyView.furnishingType = ftype.name" 
+                            (keydown.enter)="propertyView.furnishingType = ftype.name" 
+                            tabindex="0">
+                        {{ ftype.name }}
+                      </label>
                   </div>
                   <div class="error" *ngIf="FType.invalid && nextClicked">
                     Please Select Furnishing Type
@@ -61,7 +75,9 @@
                 <div class="form-group col-12 mb-3">
                   <label for="City">City</label>
                   <div class="dropdown-wrapper">
-                  <select id="city" class="form-control border-primary shadow-sm bg-light" formControlName="City" (input)="propertyView.city = City.value">
+                  <select #citySelect
+                  (change)="propertyView.city = citySelect.options[citySelect.options.selectedIndex].text"
+                  id="city" class="form-control border-primary shadow-sm bg-light" formControlName="City" (input)="propertyView.city = City.value">
                     <option value="" disabled selected>--Select City--</option>
                     <option *ngFor="let city of cityList" [value]="city.id">
                       {{city.name}}
@@ -69,7 +85,7 @@
                   </select>
                   <span class="dropdown-icon"><i class="fas fa-chevron-down"></i></span> <!-- Font Awesome dropdown icon -->
                 </div>
-                  <div class="error" *ngIf="City.invalid && (nextClicked || City.touched)">
+                  <div class="error" *ngIf="City?.invalid && (nextClicked || City?.touched)">
                     Please select city
                   </div>
                 </div>
@@ -154,7 +170,7 @@
                   <p class="mb-1">Ready to Move</p>
                   <div class="btn-group" btnRadioGroup formControlName="RTM">
                     <label for="RTMYes" class="btn btn-outline-primary me-2" btnRadio="1" role="button" id="RTMYes" (click)="propertyView.readyToMove=1" (keydown.enter)="propertyView.readyToMove=1" tabindex="0" name="RTM">Yes</label>
-                    <label for="RTMNo" class="btn btn-outline-primary" btnRadio="2" role="button" id="RTMNo" (click)="propertyView.readyToMove=2" (keydown.enter)="propertyView.readyToMove=2" tabindex="0" name="RTM">No</label>
+                    <label for="RTMNo" class="btn btn-outline-primary" btnRadio="2" role="button" id="RTMNo" (click)="propertyView.readyToMove=0" (keydown.enter)="propertyView.readyToMove=0" tabindex="0" name="RTM">No</label>
                   </div>
                   <div class="error" *ngIf="RTM.invalid && nextClicked">
                     Please Select ready to move
@@ -162,17 +178,12 @@
                 </div>
 
                 <div class="form-group col-3 mb-2">
-                  <label for="possessionOn" *ngIf="RTM.value === 1">Establishment Date</label>
-                  <label for="possessionOn" *ngIf="RTM.value === 2">Possession Date</label>
-                  <input type="text" id="possessionOn" class="form-control border-primary shadow-sm bg-light" formControlName="PossessionOn" #possessionOn (bsValueChange)="propertyView.estPossessionOn = PossessionOn.value" bsDatepicker [bsConfig]="{containerClass: 'theme-dark-blue', dateInputFormat: 'DD-MM-YYYY'}">
+                  <label for="possessionOn" *ngIf="propertyView.readyToMove">Establishment Date</label>
+                  <label for="possessionOn" *ngIf="!propertyView.readyToMove">Possession Date</label>
+                  <input type="text" id="possessionOn" class="form-control border-primary shadow-sm bg-light" formControlName="PossessionOn" #possessionOn (bsValueChange)="propertyView.estPossessionOn = PossessionOn.value" bsDatepicker [bsConfig]="{containerClass: 'theme-dark-blue', dateInputFormat: 'MM DD, YYYY'}">
                   <div class="error-block" *ngIf="PossessionOn.invalid && (nextClicked || PossessionOn.touched)">
                     Please select establishment/possession date
                   </div>
-                </div>
-                
-                <div class="form-group col-12 mb-2" *ngIf="SellRent.value === 1">
-                  <label for="AOP">Age of Property</label>
-                  <input type="text" id="AOP" formControlName="AOP" class="form-control border-primary shadow-sm bg-light">
                 </div>
                 
                 <div class="form-group col-12 mb-2">

@@ -49,17 +49,35 @@ namespace WebAPI.Controllers
         }
 
 
-        // property/list/
+        // property/detail/
         [HttpGet("detail/{id}")]
         [AllowAnonymous]
         public async Task<IActionResult> GetPropertyDetail(int id)
         {
-            var property = await _uow.PropertyRepository.GetPropertyDetailAsync(id);
+            _logger.LogInformation("Fetching property details for Property ID: {Id}", id);
 
-            var propertyDto = _mapper.Map<PropertyDetailDto>(property);
+            try
+            {
+                var property = await _uow.PropertyRepository.GetPropertyDetailAsync(id);
 
-            return Ok(propertyDto);
+                if (property == null)
+                {
+                    _logger.LogWarning("No details found for Property ID: {Id}", id);
+                    return NotFound("No property details available.");
+                }
+
+                var propertyDto = _mapper.Map<PropertyDetailDto>(property);
+                _logger.LogInformation("Property details found for Property ID: {Id}", id);
+
+                return Ok(propertyDto);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while fetching property details for Property ID: {Id}", id);
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
         }
+
 
     }
 }
