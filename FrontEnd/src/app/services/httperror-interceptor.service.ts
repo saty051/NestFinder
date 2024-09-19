@@ -42,17 +42,29 @@ retryRequest(error: Observable<unknown>, retryCount: number): Observable<unknown
   );
 }
 
-  setError(error: HttpErrorResponse): string{
-    let errorMessage = 'Unknown error occured';
-    if(error.error instanceof ErrorEvent){
-      // Client side error
-      errorMessage = error. error.message;
-    }else{
-      // server side error
-      if(error.status!==0){
+setError(error: HttpErrorResponse): string {
+  let errorMessage = 'An unknown error occurred';
+  
+  if (error.error instanceof ErrorEvent) {
+    // Client-side error
+    errorMessage = `Client-side error: ${error.error.message}`;
+  } else {
+    // Server-side error
+    if (error.status !== 0) {
+      if (typeof error.error === 'string') {
+        // If the error response is a string (like "Property created successfully.")
+        errorMessage = error.error;
+      } else if (error.error.errorMessage) {
         errorMessage = error.error.errorMessage;
+      } else {
+        errorMessage = `Server-side error: ${error.message}`;
       }
+    } else {
+      errorMessage = 'Server is unreachable. Please try again later.';
     }
-    return errorMessage;
-  } 
+  }
+
+  return errorMessage;
+}
+
 }

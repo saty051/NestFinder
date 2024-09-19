@@ -82,33 +82,30 @@ namespace WebAPI.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> AddProperty(PropertyDto propertyDto)
         {
-            _logger.LogInformation("Attempting to add a new property with details: {@PropertyDto}", propertyDto);
-
-            if (propertyDto == null || !ModelState.IsValid)
-            {
-                _logger.LogWarning("Invalid data for property: {@PropertyDto}", propertyDto);
-                return BadRequest("Invalid data provided.");
-            }
+            _logger.LogInformation("AddProperty method called with property details: {@PropertyDto}", propertyDto);
 
             try
             {
+                // Map the DTO to the entity
                 var property = _mapper.Map<Property>(propertyDto);
-                property.PostedBy = 1; // Replace with actual user ID in production
+                property.PostedBy = 1;  // Default user ID for now
                 property.LatestUpdatedBy = 1;
 
+                // Add the property to the repository
                 _uow.PropertyRepository.AddProperty(property);
                 await _uow.SaveAsync();
 
-                _logger.LogInformation("Property successfully added with ID: {PropertyId}", property.Id);
-                return StatusCode(201, "Property created successfully.");
+                _logger.LogInformation("Property added successfully with ID: {PropertyId}", property.Id);
+
+                // Return a successful response with a custom message
+                return StatusCode(201, new { message = "Property created successfully." });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error occurred while adding property with details: {@PropertyDto}", propertyDto);
-                return StatusCode(500, "An error occurred while adding the property.");
+                _logger.LogError(ex, "Error occurred while adding property: {@PropertyDto}", propertyDto);
+                return StatusCode(500, new { message = "An error occurred while adding the property." });
             }
         }
-
 
     }
 }

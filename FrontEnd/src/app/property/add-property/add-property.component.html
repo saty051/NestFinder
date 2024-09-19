@@ -83,47 +83,54 @@
               <!-- Pricing and Area Tab -->
               <tab heading="Pricing and Area" formGroupName="PriceInfo">
                 <div class="form-group col-12 mb-3">
-                  <label *ngIf="SellRent.value === 1" for="price">Price (in USD)</label>
-                  <label *ngIf="SellRent.value === 2" for="price">Rent (in USD)</label>
+                  <!-- Using ngSwitch to toggle between Price and Rent label -->
+                  <ng-container [ngSwitch]="BasicInfo.controls['SellRent'].value">
+                    <label *ngSwitchCase="1" for="price">Price (in USD)</label>
+                    <label *ngSwitchCase="2" for="price">Rent (in USD)</label>
+                  </ng-container>
+              
                   <input type="text" id="price" class="form-control border-primary shadow-sm bg-light" formControlName="Price" (input)="propertyView.price = Price.value">
                 </div>
+              
                 <div class="error" *ngIf="Price.invalid && (nextClicked || Price.touched)">
-                  Please Select
-                  <span *ngIf="SellRent?.value === 1; else ShowRent">price</span>
-                  <ng-template #ShowRent>rent</ng-template>
+                  Please select 
+                  <ng-container [ngSwitch]="BasicInfo.controls['SellRent'].value">
+                    <span *ngSwitchCase="1">price</span>
+                    <span *ngSwitchCase="2">rent</span>
+                  </ng-container>
                 </div>
-
-                <div *ngIf="SellRent?.value === 2">
+              
+                <div *ngIf="BasicInfo.controls['SellRent'].value === 2">
                   <div class="form-group col-12 mb-3">
                     <label for="security">Security (in USD)</label>
                     <input type="text" id="security" class="form-control border-primary shadow-sm bg-light" formControlName="Security">
                   </div>
-
+              
                   <div class="form-group col-12 mb-3">
                     <label for="maintenance">Maintenance (in USD)</label>
                     <input type="text" id="maintenance" class="form-control border-primary shadow-sm bg-light" formControlName="Maintenance">
                   </div>
                 </div>
-
+              
                 <div class="form-group col-12 mb-3">
                   <label for="builtArea">Built Area (in Sqr Feet)</label>
                   <input type="text" id="builtArea" class="form-control border-primary shadow-sm bg-light" formControlName="BuiltArea" (input)="propertyView.builtArea = BuiltArea.value">
                   <div class="error" *ngIf="BuiltArea.invalid && nextClicked">
-                    Please Select built up area
+                    Please select built-up area
                   </div>
                 </div>
-
+              
                 <div class="form-group col-12 mb-3">
                   <label for="carpetArea">Carpet Area (in Sqr Feet)</label>
                   <input type="text" id="carpetArea" class="form-control border-primary shadow-sm bg-light" formControlName="CarpetArea">
                 </div>
-
+              
                 <div class="form-group col-12 mb-3">
                   <button type="button" class="btn btn-primary w-100 mb-3" (click)="selectTab(2, PriceInfo.valid)">Next</button>
                   <button type="button" class="btn btn-primary w-100" (click)="selectTab(0, PriceInfo.valid)">Back</button>
                 </div>
               </tab>
-
+            
               <!-- Address Tab -->
               <tab heading="Address" formGroupName="AddressInfo">
                 <div class="form-group col-12 mb-3">

@@ -67,7 +67,7 @@ export class AddPropertyComponent implements OnInit {
   CreateAddPropertyForm() {
     this.addPropertyForm = this.fb.group({
       BasicInfo: this.fb.group({
-        SellRent: [null, Validators.required],
+        SellRent: [1, Validators.required],
         BHK: [null, Validators.required],
         PType: [null, Validators.required],
         FType: [null, Validators.required],
@@ -163,7 +163,6 @@ export class AddPropertyComponent implements OnInit {
       this.formTabs.tabs[3].active = true;
       return false;
     }
-
     return true;
   }
 
@@ -172,28 +171,26 @@ export class AddPropertyComponent implements OnInit {
     if (this.allTabsValid()) {
       this.mapProperty();
       this.housingService.addProperty(this.property).subscribe({
-        next: (response) => {
-          if (response) {
-            this.alertify.success("Congrats, your property listed successfully on our website");
-          } else {
-            this.alertify.success("Property listed successfully, but no data returned");
-          }
-
+        next: () => {
+          this.alertify.success("Congrats, your property listed successfully on our website");
+          console.log(this.addPropertyForm);
+  
           if (this.SellRent.value === "2") {
             this.router.navigate(['/rent-property']);
           } else {
             this.router.navigate(['/']);
           }
         },
-        error: (err) => {
-          this.alertify.error("Error adding property");
-          console.error('Error:', err);
+        error: (error) => {
+          this.alertify.error('An error occurred while listing the property.');
+          console.error('Error during property creation:', error);
         }
       });
     } else {
       this.alertify.error("Please review the form and provide all valid entries");
     }
   }
+  
 
   mapProperty(): void {
     this.property.id = this.housingService.newPropID();
