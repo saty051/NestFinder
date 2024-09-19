@@ -6,9 +6,9 @@ export interface IPropertyBase {
     furnishingType: string | null;
     bhk: number | null;
     city: string | null;
-    readyToMove: number | null;
+    readyToMove: boolean | null;
     builtArea: number | null;
     price: number | null;
     image?: string | null;
-    estPossessionOn?: Date;
+    estPossessionOn?: string;
 }

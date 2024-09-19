@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NHibernate.Mapping.ByCode.Impl;
+using WebAPI.Models;
 using WebAPI.Dtos;
 using WebAPI.Interfaces;
 
@@ -75,6 +75,37 @@ namespace WebAPI.Controllers
             {
                 _logger.LogError(ex, "Error occurred while fetching property details for Property ID: {Id}", id);
                 return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
+
+        [HttpPost("add")]
+        [AllowAnonymous]
+        public async Task<IActionResult> AddProperty(PropertyDto propertyDto)
+        {
+            _logger.LogInformation("Attempting to add a new property with details: {@PropertyDto}", propertyDto);
+
+            if (propertyDto == null || !ModelState.IsValid)
+            {
+                _logger.LogWarning("Invalid data for property: {@PropertyDto}", propertyDto);
+                return BadRequest("Invalid data provided.");
+            }
+
+            try
+            {
+                var property = _mapper.Map<Property>(propertyDto);
+                property.PostedBy = 1; // Replace with actual user ID in production
+                property.LatestUpdatedBy = 1;
+
+                _uow.PropertyRepository.AddProperty(property);
+                await _uow.SaveAsync();
+
+                _logger.LogInformation("Property successfully added with ID: {PropertyId}", property.Id);
+                return StatusCode(201, "Property created successfully.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while adding property with details: {@PropertyDto}", propertyDto);
+                return StatusCode(500, "An error occurred while adding the property.");
             }
         }
 

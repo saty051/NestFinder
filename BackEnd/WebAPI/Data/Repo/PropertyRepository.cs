@@ -13,7 +13,7 @@ namespace WebAPI.Data.Repo
         }
         public void AddProperty(Property property)
         {
-            throw new NotImplementedException();
+            _datacontext.Properties.Add(property);
         }
 
         public void DeleteProperty(int id)

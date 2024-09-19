@@ -12,7 +12,8 @@ export class HousingService {
 
   constructor(private http: HttpClient) { }
 
-    baseUrl = environment.baseUrl;
+  baseUrl = environment.baseUrl;
+
   getAllCities(): Observable<string[]> {
     return this.http.get<string[]>(`${this.baseUrl}City`);
   }
@@ -25,7 +26,8 @@ export class HousingService {
     return this.http.get<Ikeyvaluepair[]>(`${this.baseUrl}furnishingtype/list`);
   }
 
-  getProperty(id: number) {
+  // Add the missing getProperty method
+  getProperty(id: number): Observable<Property> {
     return this.http.get<Property>(`${this.baseUrl}Property/detail/${id.toString()}`);
   }
 
@@ -36,12 +38,7 @@ export class HousingService {
   }
 
   addProperty(property: Property) {
-    let newProp: Property[] = [property];
-
-    if (localStorage.getItem('newProp')) {
-      newProp = [property, ...JSON.parse(localStorage.getItem('newProp') || '{}')];
-    }
-    localStorage.setItem('newProp', JSON.stringify(newProp));
+    return this.http.post(`${this.baseUrl}Property/add`, property);
   }
 
   newPropID() {
@@ -57,29 +54,28 @@ export class HousingService {
     }
   }
 
-  getPropertyAge(dateofEstablishment: Date): string {
+  getPropertyAge(dateofEstablishment: string): string {
     const today = new Date();
     const estDate = new Date(dateofEstablishment);
-  
+
     // If the establishment date is in the future
     if (today < estDate) {
       return '0';
     }
-  
+
     let age = today.getFullYear() - estDate.getFullYear();
     const monthDifference = today.getMonth() - estDate.getMonth();
-  
+
     // If the current month is before the establishment month, or it's the same month but today's date is earlier
     if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < estDate.getDate())) {
       age--;
     }
-  
+
     // Age is less than a year
     if (age === 0) {
       return "Less than a year";
     }
-  
+
     return age.toString();
   }
-   
 }

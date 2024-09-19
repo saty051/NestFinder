@@ -24,6 +24,7 @@ import { PropertyDetailResolverService } from './property/property-detail/proper
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FilterPipe } from './Pipes/filter.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [	
@@ -57,6 +58,7 @@ import { SortPipe } from './Pipes/sort.pipe';
       useClass: HttpErrorInterceptorService,
       multi: true
     },
+    DatePipe,
     HousingService,
     AlertifyService,
     AuthService,
