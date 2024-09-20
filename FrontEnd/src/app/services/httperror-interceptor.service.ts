@@ -50,6 +50,9 @@ setError(error: HttpErrorResponse): string {
     errorMessage = `Client-side error: ${error.error.message}`;
   } else {
     // Server-side error
+    if (error.status === 401) {
+      return error.statusText;
+    }
     if (error.status !== 0) {
       if (typeof error.error === 'string') {
         // If the error response is a string (like "Property created successfully.")

@@ -79,7 +79,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<IActionResult> AddProperty(PropertyDto propertyDto)
         {
             _logger.LogInformation("AddProperty method called with property details: {@PropertyDto}", propertyDto);
@@ -88,8 +88,9 @@ namespace WebAPI.Controllers
             {
                 // Map the DTO to the entity
                 var property = _mapper.Map<Property>(propertyDto);
-                property.PostedBy = 1;  // Default user ID for now
-                property.LatestUpdatedBy = 1;
+                var userId = GetUserId();
+                property.PostedBy = userId;
+                property.LatestUpdatedBy = userId;
 
                 // Add the property to the repository
                 _uow.PropertyRepository.AddProperty(property);

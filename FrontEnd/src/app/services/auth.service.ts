@@ -14,10 +14,10 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   authUser(user: UserForLogin): Observable<UserForLogin> {
-    return this.http.post<UserForLogin>(`${this.baseUrl}/account/login`, user);
+    return this.http.post<UserForLogin>(`${this.baseUrl}Account/login`, user);
   }
 
   registerUser(user: UserForRegister): Observable<UserForRegister> {
-    return this.http.post<UserForRegister>(`${this.baseUrl}/account/register`, user);
+    return this.http.post<UserForRegister>(`${this.baseUrl}Account/register`, user);
   }
 }

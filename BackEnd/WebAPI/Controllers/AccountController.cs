@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
             _logger = logger;
         }
 
-        // api/account/login
+        // api/Account/login
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginReqDto loginReq)
         {
@@ -58,7 +58,7 @@ namespace WebAPI.Controllers
             return Ok(loginRes);
         }
 
-        // api/account/register
+        // api/Account/register
         [HttpPost("register")]
         public async Task<IActionResult> Register(LoginReqDto loginReq)
         {
