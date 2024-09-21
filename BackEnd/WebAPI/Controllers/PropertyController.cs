@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebAPI.Models;
 using WebAPI.Dtos;
 using WebAPI.Interfaces;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
@@ -12,12 +13,14 @@ namespace WebAPI.Controllers
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
         private readonly ILogger<PropertyController> _logger;
+        private readonly IPhotoService _photoService;
 
-        public PropertyController(IUnitOfWork uow, IMapper mapper, ILogger<PropertyController> logger)
+        public PropertyController(IUnitOfWork uow, IMapper mapper, ILogger<PropertyController> logger, IPhotoService photoService)
         {
             _uow = uow;
             _mapper = mapper;
             _logger = logger;
+            _photoService = photoService;
         }
 
         // property/list/
@@ -108,5 +111,37 @@ namespace WebAPI.Controllers
             }
         }
 
+        //Property/add/photo/1
+        [HttpPost("add/photo/{id}")]
+        [Authorize]
+        public async Task<IActionResult> AddPropertyPhoto(IFormFile file, int propId)
+        {
+            _logger.LogInformation("Start uploading photo for Property ID: {PropId}", propId);
+
+            if (file == null || file.Length == 0)
+            {
+                _logger.LogWarning("No file uploaded for Property ID: {PropId}", propId);
+                return BadRequest("No file was uploaded.");
+            }
+
+            try
+            {
+                var result = await _photoService.UploadPhotoAsync(file);
+
+                if (result.Error != null)
+                {
+                    _logger.LogError("Error occurred while uploading photo for Property ID: {PropId}: {ErrorMessage}", propId, result.Error.Message);
+                    return BadRequest(result.Error.Message);
+                }
+
+                _logger.LogInformation("Photo successfully uploaded for Property ID: {PropId}", propId);
+                return Ok(201);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while uploading the photo for Property ID: {PropId}", propId);
+                return StatusCode(500, "An error occurred while uploading the photo.");
+            }
+        }
     }
 }

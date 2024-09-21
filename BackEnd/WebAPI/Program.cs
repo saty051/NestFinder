@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Data.SqlClient;
 using Serilog;
+using WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,6 +71,9 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
 // Add UnitOfWork service
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Add Photo service
+builder.Services.AddScoped<IPhotoService, PhotoService>();
 
 // Get secret key from configuration
 var secretKey = builder.Configuration.GetSection("AppSettings:Key").Value;
