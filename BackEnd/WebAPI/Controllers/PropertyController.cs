@@ -112,11 +112,11 @@ namespace WebAPI.Controllers
         }
 
         //Property/add/photo/1
-        [HttpPost("add/photo/{id}")]
+        [HttpPost("add/photo/{propId}")]
         [Authorize]
         public async Task<IActionResult> AddPropertyPhoto(IFormFile file, int propId)
         {
-            _logger.LogInformation("Start uploading photo for Property ID: {PropId}", propId);
+            _logger.LogInformation("Initiating photo upload for Property ID: {PropId}", propId);
 
             if (file == null || file.Length == 0)
             {
@@ -124,24 +124,48 @@ namespace WebAPI.Controllers
                 return BadRequest("No file was uploaded.");
             }
 
-            try
-            {
-                var result = await _photoService.UploadPhotoAsync(file);
+            _logger.LogInformation("Uploading photo for Property ID: {PropId}", propId);
+            var result = await _photoService.UploadPhotoAsync(file);
 
-                if (result.Error != null)
-                {
-                    _logger.LogError("Error occurred while uploading photo for Property ID: {PropId}: {ErrorMessage}", propId, result.Error.Message);
-                    return BadRequest(result.Error.Message);
-                }
-
-                _logger.LogInformation("Photo successfully uploaded for Property ID: {PropId}", propId);
-                return Ok(201);
-            }
-            catch (Exception ex)
+            if (result.Error != null)
             {
-                _logger.LogError(ex, "An error occurred while uploading the photo for Property ID: {PropId}", propId);
-                return StatusCode(500, "An error occurred while uploading the photo.");
+                _logger.LogError("Error uploading photo for Property ID: {PropId}. Error: {ErrorMessage}", propId, result.Error.Message);
+                return BadRequest(result.Error.Message);
             }
+
+            _logger.LogInformation("Photo uploaded successfully. Fetching property details for Property ID: {PropId}", propId);
+            var property = await _uow.PropertyRepository.GetPropertyByIdAsync(propId);
+
+            if (property == null)
+            {
+                _logger.LogWarning("Property with ID {PropId} not found.", propId);
+                return NotFound($"Property with ID {propId} not found.");
+            }
+
+            _logger.LogInformation("Adding photo to Property ID: {PropId}", propId);
+            var photo = new Photo
+            {
+                ImageUrl = result.SecureUrl.AbsoluteUri,
+                PublicId = result.PublicId
+            };
+
+            if (property.Photos == null)
+            {
+                _logger.LogInformation("Initializing photo collection for Property ID: {PropId}", propId);
+                property.Photos = new List<Photo>();
+            }
+
+            if (property.Photos.Count == 0)
+            {
+                _logger.LogInformation("Setting the uploaded photo as primary for Property ID: {PropId}", propId);
+                photo.IsPrimary = true;
+            }
+
+            property.Photos.Add(photo);
+            await _uow.SaveAsync();
+
+            _logger.LogInformation("Photo added successfully to Property ID: {PropId}", propId);
+            return Ok(new { message = "Photo added successfully." });
         }
     }
 }
