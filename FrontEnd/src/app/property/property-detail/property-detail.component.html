@@ -111,7 +111,8 @@
           <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
         </tab>
         <tab heading="Upload/Edit Photos">
-          <app-photo-editor [property]="property"></app-photo-editor>
+          <app-photo-editor [property]="property"
+          (mainPhotoChangedEvent)="changePrimaryPhoto($event)"></app-photo-editor>
         </tab>
         <tab heading="Contact">
           This should be restricted and only registered user should be able to see seller's contact details

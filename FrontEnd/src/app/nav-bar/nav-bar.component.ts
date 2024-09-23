@@ -1,6 +1,7 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit } from '@angular/core';
 import { AlertifyService } from '../services/alertify.service';
+import { Router } from '@angular/router';
 
 // Component decorator to define metadata for the NavBarComponent
 @Component({
@@ -13,7 +14,7 @@ export class NavBarComponent implements OnInit {
   loggedInUser!: string | null;
 
   // Injecting AlertifyService to handle notifications
-  constructor(private alertify: AlertifyService) { }
+  constructor(private alertify: AlertifyService, private router: Router) { }
 
   // Lifecycle hook to perform initialization logic
   ngOnInit() {
@@ -35,5 +36,6 @@ export class NavBarComponent implements OnInit {
     localStorage.removeItem('userName');
     // Display a success message using AlertifyService
     this.alertify.success("You are logged out!");
+    this.router.navigate(['/']);
   }
 }
