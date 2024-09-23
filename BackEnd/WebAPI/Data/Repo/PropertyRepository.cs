@@ -48,10 +48,10 @@ namespace WebAPI.Data.Repo
         public async Task<Property> GetPropertyByIdAsync(int id)
         {
             var properties = await _datacontext.Properties
-                .Include(p => p.Photos)
-                .Where(p => p.Id == id)
-                .FirstOrDefaultAsync();
+                .Include(p => p.Photos)  // Ensure you include related data, if needed
+                .FirstOrDefaultAsync(p => p.Id == id);
             return properties;
         }
+
     }
 }

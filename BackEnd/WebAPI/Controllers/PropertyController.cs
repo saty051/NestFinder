@@ -167,5 +167,39 @@ namespace WebAPI.Controllers
             _logger.LogInformation("Photo added successfully to Property ID: {PropId}", propId);
             return Ok(new { message = "Photo added successfully." });
         }
+
+        //Property/set-primary-photo/1/sfdghghfh
+        [HttpPost("set-primary-photo/{propId}/{photoPublicId}")]
+        [Authorize]
+        public async Task<IActionResult> SetPrimaryPhoto(int propId, string photoPublicId)
+        {
+            var userId = GetUserId();
+
+            var property = await _uow.PropertyRepository.GetPropertyByIdAsync(propId);
+
+            if (property.PostedBy != userId)
+                return BadRequest("You are not authorised to change the photo");
+
+            if (property == null || property.PostedBy != userId)
+                return BadRequest("No such property or photo exists");
+
+            var photo = property.Photos.FirstOrDefault(p => p.PublicId == photoPublicId);
+
+            if (photo == null)
+                return BadRequest("No such property or photo exists");
+
+            if (photo.IsPrimary)
+                return BadRequest("This is already a primary photo");
+
+
+            var currentPrimary = property.Photos.FirstOrDefault(p => p.IsPrimary);
+            if (currentPrimary != null) currentPrimary.IsPrimary = false;
+            photo.IsPrimary = true;
+
+            if (await _uow.SaveAsync()) return NoContent();
+
+            return BadRequest("Failed to set primary photo");
+        }
+
     }
 }
