@@ -1,73 +1,57 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
-import { catchError, concatMap, delay, Observable, of, retryWhen, throwError } from 'rxjs';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { AlertifyService } from './alertify.service';
-import { ErrorCode } from '../Enums/enums';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttpErrorInterceptorService implements HttpInterceptor { // Implement HttpInterceptor interface
-  constructor(private alertify: AlertifyService) {}
+export class HttpErrorInterceptorService implements HttpInterceptor {
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log('Intercepting request...');
-    return next.handle(request).pipe(
-      retryWhen(error => this.retryRequest(error, 5)),
-      catchError((error: HttpErrorResponse) => {
-        const errorMessage = this.setError(error);
-        console.log(error);
-        this.alertify.error(errorMessage);
-        return throwError(() => new Error(errorMessage)); // Use throwError with a new Error instance
-      })
-    );
+  constructor(private alertify: AlertifyService) { }
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
+    return next.handle(request)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          // Customize the error log, avoiding unnecessary details like statusText: OK
+          console.log(`Error: ${error.status} - ${error.message}`);
+
+          // Handle 401 Unauthorized errors
+          if (error.status === 401) {
+            // Show the server-provided error message, or use a fallback message
+            const apiErrorMessage = error.error?.errorMessage || 'Unauthorized access. Please check your login credentials.';
+            this.alertify.error(apiErrorMessage);  // Display the error message
+          } else {
+            // Display any other errors
+            this.alertify.error(this.setError(error));
+          }
+
+          // Return the error so it can be handled by the caller
+          return throwError(this.setError(error));
+        })
+      );
   }
-// Retry the requests in case of errors
-retryRequest(error: Observable<unknown>, retryCount: number): Observable<unknown> {
-  return error.pipe(
-    concatMap((err: unknown, count: number) => {
-      const checkErr = err as HttpErrorResponse; // Explicit cast to HttpErrorResponse
-      if(count <= retryCount){
-        switch(checkErr.status)
-        {
-          case ErrorCode.serverDown:
-            return of(checkErr).pipe(delay(1000));
 
-          case ErrorCode.unauthorised: 
-            return of(checkErr).pipe(delay(1000));
-        }
-    }
-    return throwError(checkErr);
-    })
-  );
-}
+  setError(error: HttpErrorResponse): string {
+    let errorMessage = 'An unknown error occurred';
 
-setError(error: HttpErrorResponse): string {
-  let errorMessage = 'An unknown error occurred';
-  
-  if (error.error instanceof ErrorEvent) {
-    // Client-side error
-    errorMessage = `Client-side error: ${error.error.message}`;
-  } else {
-    // Server-side error
-    if (error.status === 401) {
-      return error.statusText;
-    }
-    if (error.status !== 0) {
-      if (typeof error.error === 'string') {
-        // If the error response is a string (like "Property created successfully.")
-        errorMessage = error.error;
-      } else if (error.error.errorMessage) {
-        errorMessage = error.error.errorMessage;
-      } else {
-        errorMessage = `Server-side error: ${error.message}`;
-      }
+    if (error.error instanceof ErrorEvent) {
+      // Client-side error
+      errorMessage = `Error: ${error.error.message}`;
     } else {
-      errorMessage = 'Server is unreachable. Please try again later.';
+      // Server-side error
+      if (error.status === 401 && error.error?.errorMessage) {
+        // For 401 errors, return the server-provided message directly
+        return error.error.errorMessage;
+      } else {
+        // General error message handling for other statuses
+        errorMessage = error.error?.errorMessage || `Error Code: ${error.status}\nMessage: ${error.message}`;
+      }
     }
+
+    return errorMessage;
   }
-
-  return errorMessage;
-}
-
 }

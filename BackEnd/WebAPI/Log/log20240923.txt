@@ -7857,3 +7857,224 @@ WHERE [Id] = @p3;
 2024-09-23 23:40:21.332 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.SetPrimaryPhoto (WebAPI) in 132.603ms
 2024-09-23 23:40:21.335 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.SetPrimaryPhoto (WebAPI)'
 2024-09-23 23:40:21.338 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/nvny3eqndy07ldrxylpc - 204 null null 169.0626ms
+2024-09-23 23:56:41.155 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - null null
+2024-09-23 23:56:41.263 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:41.266 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 204 null null 242.3923ms
+2024-09-23 23:56:41.271 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - application/json 2
+2024-09-23 23:56:41.411 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:42.764 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:41'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-23 23:56:43.775 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:41'.
+2024-09-23 23:56:43.900 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-23 23:56:44.115 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-23 23:56:44.118 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 401 0 null 2847.0729ms
+2024-09-23 23:56:45.228 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - application/json 2
+2024-09-23 23:56:45.235 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:45.312 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:45'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-23 23:56:45.318 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:45'.
+2024-09-23 23:56:45.320 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-23 23:56:45.323 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-23 23:56:45.325 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 401 0 null 97.4901ms
+2024-09-23 23:56:46.389 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - null null
+2024-09-23 23:56:46.396 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:46.398 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 204 null null 9.4837ms
+2024-09-23 23:56:46.402 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - application/json 2
+2024-09-23 23:56:46.412 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:46.661 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:46'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-23 23:56:46.923 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:46'.
+2024-09-23 23:56:46.959 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-23 23:56:46.972 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-23 23:56:46.981 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 401 0 null 579.043ms
+2024-09-23 23:56:48.141 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - application/json 2
+2024-09-23 23:56:48.179 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:48.182 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:48'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-23 23:56:48.187 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:48'.
+2024-09-23 23:56:48.190 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-23 23:56:48.192 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-23 23:56:48.195 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 401 0 null 53.6913ms
+2024-09-23 23:56:49.698 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - application/json 2
+2024-09-23 23:56:49.869 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:49.899 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:49'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-23 23:56:49.922 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:49'.
+2024-09-23 23:56:49.925 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-23 23:56:49.927 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-23 23:56:49.929 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 401 0 null 231.1887ms
+2024-09-23 23:56:51.703 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - null null
+2024-09-23 23:56:51.710 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:51.712 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 204 null null 8.9552ms
+2024-09-23 23:56:51.715 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - application/json 2
+2024-09-23 23:56:51.725 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:51.924 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:51'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-23 23:56:51.930 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:51'.
+2024-09-23 23:56:51.962 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-23 23:56:51.965 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-23 23:56:51.967 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 401 0 null 252.0359ms
+2024-09-23 23:56:54.549 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - application/json 2
+2024-09-23 23:56:54.555 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:56:54.578 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:54'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-23 23:56:54.773 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:26:54'.
+2024-09-23 23:56:54.775 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-23 23:56:54.776 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-23 23:56:54.916 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 401 0 null 366.8712ms
+2024-09-23 23:59:07.532 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/detail/1 - null null
+2024-09-23 23:59:08.689 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:59:08.821 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-23 23:59:09.505 +05:30 [INF] Route matched with {action = "GetPropertyDetail", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyDetail(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-23 23:59:13.535 +05:30 [INF] Fetching property details for Property ID: 1
+2024-09-23 23:59:33.029 +05:30 [INF] Executed DbCommand (1,309ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [t].[Id], [t].[Address], [t].[Address2], [t].[Age], [t].[BHK], [t].[BuiltArea], [t].[CarpetArea], [t].[CityId], [t].[Description], [t].[EstPossessionOn], [t].[FloorNo], [t].[FurnishingTypeId], [t].[Gated], [t].[LastUpdatedOn], [t].[LatestUpdatedBy], [t].[MainEntrance], [t].[Maintenance], [t].[Name], [t].[PostedBy], [t].[PostedOn], [t].[Price], [t].[PropertyTypeId], [t].[ReadyToMove], [t].[Security], [t].[SellRent], [t].[TotalFloors], [t].[Id0], [t].[LastUpdatedOn0], [t].[LatestUpdatedBy0], [t].[Name0], [t].[Id1], [t].[Country], [t].[LastUpdatedOn1], [t].[LatestUpdatedBy1], [t].[Name1], [t].[Id2], [t].[LastUpdatedOn2], [t].[LatestUpdatedBy2], [t].[Name2], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id] AS [Id0], [p0].[LastUpdatedOn] AS [LastUpdatedOn0], [p0].[LatestUpdatedBy] AS [LatestUpdatedBy0], [p0].[Name] AS [Name0], [c].[Id] AS [Id1], [c].[Country], [c].[LastUpdatedOn] AS [LastUpdatedOn1], [c].[LatestUpdatedBy] AS [LatestUpdatedBy1], [c].[Name] AS [Name1], [f].[Id] AS [Id2], [f].[LastUpdatedOn] AS [LastUpdatedOn2], [f].[LatestUpdatedBy] AS [LatestUpdatedBy2], [f].[Name] AS [Name2]
+    FROM [Properties] AS [p]
+    INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+    INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+    INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Photos] AS [p1] ON [t].[Id] = [p1].[PropertyId]
+ORDER BY [t].[Id], [t].[Id0], [t].[Id1], [t].[Id2]
+2024-09-23 23:59:34.669 +05:30 [INF] Property details found for Property ID: 1
+2024-09-23 23:59:35.372 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.PropertyDetailDto'.
+2024-09-23 23:59:37.158 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI) in 27575.0493ms
+2024-09-23 23:59:37.162 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-23 23:59:37.169 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/detail/1 - 200 1167 application/json; charset=utf-8 29638.1012ms
+2024-09-23 23:59:37.347 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-23 23:59:37.772 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:59:37.776 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-23 23:59:37.842 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-23 23:59:38.014 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-23 23:59:39.902 +05:30 [INF] Executed DbCommand (828ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-09-23 23:59:40.337 +05:30 [INF] 1 properties found for SellRent value: 1
+2024-09-23 23:59:40.340 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-23 23:59:40.573 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 2726.71ms
+2024-09-23 23:59:40.577 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-23 23:59:40.580 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 329 application/json; charset=utf-8 3233.0491ms
+2024-09-23 23:59:42.305 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/2 - null null
+2024-09-23 23:59:42.311 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:59:42.313 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-23 23:59:42.316 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-23 23:59:42.342 +05:30 [INF] Fetching property list for SellRent value: 2
+2024-09-23 23:59:42.387 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-09-23 23:59:42.811 +05:30 [INF] 2 properties found for SellRent value: 2
+2024-09-23 23:59:42.814 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-23 23:59:43.050 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 728.9174ms
+2024-09-23 23:59:43.053 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-23 23:59:43.056 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/2 - 200 577 application/json; charset=utf-8 750.697ms
+2024-09-23 23:59:44.036 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-23 23:59:44.043 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:59:44.045 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-23 23:59:44.047 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-23 23:59:44.108 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-23 23:59:44.338 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-09-23 23:59:44.467 +05:30 [INF] 1 properties found for SellRent value: 1
+2024-09-23 23:59:44.521 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-23 23:59:44.524 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 473.2825ms
+2024-09-23 23:59:44.527 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-23 23:59:44.529 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 329 application/json; charset=utf-8 492.7504ms
+2024-09-23 23:59:53.766 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/detail/1 - null null
+2024-09-23 23:59:53.774 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:59:53.776 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-23 23:59:53.778 +05:30 [INF] Route matched with {action = "GetPropertyDetail", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyDetail(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-23 23:59:53.791 +05:30 [INF] Fetching property details for Property ID: 1
+2024-09-23 23:59:54.285 +05:30 [INF] Executed DbCommand (460ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [t].[Id], [t].[Address], [t].[Address2], [t].[Age], [t].[BHK], [t].[BuiltArea], [t].[CarpetArea], [t].[CityId], [t].[Description], [t].[EstPossessionOn], [t].[FloorNo], [t].[FurnishingTypeId], [t].[Gated], [t].[LastUpdatedOn], [t].[LatestUpdatedBy], [t].[MainEntrance], [t].[Maintenance], [t].[Name], [t].[PostedBy], [t].[PostedOn], [t].[Price], [t].[PropertyTypeId], [t].[ReadyToMove], [t].[Security], [t].[SellRent], [t].[TotalFloors], [t].[Id0], [t].[LastUpdatedOn0], [t].[LatestUpdatedBy0], [t].[Name0], [t].[Id1], [t].[Country], [t].[LastUpdatedOn1], [t].[LatestUpdatedBy1], [t].[Name1], [t].[Id2], [t].[LastUpdatedOn2], [t].[LatestUpdatedBy2], [t].[Name2], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id] AS [Id0], [p0].[LastUpdatedOn] AS [LastUpdatedOn0], [p0].[LatestUpdatedBy] AS [LatestUpdatedBy0], [p0].[Name] AS [Name0], [c].[Id] AS [Id1], [c].[Country], [c].[LastUpdatedOn] AS [LastUpdatedOn1], [c].[LatestUpdatedBy] AS [LatestUpdatedBy1], [c].[Name] AS [Name1], [f].[Id] AS [Id2], [f].[LastUpdatedOn] AS [LastUpdatedOn2], [f].[LatestUpdatedBy] AS [LatestUpdatedBy2], [f].[Name] AS [Name2]
+    FROM [Properties] AS [p]
+    INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+    INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+    INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Photos] AS [p1] ON [t].[Id] = [p1].[PropertyId]
+ORDER BY [t].[Id], [t].[Id0], [t].[Id1], [t].[Id2]
+2024-09-23 23:59:54.309 +05:30 [INF] Property details found for Property ID: 1
+2024-09-23 23:59:54.312 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.PropertyDetailDto'.
+2024-09-23 23:59:54.317 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI) in 533.8284ms
+2024-09-23 23:59:54.321 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-23 23:59:54.660 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/detail/1 - 200 1167 application/json; charset=utf-8 893.7417ms
+2024-09-23 23:59:58.542 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - null null
+2024-09-23 23:59:58.548 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:59:58.551 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 204 null null 8.8672ms
+2024-09-23 23:59:58.566 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - application/json 2
+2024-09-23 23:59:58.572 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:59:58.704 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:29:58'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-23 23:59:58.714 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:29:58'.
+2024-09-23 23:59:58.762 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-23 23:59:58.764 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-23 23:59:58.766 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 401 0 null 200.0673ms
+2024-09-23 23:59:59.792 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - application/json 2
+2024-09-23 23:59:59.798 +05:30 [INF] CORS policy execution successful.
+2024-09-23 23:59:59.801 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:29:59'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-23 23:59:59.806 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '23-09-2024 18:11:30', Current time (UTC): '23-09-2024 18:29:59'.
+2024-09-23 23:59:59.809 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-23 23:59:59.812 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-23 23:59:59.815 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Property/set-primary-photo/1/zvccqwayxxwqpllxywgn - 401 0 null 22.7902ms

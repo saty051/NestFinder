@@ -32,15 +32,16 @@ export class HousingService {
   }
 
   getAllProperties(SellRent?: number): Observable<Property[]> {
-    if(SellRent === undefined)
+    if (SellRent === undefined)
       return of([]);  // Handle undefined SellRent by returning an empty array
     return this.http.get<Property[]>(`${this.baseUrl}Property/list/${SellRent.toString()}`);
   }
 
   addProperty(property: Property) {
+    const token = localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({
-        Authorization: 'Bearer ' + localStorage.getItem('token')
+        Authorization: token ? `Bearer ${token}` : ''
       })
     };
     return this.http.post(`${this.baseUrl}Property/add`, property, httpOptions);
@@ -85,11 +86,22 @@ export class HousingService {
   }
 
   setPrimaryPhoto(propertyId: number, propertyPhotoId: string) {
+    const token = localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({
-        Authorization: 'Bearer ' + localStorage.getItem('token')
+        Authorization: token ? `Bearer ${token}` : ''
       })
     };
     return this.http.post(`${this.baseUrl}Property/set-primary-photo/${propertyId.toString()}/${propertyPhotoId}`, {}, httpOptions);
+  }
+
+  deletePhoto(propertyId: number, propertyPhotoId: string) {
+    const token = localStorage.getItem('token');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: token ? `Bearer ${token}` : ''
+      })
+    };
+    return this.http.delete(`${this.baseUrl}Property/delete-photo/${propertyId.toString()}/${propertyPhotoId}`, httpOptions);
   }
 }
