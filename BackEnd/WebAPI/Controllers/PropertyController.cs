@@ -114,7 +114,7 @@ namespace WebAPI.Controllers
         //Property/add/photo/1
         [HttpPost("add/photo/{propId}")]
         [Authorize]
-        public async Task<IActionResult> AddPropertyPhoto(IFormFile file, int propId)
+        public async Task<ActionResult<PhotoDto>> AddPropertyPhoto(IFormFile file, int propId)
         {
             _logger.LogInformation("Initiating photo upload for Property ID: {PropId}", propId);
 
@@ -162,10 +162,13 @@ namespace WebAPI.Controllers
             }
 
             property.Photos.Add(photo);
-            await _uow.SaveAsync();
+            if(await _uow.SaveAsync())
+            {
+                _logger.LogInformation("Photo added successfully to Property ID: {PropId}", propId);
+                return _mapper.Map<PhotoDto>(photo);
+            }
 
-            _logger.LogInformation("Photo added successfully to Property ID: {PropId}", propId);
-            return Ok(new { message = "Photo added successfully." });
+            return BadRequest("Some problem occured in uploading the photo, please retry");
         }
 
         //Property/set-primary-photo/1/sfdghghfh

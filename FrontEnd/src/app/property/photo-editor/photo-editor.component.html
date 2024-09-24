@@ -1,14 +1,39 @@
 <div class="row">
-    <div class="col-2" *ngFor="let photo of property.photos">
-        <img src="{{photo.imageUrl}}" alt="{{photo.imageUrl}}" class="img-thumbnail p-1">
-        <div class="text-cente">
-            <button class="btn btn-sm" 
-            [disabled]="photo.isPrimary" 
-            [ngClass]='photo.isPrimary ? "btn-success active":"btn-ouutline-success"'
-            (click)="setPrimaryPhoto(property.id, photo)">Main</button>
-            <button class="btn btn-sm btn-danger"
-            [disabled]="photo.isPrimary"
-            (click)="deletePhoto(property.id, photo)"><i class="fa fa-trash"></i></button>
-        </div>
+    <!-- Loop to display photos as image thumbnails -->
+    <div class="col-2 mb-3" *ngFor="let photo of property.photos">
+      <img src="{{ photo.imageUrl }}" alt="{{ photo.imageUrl }}" class="img-thumbnail p-1" />
+      <div class="text-center">
+        <button class="btn btn-sm" [disabled]="photo.isPrimary" [ngClass]="photo.isPrimary ? 'btn-success active' : 'btn-outline-success'" (click)="setPrimaryPhoto(property.id, photo)">
+          Main
+        </button>
+        <button class="btn btn-sm btn-danger" [disabled]="photo.isPrimary" (click)="deletePhoto(property.id, photo)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
     </div>
-</div>
+  
+    <!-- Upload Icon Section with matched size -->
+    <div class="col-2">
+      <div
+        ng2FileDrop
+        [uploader]="uploader"
+        class="upload-card text-center"
+        (click)="triggerFileInput()"
+        (keydown)="handleKeydown($event)"
+        tabindex="0"
+      >
+        <div class="upload-icon-container">
+          <i class="fa fa-upload fa-2x text-primary"></i>
+        </div>
+        <p class="text-muted">Drop Photos Here</p>
+      </div>
+      <!-- Hidden file input that will be triggered on icon click or Enter key press -->
+      <input type="file" #fileInput hidden (change)="onFileSelected($event)" multiple />
+  
+      <!-- Modern Progress bar -->
+      <div class="modern-progress-bar" *ngIf="uploadProgress > 0">
+        <div class="progress-bar-fill" [style.width]="uploadProgress + '%'">{{ uploadProgress }}%</div>
+      </div>
+    </div>
+  </div>
+  

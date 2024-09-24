@@ -26,6 +26,7 @@ import { FilterPipe } from './Pipes/filter.pipe';
 import { SortPipe } from './Pipes/sort.pipe';
 import { CommonModule, DatePipe } from '@angular/common';
 import { PhotoEditorComponent } from './property/photo-editor/photo-editor.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [	
@@ -53,7 +54,8 @@ import { PhotoEditorComponent } from './property/photo-editor/photo-editor.compo
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    NgxGalleryModule
+    NgxGalleryModule,
+    FileUploadModule
   ],
   providers: [
     {

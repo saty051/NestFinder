@@ -1,0 +1,72 @@
+/* Ensure the upload card size matches the image thumbnails */
+.upload-card {
+    cursor: pointer;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    height: 100%; /* Set to take full height of the parent container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .upload-card:hover {
+    background-color: #f8f9fa;
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Center the upload icon inside the card */
+  .upload-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Ensures the icon stays centered vertically */
+  }
+  
+  /* Upload icon customization */
+  .upload-card .fa-upload {
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  
+  .upload-card:hover .fa-upload {
+    color: #0056b3;
+  }
+  
+  /* Adjust the font size for the upload label */
+  .upload-card p {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* File drag over styling */
+  .nv-file-over {
+    border-color: #3f51b5;
+    background-color: rgba(63, 81, 181, 0.1);
+  }
+  
+  /* Progress Bar */
+  .modern-progress-bar {
+    position: relative;
+    height: 12px;
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .progress-bar-fill {
+    height: 100%;
+    background-color: #4caf50; /* Green modern color */
+    width: 0;
+    border-radius: inherit;
+    text-align: center;
+    line-height: 12px; /* Same as progress bar height for vertical alignment */
+    color: white;
+    font-size: 12px;
+    transition: width 0.4s ease-in-out;
+  }
+  
