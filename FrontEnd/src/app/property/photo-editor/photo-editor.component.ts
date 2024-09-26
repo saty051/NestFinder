@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @angular-eslint/use-lifecycle-interface */
-/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { HousingService } from 'src/app/services/housing.service';
 import { Photo } from 'src/app/model/photo';
@@ -67,13 +66,10 @@ export class PhotoEditorComponent {
     console.log('Property latestUpdatedBy:', this.property.latestUpdatedBy);
     console.log('Logged-in user ID:', this.authService.getUserId());
 
-    // Ensure that both IDs are numbers before comparing
-    if (Number(this.property.latestUpdatedBy) === Number(this.authService.getUserId())) {
-      console.log('User authorized to upload photos');
+    if (this.property.latestUpdatedBy === this.authService.getUserId()) {
       this.fileInput.nativeElement.click();
     } else {
-      console.log('Unauthorized access. Only the property owner can upload photos.');
-      this.alertify.error('Unauthorized access! Only the property owner can upload photos.');
+      this.alertify.error('You are not authorized to upload photos.');
     }
   }
 

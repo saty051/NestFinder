@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -12,24 +14,17 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit{
-[x: string]: unknown;
-  
  @ViewChild('loginForm') 
  loginForm!: NgForm;
 
  constructor(private authService: AuthService,
   private alertify: AlertifyService,
   private router: Router
-) {
-// Constructor logic will be added here later
-}
+) {}
 
-  ngOnInit() {
-    // Initialization logic will be added here later
-  }
-  
+  ngOnInit() {}
 
-  onLogin(){
+  onLogin() {
     console.log(this.loginForm.value);
     this.authService.authUser(this.loginForm.value).subscribe(
       (response: UserForLogin) => {
@@ -39,14 +34,10 @@ export class UserLoginComponent implements OnInit{
         localStorage.setItem('userName', user.userName);
         this.alertify.success("Login Successful");
         this.router.navigate(['/']);
+      },
+      (error) => {
+        this.alertify.error('You are not authorized to perform this action.');
       }
     );
-    // if(token){
-    //   localStorage.setItem('token', token.userName);
-    //   this.alertify.success("Login Successful");
-    //   this.router.navigate(['/']);
-    // } else {
-    //   this.alertify.error("User Name or Password is wrong");
-    // }
   }
 }
