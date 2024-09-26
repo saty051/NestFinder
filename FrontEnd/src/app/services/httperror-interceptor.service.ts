@@ -19,9 +19,11 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
           // Customize the error log, avoiding unnecessary details like statusText: OK
           console.log(`Error: ${error.status} - ${error.message}`);
 
-          // Handle 401 Unauthorized errors
-          if (error.status === 401) {
-            // Show the server-provided error message, or use a fallback message
+          // Handle network errors (e.g., server unreachable)
+          if (error.status === 0) {
+            this.alertify.error('Server is not reachable. Please try again later.');
+          } else if (error.status === 401) {
+            // Handle 401 Unauthorized errors
             const apiErrorMessage = error.error?.errorMessage || 'Unauthorized access. Please check your login credentials.';
             this.alertify.error(apiErrorMessage);  // Display the error message
           } else {

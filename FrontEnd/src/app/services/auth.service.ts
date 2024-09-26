@@ -1,23 +1,38 @@
-import { HttpClient } from '@angular/common/http';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
-import { UserForLogin, UserForRegister } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  authUser(user: UserForLogin): Observable<UserForLogin> {
-    return this.http.post<UserForLogin>(`${this.baseUrl}Account/login`, user);
+  // Method to decode JWT and get user information
+  getUserId(): number {
+    const token = localStorage.getItem('token');
+    console.log('JWT Token:', token); // Check if the token exists
+    if (!token) return 0;
+
+    const decodedToken: any = JSON.parse(atob(token.split('.')[1]));
+    console.log('Decoded Token:', decodedToken);  // Log the decoded token
+    return decodedToken.nameid;  // Assuming `nameid` contains the user's ID
   }
 
-  registerUser(user: UserForRegister): Observable<UserForRegister> {
-    return this.http.post<UserForRegister>(`${this.baseUrl}Account/register`, user);
+  authUser(user: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}Account/login`, user);
+  }
+
+  registerUser(user: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}Account/register`, user);
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token; // Return true if there is a token
   }
 }

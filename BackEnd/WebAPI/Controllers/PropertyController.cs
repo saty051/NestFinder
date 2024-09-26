@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using WebAPI.Models;
 using WebAPI.Dtos;
 using WebAPI.Interfaces;
-using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
@@ -69,7 +68,10 @@ namespace WebAPI.Controllers
                     return NotFound("No property details available.");
                 }
 
+                // Ensure latestUpdatedBy is included in the mapping
                 var propertyDto = _mapper.Map<PropertyDetailDto>(property);
+                propertyDto.LatestUpdatedBy = property.LatestUpdatedBy; // Ensure this is mapped
+
                 _logger.LogInformation("Property details found for Property ID: {Id}", id);
 
                 return Ok(propertyDto);
@@ -81,6 +83,7 @@ namespace WebAPI.Controllers
             }
         }
 
+        //Property/add
         [HttpPost("add")]
         [Authorize]
         public async Task<IActionResult> AddProperty(PropertyDto propertyDto)
@@ -89,19 +92,15 @@ namespace WebAPI.Controllers
 
             try
             {
-                // Map the DTO to the entity
                 var property = _mapper.Map<Property>(propertyDto);
                 var userId = GetUserId();
                 property.PostedBy = userId;
                 property.LatestUpdatedBy = userId;
 
-                // Add the property to the repository
                 _uow.PropertyRepository.AddProperty(property);
                 await _uow.SaveAsync();
 
                 _logger.LogInformation("Property added successfully with ID: {PropertyId}", property.Id);
-
-                // Return a successful response with a custom message
                 return StatusCode(201, new { message = "Property created successfully." });
             }
             catch (Exception ex)
@@ -116,33 +115,35 @@ namespace WebAPI.Controllers
         [Authorize]
         public async Task<ActionResult<PhotoDto>> AddPropertyPhoto(IFormFile file, int propId)
         {
-            _logger.LogInformation("Initiating photo upload for Property ID: {PropId}", propId);
+            var userId = GetUserId();
 
-            if (file == null || file.Length == 0)
-            {
-                _logger.LogWarning("No file uploaded for Property ID: {PropId}", propId);
-                return BadRequest("No file was uploaded.");
-            }
-
-            _logger.LogInformation("Uploading photo for Property ID: {PropId}", propId);
-            var result = await _photoService.UploadPhotoAsync(file);
-
-            if (result.Error != null)
-            {
-                _logger.LogError("Error uploading photo for Property ID: {PropId}. Error: {ErrorMessage}", propId, result.Error.Message);
-                return BadRequest(result.Error.Message);
-            }
-
-            _logger.LogInformation("Photo uploaded successfully. Fetching property details for Property ID: {PropId}", propId);
+            // Get the property by its ID
             var property = await _uow.PropertyRepository.GetPropertyByIdAsync(propId);
 
             if (property == null)
             {
-                _logger.LogWarning("Property with ID {PropId} not found.", propId);
                 return NotFound($"Property with ID {propId} not found.");
             }
 
-            _logger.LogInformation("Adding photo to Property ID: {PropId}", propId);
+            // Check if the logged-in user is the one who last updated the property
+            if (property.LatestUpdatedBy != userId)
+            {
+                return Unauthorized("You are not authorized to upload photos for this property.");
+            }
+
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("No file was uploaded.");
+            }
+
+            // Proceed with uploading the photo
+            var result = await _photoService.UploadPhotoAsync(file);
+
+            if (result.Error != null)
+            {
+                return BadRequest(result.Error.Message);
+            }
+
             var photo = new Photo
             {
                 ImageUrl = result.SecureUrl.AbsoluteUri,
@@ -151,25 +152,24 @@ namespace WebAPI.Controllers
 
             if (property.Photos == null)
             {
-                _logger.LogInformation("Initializing photo collection for Property ID: {PropId}", propId);
                 property.Photos = new List<Photo>();
             }
 
             if (property.Photos.Count == 0)
             {
-                _logger.LogInformation("Setting the uploaded photo as primary for Property ID: {PropId}", propId);
                 photo.IsPrimary = true;
             }
 
             property.Photos.Add(photo);
-            if(await _uow.SaveAsync())
+
+            if (await _uow.SaveAsync())
             {
-                _logger.LogInformation("Photo added successfully to Property ID: {PropId}", propId);
                 return _mapper.Map<PhotoDto>(photo);
             }
 
-            return BadRequest("Some problem occured in uploading the photo, please retry");
+            return BadRequest("Some problem occurred in uploading the photo, please retry.");
         }
+
 
         //Property/set-primary-photo/1/sfdghghfh
         [HttpPost("set-primary-photo/{propId}/{photoPublicId}")]
@@ -239,7 +239,5 @@ namespace WebAPI.Controllers
 
             return BadRequest("Failed to delete photo");
         }
-
-
     }
 }

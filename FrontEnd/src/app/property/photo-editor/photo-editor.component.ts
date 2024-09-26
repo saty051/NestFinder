@@ -8,6 +8,8 @@ import { Photo } from 'src/app/model/photo';
 import { Property } from 'src/app/model/property';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/services/auth.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-photo-editor',
@@ -24,7 +26,11 @@ export class PhotoEditorComponent {
   maxAllowedFileSize = 10 * 1024 * 1024;
   uploadProgress = 0; // Track the progress
 
-  constructor(private housingService: HousingService) {}
+  constructor(
+    private housingService: HousingService,
+    private authService: AuthService,
+    private alertify: AlertifyService
+  ) {}
 
   initializeFileUploader() {
     this.uploader = new FileUploader({
@@ -57,7 +63,18 @@ export class PhotoEditorComponent {
 
   // Trigger the hidden file input when the icon is clicked
   triggerFileInput() {
-    this.fileInput.nativeElement.click();
+    // Log to check authorization
+    console.log('Property latestUpdatedBy:', this.property.latestUpdatedBy);
+    console.log('Logged-in user ID:', this.authService.getUserId());
+
+    // Ensure that both IDs are numbers before comparing
+    if (Number(this.property.latestUpdatedBy) === Number(this.authService.getUserId())) {
+      console.log('User authorized to upload photos');
+      this.fileInput.nativeElement.click();
+    } else {
+      console.log('Unauthorized access. Only the property owner can upload photos.');
+      this.alertify.error('Unauthorized access! Only the property owner can upload photos.');
+    }
   }
 
   // Handle multiple files selected from the local machine
@@ -83,6 +100,7 @@ export class PhotoEditorComponent {
 
   ngOnInit(): void {
     this.initializeFileUploader();
+    console.log('Property details:', this.property);
   }
 
   setPrimaryPhoto(propertyId: number, photo: Photo) {
