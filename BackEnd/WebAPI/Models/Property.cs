@@ -45,5 +45,7 @@ namespace WebAPI.Models
         [ForeignKey("User")]
         public int PostedBy { get; set; }
         public User User { get; set; }
+
+        public ICollection<Like> Likes { get; set; }
     }
 }

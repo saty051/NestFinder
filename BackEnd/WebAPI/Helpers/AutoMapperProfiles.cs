@@ -25,6 +25,9 @@ namespace WebAPI.Helpers
                .ForMember(d => d.FurnishingType, opt => opt.MapFrom(src => src.FurnishingType.Name));
             CreateMap<PropertyType, KeyValuePairDto>().ReverseMap();
             CreateMap<FurnishingType, KeyValuePairDto>().ReverseMap();
+            CreateMap<Like, LikeDto>()
+               .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.Username))
+               .ForMember(dest => dest.PropertyName, opt => opt.MapFrom(src => src.Property.Name));
         }
     }
 }

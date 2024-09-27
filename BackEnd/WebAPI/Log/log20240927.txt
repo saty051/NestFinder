@@ -867,3 +867,791 @@ ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
 2024-09-27 02:47:01.975 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 627.0976ms
 2024-09-27 02:47:01.982 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
 2024-09-27 02:47:01.985 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 329 application/json; charset=utf-8 659.2608ms
+2024-09-27 12:52:21.702 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 12:52:22.453 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 13:15:00.365 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 13:15:28.088 +05:30 [INF] Executed DbCommand (1,564ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT 1
+2024-09-27 13:15:28.457 +05:30 [INF] Executed DbCommand (351ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-09-27 13:15:28.461 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT 1
+2024-09-27 13:15:28.462 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-09-27 13:15:32.291 +05:30 [INF] Executed DbCommand (3,797ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-09-27 13:15:32.320 +05:30 [INF] Applying migration '20240927072224_AddLikesCascadeDelete'.
+2024-09-27 13:15:35.894 +05:30 [ERR] Failed executing DbCommand (3,363ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+CREATE TABLE [Likes] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [PropertyId] int NOT NULL,
+    [LikedOn] datetime2 NOT NULL,
+    CONSTRAINT [PK_Likes] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Likes_Properties_PropertyId] FOREIGN KEY ([PropertyId]) REFERENCES [Properties] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Likes_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2024-09-27 13:24:15.936 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 13:24:20.796 +05:30 [INF] Executed DbCommand (301ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT 1
+2024-09-27 13:24:21.315 +05:30 [INF] Executed DbCommand (502ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-09-27 13:24:21.318 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT 1
+2024-09-27 13:24:21.319 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-09-27 13:24:21.784 +05:30 [INF] Executed DbCommand (436ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-09-27 13:24:21.804 +05:30 [INF] Applying migration '20240927072224_AddLikesCascadeDelete'.
+2024-09-27 13:24:22.363 +05:30 [INF] Executed DbCommand (441ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+CREATE TABLE [Likes] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [PropertyId] int NOT NULL,
+    [LikedOn] datetime2 NOT NULL,
+    CONSTRAINT [PK_Likes] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Likes_Properties_PropertyId] FOREIGN KEY ([PropertyId]) REFERENCES [Properties] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Likes_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id])
+);
+2024-09-27 13:24:22.874 +05:30 [INF] Executed DbCommand (510ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+CREATE INDEX [IX_Likes_PropertyId] ON [Likes] ([PropertyId]);
+2024-09-27 13:24:22.877 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+CREATE INDEX [IX_Likes_UserId] ON [Likes] ([UserId]);
+2024-09-27 13:24:23.180 +05:30 [INF] Executed DbCommand (303ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20240927072224_AddLikesCascadeDelete', N'8.0.8');
+2024-09-27 21:24:11.356 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-27 21:24:17.797 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-27 21:24:17.803 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-27 21:24:17.929 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-27 21:24:17.936 +05:30 [INF] Hosting environment: Development
+2024-09-27 21:24:17.942 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-27 21:24:42.917 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-27 21:24:44.606 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 1697.3672ms
+2024-09-27 21:24:44.841 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-27 21:24:44.842 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-27 21:24:44.851 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 9.7057ms
+2024-09-27 21:24:44.874 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 32.4792ms
+2024-09-27 21:24:45.250 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-27 21:24:45.840 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 590.6616ms
+2024-09-27 21:24:47.045 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-27 21:24:47.318 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 272.9486ms
+2024-09-27 21:26:32.715 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json-patch+json 50
+2024-09-27 21:26:32.752 +05:30 [INF] CORS policy execution successful.
+2024-09-27 21:26:33.613 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 21:26:33.661 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-09-27 21:26:34.833 +05:30 [INF] Login attempt for user Demo
+2024-09-27 21:26:36.235 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 21:26:41.627 +05:30 [INF] Executed DbCommand (576ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-09-27 21:26:41.892 +05:30 [INF] Login successful for user Demo
+2024-09-27 21:26:41.906 +05:30 [INF] Generating JWT for user Demo
+2024-09-27 21:26:42.017 +05:30 [INF] JWT generated successfully for user Demo
+2024-09-27 21:26:42.038 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.LoginResDto'.
+2024-09-27 21:26:42.174 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 8496.2896ms
+2024-09-27 21:26:42.182 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 21:26:42.209 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 200 227 application/json; charset=utf-8 9493.3873ms
+2024-09-27 21:27:20.134 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Like/1 - null 0
+2024-09-27 21:27:20.154 +05:30 [INF] CORS policy execution successful.
+2024-09-27 21:27:20.279 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.AddLike (WebAPI)'
+2024-09-27 21:27:20.291 +05:30 [INF] Route matched with {action = "AddLike", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddLike(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 22:44:32.069 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-27 22:44:32.903 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-27 22:44:32.910 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-27 22:44:33.030 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-27 22:44:33.037 +05:30 [INF] Hosting environment: Development
+2024-09-27 22:44:33.043 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-27 22:44:54.546 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-27 22:44:55.507 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 961.1101ms
+2024-09-27 22:45:02.437 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-27 22:45:02.448 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 10.688ms
+2024-09-27 22:45:02.490 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-27 22:45:02.491 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-27 22:45:02.519 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 28.0794ms
+2024-09-27 22:45:02.761 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 269.6323ms
+2024-09-27 22:45:06.049 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-27 22:45:06.228 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 178.9967ms
+2024-09-27 22:47:31.798 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json-patch+json 54
+2024-09-27 22:47:31.819 +05:30 [INF] CORS policy execution successful.
+2024-09-27 22:47:32.096 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 22:47:32.153 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-09-27 22:47:32.847 +05:30 [INF] Login attempt for user Anupam
+2024-09-27 22:47:36.549 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 22:47:53.139 +05:30 [ERR] An error occurred using the connection to database 'NestFinder' on server 'SatyamPC\SQLEXPRESS'.
+2024-09-27 22:47:53.701 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'WebAPI.Data.DataContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=777; handshake=1972; [Login] initialization=4; authentication=7; [Post-Login] complete=12025; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:a2e7cf75-1461-429c-8614-876c4a7b7701
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=777; handshake=1972; [Login] initialization=4; authentication=7; [Post-Login] complete=12025; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:a2e7cf75-1461-429c-8614-876c4a7b7701
+Error Number:-2,State:0,Class:11
+2024-09-27 22:47:54.528 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 22347.5386ms
+2024-09-27 22:47:54.535 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 22:48:03.748 +05:30 [ERR] Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=777; handshake=1972; [Login] initialization=4; authentication=7; [Post-Login] complete=12025; 
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=777; handshake=1972; [Login] initialization=4; authentication=7; [Post-Login] complete=12025; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at WebAPI.Data.Repo.UserRepository.Authenticate(String username, String passwordText) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Data\Repo\UserRepository.cs:line 20
+   at WebAPI.Controllers.AccountController.Login(LoginReqDto loginReq) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Controllers\AccountController.cs:line 36
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at WebAPI.Middlewares.ExceptionMiddleware.Invoke(HttpContext context) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Middlewares\ExceptionMiddleware.cs:line 26
+ClientConnectionId:a2e7cf75-1461-429c-8614-876c4a7b7701
+Error Number:-2,State:0,Class:11
+2024-09-27 22:48:03.859 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 500 null application/json 32061.5874ms
+2024-09-27 22:49:22.116 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-27 22:49:24.359 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-27 22:49:24.365 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-27 22:49:24.637 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-27 22:49:24.644 +05:30 [INF] Hosting environment: Development
+2024-09-27 22:49:24.651 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-27 22:49:37.337 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-27 22:49:38.028 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 694.7826ms
+2024-09-27 22:49:38.076 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-27 22:49:38.076 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-27 22:49:38.098 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 22.0299ms
+2024-09-27 22:49:38.120 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 44.6505ms
+2024-09-27 22:49:38.260 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-27 22:49:38.403 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 143.9909ms
+2024-09-27 22:49:43.750 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-27 22:49:44.038 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 287.0374ms
+2024-09-27 22:50:14.611 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json-patch+json 54
+2024-09-27 22:50:14.643 +05:30 [INF] CORS policy execution successful.
+2024-09-27 22:50:14.759 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 22:50:14.823 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-09-27 22:50:15.906 +05:30 [INF] Login attempt for user Anupam
+2024-09-27 22:50:17.760 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 22:50:31.381 +05:30 [INF] Executed DbCommand (913ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-09-27 22:50:31.541 +05:30 [INF] Login successful for user Anupam
+2024-09-27 22:50:31.548 +05:30 [INF] Generating JWT for user Anupam
+2024-09-27 22:50:31.611 +05:30 [INF] JWT generated successfully for user Anupam
+2024-09-27 22:50:31.623 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.LoginResDto'.
+2024-09-27 22:50:31.682 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 16846.3828ms
+2024-09-27 22:50:31.686 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 22:50:31.703 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 200 231 application/json; charset=utf-8 17091.3479ms
+2024-09-27 22:51:04.905 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/property/1 - null null
+2024-09-27 22:51:05.005 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 22:51:05.014 +05:30 [INF] Route matched with {action = "GetLikesForProperty", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLikesForProperty(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 22:51:05.153 +05:30 [INF] Fetching likes for property with ID 1.
+2024-09-27 22:51:05.404 +05:30 [INF] Executed DbCommand (211ms) [Parameters=[@__propertyId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[PropertyId] = @__propertyId_0
+2024-09-27 22:51:05.414 +05:30 [INF] No likes found for property with ID 1.
+2024-09-27 22:51:05.417 +05:30 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2024-09-27 22:51:05.422 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI) in 404.3834ms
+2024-09-27 22:51:05.425 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 22:51:05.427 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/property/1 - 404 null text/plain; charset=utf-8 523.5004ms
+2024-09-27 22:51:23.485 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Like/1 - null 0
+2024-09-27 22:51:23.528 +05:30 [INF] CORS policy execution successful.
+2024-09-27 22:51:23.542 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.AddLike (WebAPI)'
+2024-09-27 22:51:23.549 +05:30 [INF] Route matched with {action = "AddLike", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddLike(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 22:51:23.567 +05:30 [INF] Attempting to add a like by user ID 5 for property ID 1.
+2024-09-27 22:51:23.692 +05:30 [INF] Executed DbCommand (39ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__propertyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[UserId] = @__userId_0 AND [l].[PropertyId] = @__propertyId_1
+2024-09-27 22:51:24.086 +05:30 [INF] Executed DbCommand (223ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Likes] ([LikedOn], [PropertyId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2024-09-27 22:51:24.136 +05:30 [INF] User ID 5 successfully liked property ID 1.
+2024-09-27 22:51:24.140 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-27 22:51:24.144 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.AddLike (WebAPI) in 590.6766ms
+2024-09-27 22:51:24.147 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.AddLike (WebAPI)'
+2024-09-27 22:51:24.150 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Like/1 - 200 null text/plain; charset=utf-8 664.4656ms
+2024-09-27 22:51:35.681 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/property/1 - null null
+2024-09-27 22:51:35.690 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 22:51:35.693 +05:30 [INF] Route matched with {action = "GetLikesForProperty", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLikesForProperty(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 22:51:35.702 +05:30 [INF] Fetching likes for property with ID 1.
+2024-09-27 22:51:35.971 +05:30 [INF] Executed DbCommand (258ms) [Parameters=[@__propertyId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[PropertyId] = @__propertyId_0
+2024-09-27 22:51:35.999 +05:30 [INF] 1 likes found for property with ID 1.
+2024-09-27 22:51:36.001 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 22:51:36.020 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI) in 322.6829ms
+2024-09-27 22:51:36.024 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 22:51:36.028 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/property/1 - 200 105 application/json; charset=utf-8 346.5935ms
+2024-09-27 22:52:33.716 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:7177/api/Like/1 - null null
+2024-09-27 22:52:33.747 +05:30 [INF] CORS policy execution successful.
+2024-09-27 22:52:33.751 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.RemoveLike (WebAPI)'
+2024-09-27 22:52:33.761 +05:30 [INF] Route matched with {action = "RemoveLike", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RemoveLike(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 22:52:33.902 +05:30 [INF] Executed DbCommand (128ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__propertyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[UserId] = @__userId_0 AND [l].[PropertyId] = @__propertyId_1
+2024-09-27 22:52:34.552 +05:30 [INF] Executed DbCommand (619ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Likes]
+OUTPUT 1
+WHERE [Id] = @p0;
+2024-09-27 22:52:34.565 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-27 22:52:34.567 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.RemoveLike (WebAPI) in 801.418ms
+2024-09-27 22:52:34.570 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.RemoveLike (WebAPI)'
+2024-09-27 22:52:34.573 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:7177/api/Like/1 - 200 null text/plain; charset=utf-8 857.1531ms
+2024-09-27 22:52:55.408 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/property/1 - null null
+2024-09-27 22:52:55.444 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 22:52:55.447 +05:30 [INF] Route matched with {action = "GetLikesForProperty", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLikesForProperty(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 22:52:55.455 +05:30 [INF] Fetching likes for property with ID 1.
+2024-09-27 22:52:55.649 +05:30 [INF] Executed DbCommand (187ms) [Parameters=[@__propertyId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[PropertyId] = @__propertyId_0
+2024-09-27 22:52:55.659 +05:30 [INF] No likes found for property with ID 1.
+2024-09-27 22:52:55.662 +05:30 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2024-09-27 22:52:55.666 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI) in 216.0014ms
+2024-09-27 22:52:55.670 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 22:52:55.673 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/property/1 - 404 null text/plain; charset=utf-8 264.3974ms
+2024-09-27 23:08:16.977 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-27 23:08:18.217 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-27 23:08:18.223 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-27 23:08:18.357 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-27 23:08:18.363 +05:30 [INF] Hosting environment: Development
+2024-09-27 23:08:18.369 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-27 23:08:39.262 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-27 23:08:43.915 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 4652.9744ms
+2024-09-27 23:08:45.751 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-27 23:08:45.751 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-27 23:08:45.805 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 54.044ms
+2024-09-27 23:08:45.823 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 72.5577ms
+2024-09-27 23:08:47.025 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-27 23:08:48.895 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1870.244ms
+2024-09-27 23:08:49.027 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-27 23:08:49.282 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 255.1732ms
+2024-09-27 23:09:24.817 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json-patch+json 54
+2024-09-27 23:09:24.847 +05:30 [INF] CORS policy execution successful.
+2024-09-27 23:09:25.081 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 23:09:25.157 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-09-27 23:09:25.752 +05:30 [INF] Login attempt for user Anupam
+2024-09-27 23:09:27.120 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 23:09:32.219 +05:30 [INF] Executed DbCommand (482ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-09-27 23:09:32.361 +05:30 [INF] Login successful for user Anupam
+2024-09-27 23:09:32.369 +05:30 [INF] Generating JWT for user Anupam
+2024-09-27 23:09:32.426 +05:30 [INF] JWT generated successfully for user Anupam
+2024-09-27 23:09:32.440 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.LoginResDto'.
+2024-09-27 23:09:32.496 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 7328.4671ms
+2024-09-27 23:09:32.500 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 23:09:32.515 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 200 231 application/json; charset=utf-8 7697.7126ms
+2024-09-27 23:10:17.692 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Like/1 - null 0
+2024-09-27 23:10:17.707 +05:30 [INF] CORS policy execution successful.
+2024-09-27 23:10:17.806 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.AddLike (WebAPI)'
+2024-09-27 23:10:17.821 +05:30 [INF] Route matched with {action = "AddLike", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddLike(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:10:17.985 +05:30 [INF] Attempting to add a like by user ID 5 for property ID 1.
+2024-09-27 23:10:18.543 +05:30 [INF] Executed DbCommand (523ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__propertyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[UserId] = @__userId_0 AND [l].[PropertyId] = @__propertyId_1
+2024-09-27 23:10:18.901 +05:30 [INF] Executed DbCommand (168ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Likes] ([LikedOn], [PropertyId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2024-09-27 23:10:18.942 +05:30 [INF] User ID 5 successfully liked property ID 1.
+2024-09-27 23:10:18.947 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-27 23:10:18.949 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.AddLike (WebAPI) in 1124.8752ms
+2024-09-27 23:10:18.953 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.AddLike (WebAPI)'
+2024-09-27 23:10:18.955 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Like/1 - 200 null text/plain; charset=utf-8 1266.6813ms
+2024-09-27 23:10:31.288 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/property/1 - null null
+2024-09-27 23:10:31.308 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:10:31.316 +05:30 [INF] Route matched with {action = "GetLikesForProperty", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLikesForProperty(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:10:31.329 +05:30 [INF] Fetching likes for property with ID 1.
+2024-09-27 23:10:31.553 +05:30 [INF] Executed DbCommand (30ms) [Parameters=[@__propertyId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[PropertyId] = @__propertyId_0
+2024-09-27 23:10:31.646 +05:30 [INF] 1 likes found for property with ID 1.
+2024-09-27 23:10:31.649 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:10:31.663 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI) in 342.6105ms
+2024-09-27 23:10:31.666 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:10:31.670 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/property/1 - 200 123 application/json; charset=utf-8 381.8906ms
+2024-09-27 23:10:51.665 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/user/5 - null null
+2024-09-27 23:10:51.691 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:10:51.696 +05:30 [INF] Route matched with {action = "GetUserLikedProperties", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserLikedProperties(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:10:51.706 +05:30 [INF] Fetching liked properties for user ID 5.
+2024-09-27 23:10:51.773 +05:30 [INF] Executed DbCommand (44ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[UserId] = @__userId_0
+2024-09-27 23:10:51.784 +05:30 [INF] 1 liked properties found for user ID 5.
+2024-09-27 23:10:51.786 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:10:51.789 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI) in 88.957ms
+2024-09-27 23:10:51.792 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:10:51.794 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/user/5 - 200 123 application/json; charset=utf-8 129.7263ms
+2024-09-27 23:16:56.404 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-27 23:16:57.029 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-27 23:16:57.033 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-27 23:16:57.157 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-27 23:16:57.165 +05:30 [INF] Hosting environment: Development
+2024-09-27 23:16:57.173 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-27 23:17:04.054 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-27 23:17:06.721 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 2669.3835ms
+2024-09-27 23:17:06.854 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-27 23:17:06.854 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-27 23:17:06.875 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 20.5752ms
+2024-09-27 23:17:06.899 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 44.9615ms
+2024-09-27 23:17:07.407 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-27 23:17:07.582 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 174.9777ms
+2024-09-27 23:17:08.248 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-27 23:17:08.550 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 302.4624ms
+2024-09-27 23:17:38.829 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json-patch+json 54
+2024-09-27 23:17:38.901 +05:30 [INF] CORS policy execution successful.
+2024-09-27 23:17:39.152 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 23:17:39.205 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-09-27 23:17:39.989 +05:30 [INF] Login attempt for user Anupam
+2024-09-27 23:17:41.590 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 23:17:46.599 +05:30 [INF] Executed DbCommand (362ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-09-27 23:17:46.748 +05:30 [INF] Login successful for user Anupam
+2024-09-27 23:17:46.755 +05:30 [INF] Generating JWT for user Anupam
+2024-09-27 23:17:46.828 +05:30 [INF] JWT generated successfully for user Anupam
+2024-09-27 23:17:46.842 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.LoginResDto'.
+2024-09-27 23:17:46.901 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 7683.3112ms
+2024-09-27 23:17:46.906 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 23:17:46.923 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 200 231 application/json; charset=utf-8 8093.7863ms
+2024-09-27 23:18:27.979 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/property/1 - null null
+2024-09-27 23:18:28.099 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:18:28.110 +05:30 [INF] Route matched with {action = "GetLikesForProperty", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLikesForProperty(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:18:28.288 +05:30 [INF] Fetching likes for property with ID 1.
+2024-09-27 23:18:29.496 +05:30 [INF] Executed DbCommand (1,041ms) [Parameters=[@__propertyId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[PropertyId] = @__propertyId_0
+2024-09-27 23:18:29.628 +05:30 [INF] 1 likes found for property with ID 1.
+2024-09-27 23:18:29.631 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:18:29.646 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI) in 1530.5533ms
+2024-09-27 23:18:29.649 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:18:29.653 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/property/1 - 200 108 application/json; charset=utf-8 1673.0119ms
+2024-09-27 23:18:46.821 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/user/5 - null null
+2024-09-27 23:18:46.840 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:18:46.848 +05:30 [INF] Route matched with {action = "GetUserLikedProperties", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserLikedProperties(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:18:46.861 +05:30 [INF] Fetching liked properties for user ID 5.
+2024-09-27 23:18:46.969 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[UserId] = @__userId_0
+2024-09-27 23:18:46.979 +05:30 [INF] 1 liked properties found for user ID 5.
+2024-09-27 23:18:46.983 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:18:46.986 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI) in 132.9764ms
+2024-09-27 23:18:46.989 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:18:46.991 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/user/5 - 200 108 application/json; charset=utf-8 170.8244ms
+2024-09-27 23:18:48.808 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/user/5 - null null
+2024-09-27 23:18:48.821 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:18:48.824 +05:30 [INF] Route matched with {action = "GetUserLikedProperties", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserLikedProperties(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:18:48.833 +05:30 [INF] Fetching liked properties for user ID 5.
+2024-09-27 23:18:48.876 +05:30 [INF] Executed DbCommand (31ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[UserId] = @__userId_0
+2024-09-27 23:18:48.884 +05:30 [INF] 1 liked properties found for user ID 5.
+2024-09-27 23:18:48.888 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:18:48.891 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI) in 61.7697ms
+2024-09-27 23:18:48.894 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:18:48.896 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/user/5 - 200 108 application/json; charset=utf-8 89.1859ms
+2024-09-27 23:19:10.454 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Like/2 - null 0
+2024-09-27 23:19:10.461 +05:30 [INF] CORS policy execution successful.
+2024-09-27 23:19:10.463 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.AddLike (WebAPI)'
+2024-09-27 23:19:10.468 +05:30 [INF] Route matched with {action = "AddLike", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddLike(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:19:10.479 +05:30 [INF] Attempting to add a like by user ID 5 for property ID 2.
+2024-09-27 23:19:10.567 +05:30 [INF] Executed DbCommand (60ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__propertyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[UserId] = @__userId_0 AND [l].[PropertyId] = @__propertyId_1
+2024-09-27 23:19:10.864 +05:30 [INF] Executed DbCommand (125ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Likes] ([LikedOn], [PropertyId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2024-09-27 23:19:10.907 +05:30 [INF] User ID 5 successfully liked property ID 2.
+2024-09-27 23:19:10.910 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-27 23:19:10.913 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.AddLike (WebAPI) in 440.4499ms
+2024-09-27 23:19:10.916 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.AddLike (WebAPI)'
+2024-09-27 23:19:10.918 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Like/2 - 200 null text/plain; charset=utf-8 464.2386ms
+2024-09-27 23:19:21.026 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/user/5 - null null
+2024-09-27 23:19:21.032 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:19:21.034 +05:30 [INF] Route matched with {action = "GetUserLikedProperties", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserLikedProperties(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:19:21.041 +05:30 [INF] Fetching liked properties for user ID 5.
+2024-09-27 23:19:21.079 +05:30 [INF] Executed DbCommand (31ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[UserId] = @__userId_0
+2024-09-27 23:19:21.088 +05:30 [INF] 2 liked properties found for user ID 5.
+2024-09-27 23:19:21.091 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:19:21.094 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI) in 57.2524ms
+2024-09-27 23:19:21.096 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:19:21.099 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/user/5 - 200 215 application/json; charset=utf-8 73.268ms
+2024-09-27 23:31:43.980 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7177/api/Like/property/1 - null null
+2024-09-27 23:31:45.119 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:31:45.234 +05:30 [INF] Route matched with {action = "GetLikesForProperty", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLikesForProperty(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:31:45.675 +05:30 [INF] Fetching likes for property with ID 1.
+2024-09-27 23:31:53.362 +05:30 [INF] Executed DbCommand (1,364ms) [Parameters=[@__propertyId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[PropertyId] = @__propertyId_0
+2024-09-27 23:31:53.985 +05:30 [INF] 1 likes found for property with ID 1.
+2024-09-27 23:31:54.082 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:31:55.921 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI) in 10635.4143ms
+2024-09-27 23:31:55.935 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:31:55.978 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7177/api/Like/property/1 - 200 108 application/json; charset=utf-8 12198.8922ms
+2024-09-27 23:31:57.438 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/property/1 - null null
+2024-09-27 23:31:58.885 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:31:58.890 +05:30 [INF] Route matched with {action = "GetLikesForProperty", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLikesForProperty(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:31:58.940 +05:30 [INF] Fetching likes for property with ID 1.
+2024-09-27 23:32:01.261 +05:30 [INF] Executed DbCommand (1,870ms) [Parameters=[@__propertyId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[PropertyId] = @__propertyId_0
+2024-09-27 23:32:01.380 +05:30 [INF] 1 likes found for property with ID 1.
+2024-09-27 23:32:01.383 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:32:01.455 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI) in 2557.4156ms
+2024-09-27 23:32:01.461 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:32:01.470 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/property/1 - 200 108 application/json; charset=utf-8 4032.2275ms
+2024-09-27 23:36:56.578 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Like/property/2 - null null
+2024-09-27 23:36:57.462 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '27-09-2024 17:57:46', Current time (UTC): '27-09-2024 18:06:56'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-27 23:36:59.852 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '27-09-2024 17:57:46', Current time (UTC): '27-09-2024 18:06:56'.
+2024-09-27 23:36:59.876 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:36:59.881 +05:30 [INF] Route matched with {action = "GetLikesForProperty", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLikesForProperty(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:36:59.898 +05:30 [INF] Fetching likes for property with ID 2.
+2024-09-27 23:37:00.620 +05:30 [INF] Executed DbCommand (591ms) [Parameters=[@__propertyId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[PropertyId] = @__propertyId_0
+2024-09-27 23:37:00.676 +05:30 [INF] 1 likes found for property with ID 2.
+2024-09-27 23:37:00.682 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:37:00.702 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI) in 813.1805ms
+2024-09-27 23:37:00.710 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:37:00.715 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Like/property/2 - 200 108 application/json; charset=utf-8 4136.9976ms
+2024-09-27 23:37:14.349 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:7177/api/Like/2 - null null
+2024-09-27 23:37:14.362 +05:30 [INF] CORS policy execution successful.
+2024-09-27 23:37:14.369 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '27-09-2024 17:57:46', Current time (UTC): '27-09-2024 18:07:14'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-27 23:37:14.384 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '27-09-2024 17:57:46', Current time (UTC): '27-09-2024 18:07:14'.
+2024-09-27 23:37:14.401 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-27 23:37:14.474 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-27 23:37:14.491 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:7177/api/Like/2 - 401 0 null 141.6956ms
+2024-09-27 23:38:04.514 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json-patch+json 54
+2024-09-27 23:38:04.561 +05:30 [INF] CORS policy execution successful.
+2024-09-27 23:38:04.794 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '27-09-2024 17:57:46', Current time (UTC): '27-09-2024 18:08:04'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-27 23:38:04.803 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '27-09-2024 17:57:46', Current time (UTC): '27-09-2024 18:08:04'.
+2024-09-27 23:38:04.825 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 23:38:04.831 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-09-27 23:38:05.204 +05:30 [INF] Login attempt for user Anupam
+2024-09-27 23:38:05.564 +05:30 [INF] Executed DbCommand (282ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-09-27 23:38:05.695 +05:30 [INF] Login successful for user Anupam
+2024-09-27 23:38:05.706 +05:30 [INF] Generating JWT for user Anupam
+2024-09-27 23:38:05.856 +05:30 [INF] JWT generated successfully for user Anupam
+2024-09-27 23:38:05.862 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.LoginResDto'.
+2024-09-27 23:38:05.870 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 1029.7695ms
+2024-09-27 23:38:05.875 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-09-27 23:38:05.883 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 200 231 application/json; charset=utf-8 1369.3965ms
+2024-09-27 23:38:29.192 +05:30 [INF] Request starting HTTP/2 DELETE https://localhost:7177/api/Like/2 - null null
+2024-09-27 23:38:29.212 +05:30 [INF] CORS policy execution successful.
+2024-09-27 23:38:29.242 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.RemoveLike (WebAPI)'
+2024-09-27 23:38:29.957 +05:30 [INF] Route matched with {action = "RemoveLike", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RemoveLike(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:38:30.277 +05:30 [INF] Executed DbCommand (114ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__propertyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[UserId] = @__userId_0 AND [l].[PropertyId] = @__propertyId_1
+2024-09-27 23:38:31.464 +05:30 [INF] Executed DbCommand (351ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Likes]
+OUTPUT 1
+WHERE [Id] = @p0;
+2024-09-27 23:38:31.521 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-27 23:38:31.526 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.RemoveLike (WebAPI) in 1562.1329ms
+2024-09-27 23:38:31.531 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.RemoveLike (WebAPI)'
+2024-09-27 23:38:31.537 +05:30 [INF] Request finished HTTP/2 DELETE https://localhost:7177/api/Like/2 - 200 null text/plain; charset=utf-8 2344.9415ms
+2024-09-27 23:38:39.984 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7177/api/Like/2 - null 0
+2024-09-27 23:38:40.035 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-27 23:38:40.038 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-27 23:38:40.041 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7177/api/Like/2 - 401 0 null 57.4814ms
+2024-09-27 23:39:11.080 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7177/api/Like/2 - null 0
+2024-09-27 23:39:11.981 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.AddLike (WebAPI)'
+2024-09-27 23:39:11.984 +05:30 [INF] Route matched with {action = "AddLike", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddLike(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:39:12.155 +05:30 [INF] Attempting to add a like by user ID 5 for property ID 2.
+2024-09-27 23:39:13.772 +05:30 [INF] Executed DbCommand (1,586ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__propertyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[UserId] = @__userId_0 AND [l].[PropertyId] = @__propertyId_1
+2024-09-27 23:39:15.154 +05:30 [INF] Executed DbCommand (699ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Likes] ([LikedOn], [PropertyId], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2024-09-27 23:39:15.949 +05:30 [INF] User ID 5 successfully liked property ID 2.
+2024-09-27 23:39:15.952 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-27 23:39:16.037 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.AddLike (WebAPI) in 4047.2218ms
+2024-09-27 23:39:16.041 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.AddLike (WebAPI)'
+2024-09-27 23:39:16.044 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7177/api/Like/2 - 200 null text/plain; charset=utf-8 4963.6739ms
+2024-09-27 23:39:28.438 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7177/api/Like/property/2 - null null
+2024-09-27 23:39:28.458 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:39:28.463 +05:30 [INF] Route matched with {action = "GetLikesForProperty", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLikesForProperty(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:39:28.509 +05:30 [INF] Fetching likes for property with ID 2.
+2024-09-27 23:39:30.217 +05:30 [INF] Executed DbCommand (1,667ms) [Parameters=[@__propertyId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[PropertyId] = @__propertyId_0
+2024-09-27 23:39:30.257 +05:30 [INF] 1 likes found for property with ID 2.
+2024-09-27 23:39:30.263 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:39:30.340 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI) in 1869.7314ms
+2024-09-27 23:39:30.348 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetLikesForProperty (WebAPI)'
+2024-09-27 23:39:30.368 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7177/api/Like/property/2 - 200 108 application/json; charset=utf-8 1919.5592ms
+2024-09-27 23:40:50.836 +05:30 [INF] Request starting HTTP/1.1 DELETE https://localhost:7177/api/Like/2 - null null
+2024-09-27 23:40:50.869 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-27 23:40:50.872 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-27 23:40:50.875 +05:30 [INF] Request finished HTTP/1.1 DELETE https://localhost:7177/api/Like/2 - 401 0 null 38.4584ms
+2024-09-27 23:41:49.325 +05:30 [INF] Request starting HTTP/1.1 DELETE https://localhost:7177/api/Like/2 - null null
+2024-09-27 23:41:49.342 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.RemoveLike (WebAPI)'
+2024-09-27 23:41:49.349 +05:30 [INF] Route matched with {action = "RemoveLike", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RemoveLike(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:41:49.595 +05:30 [INF] Executed DbCommand (181ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__propertyId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId]
+FROM [Likes] AS [l]
+WHERE [l].[UserId] = @__userId_0 AND [l].[PropertyId] = @__propertyId_1
+2024-09-27 23:41:49.638 +05:30 [INF] Executed DbCommand (29ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Likes]
+OUTPUT 1
+WHERE [Id] = @p0;
+2024-09-27 23:41:49.646 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-27 23:41:49.652 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.RemoveLike (WebAPI) in 293.0148ms
+2024-09-27 23:41:49.655 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.RemoveLike (WebAPI)'
+2024-09-27 23:41:49.659 +05:30 [INF] Request finished HTTP/1.1 DELETE https://localhost:7177/api/Like/2 - 200 null text/plain; charset=utf-8 333.5056ms
+2024-09-27 23:43:28.273 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7177/api/Like/user/5 - null null
+2024-09-27 23:43:28.284 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-27 23:43:28.297 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-27 23:43:28.300 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7177/api/Like/user/5 - 401 0 null 27.4204ms
+2024-09-27 23:43:48.903 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7177/api/Like/user/5 - null null
+2024-09-27 23:43:48.941 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:43:48.945 +05:30 [INF] Route matched with {action = "GetUserLikedProperties", controller = "Like"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserLikedProperties(Int32) on controller WebAPI.Controllers.LikeController (WebAPI).
+2024-09-27 23:43:48.985 +05:30 [INF] Fetching liked properties for user ID 5.
+2024-09-27 23:43:49.115 +05:30 [INF] Executed DbCommand (104ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [l].[Id], [l].[LikedOn], [l].[PropertyId], [l].[UserId], [u].[Id], [u].[LastUpdatedOn], [u].[LatestUpdatedBy], [u].[Password], [u].[PasswordKey], [u].[Username], [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors]
+FROM [Likes] AS [l]
+INNER JOIN [Users] AS [u] ON [l].[UserId] = [u].[Id]
+INNER JOIN [Properties] AS [p] ON [l].[PropertyId] = [p].[Id]
+WHERE [l].[UserId] = @__userId_0
+2024-09-27 23:43:49.166 +05:30 [INF] 1 liked properties found for user ID 5.
+2024-09-27 23:43:49.170 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.LikeDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:43:49.176 +05:30 [INF] Executed action WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI) in 214.498ms
+2024-09-27 23:43:49.180 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.LikeController.GetUserLikedProperties (WebAPI)'
+2024-09-27 23:43:49.183 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7177/api/Like/user/5 - 200 108 application/json; charset=utf-8 280.3025ms
+2024-09-27 23:53:42.379 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-27 23:53:45.233 +05:30 [INF] Now listening on: https://localhost:7177
+2024-09-27 23:53:45.240 +05:30 [INF] Now listening on: http://localhost:5150
+2024-09-27 23:53:45.354 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-27 23:53:45.359 +05:30 [INF] Hosting environment: Development
+2024-09-27 23:53:45.365 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-09-27 23:53:59.588 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-09-27 23:54:02.189 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 2604.2372ms
+2024-09-27 23:54:02.428 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-27 23:54:02.428 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-09-27 23:54:02.441 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 13.8032ms
+2024-09-27 23:54:02.451 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 23.7911ms
+2024-09-27 23:54:02.737 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-09-27 23:54:03.653 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 916.131ms
+2024-09-27 23:54:04.130 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-09-27 23:54:04.319 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 189.1907ms
+2024-09-27 23:54:19.069 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-09-27 23:54:19.087 +05:30 [INF] CORS policy execution successful.
+2024-09-27 23:54:19.422 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-27 23:54:19.508 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-27 23:54:20.127 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-09-27 23:54:23.962 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-27 23:54:43.170 +05:30 [INF] Executed DbCommand (3,480ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-09-27 23:54:43.491 +05:30 [INF] 1 properties found for SellRent value: 1
+2024-09-27 23:54:43.501 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-27 23:54:43.723 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 24204.6268ms
+2024-09-27 23:54:43.726 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-09-27 23:54:43.739 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 329 application/json; charset=utf-8 24670.1815ms
+2024-09-27 23:55:41.741 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/detail/1 - null null
+2024-09-27 23:55:41.767 +05:30 [INF] CORS policy execution successful.
+2024-09-27 23:55:41.771 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-27 23:55:41.782 +05:30 [INF] Route matched with {action = "GetPropertyDetail", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyDetail(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-09-27 23:55:41.794 +05:30 [INF] Fetching property details for Property ID: 1
+2024-09-27 23:55:42.301 +05:30 [INF] Executed DbCommand (433ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [t].[Id], [t].[Address], [t].[Address2], [t].[Age], [t].[BHK], [t].[BuiltArea], [t].[CarpetArea], [t].[CityId], [t].[Description], [t].[EstPossessionOn], [t].[FloorNo], [t].[FurnishingTypeId], [t].[Gated], [t].[LastUpdatedOn], [t].[LatestUpdatedBy], [t].[MainEntrance], [t].[Maintenance], [t].[Name], [t].[PostedBy], [t].[PostedOn], [t].[Price], [t].[PropertyTypeId], [t].[ReadyToMove], [t].[Security], [t].[SellRent], [t].[TotalFloors], [t].[Id0], [t].[LastUpdatedOn0], [t].[LatestUpdatedBy0], [t].[Name0], [t].[Id1], [t].[Country], [t].[LastUpdatedOn1], [t].[LatestUpdatedBy1], [t].[Name1], [t].[Id2], [t].[LastUpdatedOn2], [t].[LatestUpdatedBy2], [t].[Name2], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id] AS [Id0], [p0].[LastUpdatedOn] AS [LastUpdatedOn0], [p0].[LatestUpdatedBy] AS [LatestUpdatedBy0], [p0].[Name] AS [Name0], [c].[Id] AS [Id1], [c].[Country], [c].[LastUpdatedOn] AS [LastUpdatedOn1], [c].[LatestUpdatedBy] AS [LatestUpdatedBy1], [c].[Name] AS [Name1], [f].[Id] AS [Id2], [f].[LastUpdatedOn] AS [LastUpdatedOn2], [f].[LatestUpdatedBy] AS [LatestUpdatedBy2], [f].[Name] AS [Name2]
+    FROM [Properties] AS [p]
+    INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+    INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+    INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [Photos] AS [p1] ON [t].[Id] = [p1].[PropertyId]
+ORDER BY [t].[Id], [t].[Id0], [t].[Id1], [t].[Id2]
+2024-09-27 23:55:42.323 +05:30 [INF] Property details found for Property ID: 1
+2024-09-27 23:55:42.325 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.PropertyDetailDto'.
+2024-09-27 23:55:42.343 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI) in 557.709ms
+2024-09-27 23:55:42.347 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyDetail (WebAPI)'
+2024-09-27 23:55:42.350 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/detail/1 - 200 2738 application/json; charset=utf-8 609.1845ms

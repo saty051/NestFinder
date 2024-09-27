@@ -1,6 +1,7 @@
 
 using WebAPI.Data.Repo;
 using WebAPI.Interfaces;
+using WebAPI.Repositories;
 
 
 
@@ -9,6 +10,7 @@ namespace WebAPI.Data
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DataContext _dataContext;
+
         public UnitOfWork(DataContext dataContext)
         {
             _dataContext = dataContext;  
@@ -22,6 +24,8 @@ namespace WebAPI.Data
         public IPropertyTypeRepository PropertyTypeRepository =>  new PropertyTypeRepository(_dataContext);
 
         public IFurnishingTypeRepository FurnishingTypeRepository => new FurnishingTypeRepository(_dataContext);
+
+        public ILikeRepository LikeRepository => new LikeRepository(_dataContext);
 
         public async Task<bool> SaveAsync()
         {
