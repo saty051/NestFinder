@@ -26,7 +26,6 @@ export class HousingService {
     return this.http.get<Ikeyvaluepair[]>(`${this.baseUrl}furnishingtype/list`);
   }
 
-  // Add the missing getProperty method
   getProperty(id: number): Observable<Property> {
     return this.http.get<Property>(`${this.baseUrl}Property/detail/${id.toString()}`);
   }
@@ -48,36 +47,30 @@ export class HousingService {
   }
 
   newPropID() {
-    const currentPID = localStorage.getItem('PID'); // Get the value from localStorage
-
-    if (currentPID) { // Check if currentPID is truthy (not null or undefined)
-        const newPID = +currentPID + 1; // Increment the PID
-        localStorage.setItem('PID', String(newPID)); // Store the incremented PID
-        return newPID; // Return the incremented value
+    const currentPID = localStorage.getItem('PID'); 
+    if (currentPID) { 
+        const newPID = +currentPID + 1; 
+        localStorage.setItem('PID', String(newPID));
+        return newPID; 
     } else {
-        localStorage.setItem('PID', '101'); // Set the default PID if it was null
-        return 101; // Return the default value
+        localStorage.setItem('PID', '101');
+        return 101; 
     }
   }
 
   getPropertyAge(dateofEstablishment: string): string {
     const today = new Date();
     const estDate = new Date(dateofEstablishment);
-
-    // If the establishment date is in the future
     if (today < estDate) {
       return '0';
     }
 
     let age = today.getFullYear() - estDate.getFullYear();
     const monthDifference = today.getMonth() - estDate.getMonth();
-
-    // If the current month is before the establishment month, or it's the same month but today's date is earlier
     if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < estDate.getDate())) {
       age--;
     }
 
-    // Age is less than a year
     if (age === 0) {
       return "Less than a year";
     }
