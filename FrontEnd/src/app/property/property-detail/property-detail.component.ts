@@ -21,6 +21,7 @@ export class PropertyDetailComponent implements OnInit {
   galleryImages: NgxGalleryImage[] = [];
   isLiked = false;
   totalLikes = 0;
+  errorMessage: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -94,7 +95,6 @@ export class PropertyDetailComponent implements OnInit {
   checkIfUserIsLoggedIn(): void {
     const token = localStorage.getItem('token');
     if (token) {
-      // If the user is logged in, check if they liked the property
       this.checkIfLiked(this.propertyId);
     }
   }
@@ -119,25 +119,29 @@ export class PropertyDetailComponent implements OnInit {
     }
 
     if (this.isLiked) {
-      this.likeService.removeLike(this.propertyId).subscribe(
-        () => {
+      this.likeService.removeLike(this.propertyId).subscribe({
+        next: () => {
           this.isLiked = false;
           this.totalLikes--;
+          this.errorMessage = null; // Clear error message on success
         },
-        error => {
+        error: (error) => {
           console.error('Error removing like:', error);
+          this.errorMessage = error.message;
         }
-      );
+      });
     } else {
-      this.likeService.addLike(this.propertyId).subscribe(
-        () => {
+      this.likeService.addLike(this.propertyId).subscribe({
+        next: () => {
           this.isLiked = true;
           this.totalLikes++;
+          this.errorMessage = null; // Clear error message on success
         },
-        error => {
+        error: (error) => {
           console.error('Error liking property:', error);
+          this.errorMessage = error.message;
         }
-      );
+      });
     }
   }
 }

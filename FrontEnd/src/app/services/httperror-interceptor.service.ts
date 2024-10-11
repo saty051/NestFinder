@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable prefer-const */
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -9,31 +10,46 @@ import { AlertifyService } from './alertify.service';
   providedIn: 'root'
 })
 export class HttpErrorInterceptorService implements HttpInterceptor {
-
-  constructor(private alertify: AlertifyService) { }
+  constructor(private alertify: AlertifyService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 401) {
-          this.alertify.error('You are not authorized to perform this action.');
-        } else if (error.status === 400) {
-          this.alertify.error('Bad request. Please check your input and try again.');
-        } else {
-          this.alertify.error(this.setError(error));
-        }
-        return throwError(() => new Error(this.setError(error)));
+        let errorMessage = this.setError(error);
+        
+        // Displaying the error using Alertify
+        this.alertify.error(errorMessage);
+        console.error('HTTP Error:', errorMessage, error);
+
+        return throwError(() => new Error(errorMessage));
       })
     );
   }
 
-  setError(error: HttpErrorResponse): string {
+  private setError(error: HttpErrorResponse): string {
     let errorMessage = 'An unknown error occurred';
+
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Error: ${error.error.message}`;
     } else {
-      errorMessage = error.error?.message || 'A server error occurred. Please try again later.';
+      // Handle plain text responses
+      if (typeof error.error === 'string') {
+        errorMessage = error.error;
+      } else {
+        switch (error.status) {
+          case 401:
+            errorMessage = 'You are not authorized to perform this action.';
+            break;
+          case 400:
+            errorMessage = 'Bad request. Please check your input and try again.';
+            break;
+          default:
+            errorMessage = 'A server error occurred. Please try again later.';
+            break;
+        }
+      }
     }
+
     return errorMessage;
   }
 }

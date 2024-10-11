@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class LikeService {
   baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Add like to a property
   addLike(propertyId: number): Observable<any> {
@@ -18,7 +18,8 @@ export class LikeService {
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: token ? `Bearer ${token}` : ''
-      })
+      }),
+      responseType: 'text' as 'json' // Specify response type as text
     };
     return this.http.post(`${this.baseUrl}Like/${propertyId}`, {}, httpOptions);
   }
@@ -29,7 +30,8 @@ export class LikeService {
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: token ? `Bearer ${token}` : ''
-      })
+      }),
+      responseType: 'text' as 'json' // Specify response type as text
     };
     return this.http.delete(`${this.baseUrl}Like/${propertyId}`, httpOptions);
   }
