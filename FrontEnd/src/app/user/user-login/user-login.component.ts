@@ -36,7 +36,7 @@ export class UserLoginComponent implements OnInit{
         this.router.navigate(['/']);
       },
       (error) => {
-        this.alertify.error('You are not authorized to perform this action.');
+        this.alertify.error('Invalid User Name or Password.');
       }
     );
   }

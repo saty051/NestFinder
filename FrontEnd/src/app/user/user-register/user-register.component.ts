@@ -1,5 +1,7 @@
 /* eslint-disable @angular-eslint/use-lifecycle-interface */
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserForRegister } from 'src/app/model/user';
 import { AlertifyService } from 'src/app/services/alertify.service';
@@ -15,15 +17,22 @@ export class UserRegisterComponent {
   registrationForm!: FormGroup;
   user!: UserForRegister;
   userSubmitted!: boolean;
-  constructor(private fb: FormBuilder, private authService: AuthService, private alertify: AlertifyService){ }
 
+  constructor(
+    private fb: FormBuilder, 
+    private authService: AuthService, 
+    private alertify: AlertifyService,
+    private router: Router
+  ) { }
+  
   ngOnInit(){
     this.registrationForm = this.fb.group({
       username: ['',[Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmpassword: ['', [Validators.required]],
-      mobile: ['', [Validators.required, Validators.maxLength(10)]]
+      phoneNumber: ['', [Validators.required, Validators.maxLength(10)]],
+      telegramId: ['', [Validators.required]]
     }, {validators: this.passwordMismatchValidator})
   }
 
@@ -41,6 +50,7 @@ export class UserRegisterComponent {
         {
           this.onReset();
           this.alertify.success('Congratulations, you are successfully registered!');
+          this.router.navigate(['/user/login']);
         });
     }
   }
@@ -55,7 +65,8 @@ export class UserRegisterComponent {
       userName: this.username.value,
       email: this.email.value,
       password: this.password.value,
-      mobile: this.mobile.value
+      phoneNumber: this.phoneNumber.value,
+      telegramId: this.telegramId.value
     };
   }
 
@@ -75,9 +86,10 @@ export class UserRegisterComponent {
   get confirmpassword(){
     return this.registrationForm.get('confirmpassword') as FormControl;
   }
-  get mobile(){
-    return this.registrationForm.get('mobile') as FormControl;
+  get phoneNumber(){
+    return this.registrationForm.get('phoneNumber') as FormControl;
   }
-
-
+  get telegramId(){
+    return this.registrationForm.get('telegramId') as FormControl;
+  }
 }

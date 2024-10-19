@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization.Infrastructure;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using WebAPI.Dtos;
 using WebAPI.Errors;
@@ -35,15 +33,16 @@ namespace WebAPI.Controllers
 
             var user = await _uow.UserRepository.Authenticate(loginReq.Username, loginReq.Password);
 
-            ApiError apiError = new ApiError();
-
             if (user == null)
             {
                 _logger.LogWarning("Login failed for user {Username}: Invalid username or password", loginReq.Username);
 
-                apiError.ErrorCode = Unauthorized().StatusCode;
-                apiError.ErrorMessage = "Invalid User Name or Password";
-                apiError.ErrorDetails = "This error occurs when provided user name or password does not exist";
+                ApiError apiError = new ApiError
+                {
+                    ErrorCode = Unauthorized().StatusCode,
+                    ErrorMessage = "Invalid User Name or Password",
+                    ErrorDetails = "This error occurs when provided user name or password does not exist"
+                };
                 return Unauthorized(apiError);
             }
 
@@ -66,13 +65,14 @@ namespace WebAPI.Controllers
 
             ApiError apiError = new ApiError();
 
-            // Validate empty username or password
-            if (loginReq.Username.IsEmpty() || loginReq.Password.IsEmpty())
+            // Validate empty fields
+            if (loginReq.Username.IsEmpty() || loginReq.Password.IsEmpty() ||
+                loginReq.Email.IsEmpty() || loginReq.TelegramId.IsEmpty() || loginReq.PhoneNumber.IsEmpty())
             {
-                _logger.LogWarning("Registration failed: Username or password cannot be empty for user {Username}", loginReq.Username);
+                _logger.LogWarning("Registration failed: Fields cannot be empty for user {Username}", loginReq.Username);
 
                 apiError.ErrorCode = BadRequest().StatusCode;
-                apiError.ErrorMessage = "Username or password cannot be empty.";
+                apiError.ErrorMessage = "Fields cannot be empty.";
                 return BadRequest(apiError);
             }
 
@@ -86,8 +86,8 @@ namespace WebAPI.Controllers
                 return BadRequest(apiError);
             }
 
-            // Register the user
-            _uow.UserRepository.Register(loginReq.Username, loginReq.Password);
+            // Register the user with new fields (including Email, PhoneNumber, and TelegramId)
+            _uow.UserRepository.Register(loginReq.Username, loginReq.Password, loginReq.Email, loginReq.PhoneNumber, loginReq.TelegramId);
             await _uow.SaveAsync();
 
             _logger.LogInformation("User {Username} registered successfully", loginReq.Username);
@@ -102,10 +102,13 @@ namespace WebAPI.Controllers
             var secretKey = _configuration.GetSection("AppSettings:Key").Value;
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 
-            var claims = new Claim[]
+            var claims = new[]
             {
                 new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.Email),                // Include Email
+                new Claim("PhoneNumber", user.PhoneNumber),             // Include Phone Number
+                new Claim("TelegramId", user.TelegramId)                // Include Telegram ID
             };
 
             var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
