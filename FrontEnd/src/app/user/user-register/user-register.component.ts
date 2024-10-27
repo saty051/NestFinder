@@ -23,7 +23,7 @@ export class UserRegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmpassword: ['', [Validators.required]],
-      mobile: ['', [Validators.required, Validators.maxLength(10)]]
+      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]]
     }, {validators: this.passwordMismatchValidator})
   }
 
@@ -55,7 +55,7 @@ export class UserRegisterComponent {
       userName: this.username.value,
       email: this.email.value,
       password: this.password.value,
-      mobile: this.mobile.value
+      phoneNumber: this.phoneNumber.value
     };
   }
 
@@ -75,9 +75,7 @@ export class UserRegisterComponent {
   get confirmpassword(){
     return this.registrationForm.get('confirmpassword') as FormControl;
   }
-  get mobile(){
-    return this.registrationForm.get('mobile') as FormControl;
+  get phoneNumber(){
+    return this.registrationForm.get('phoneNumber') as FormControl;
   }
-
-
 }

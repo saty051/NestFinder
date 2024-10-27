@@ -1,14 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization.Infrastructure;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using WebAPI.Dtos;
+using WebAPI.DTOs;
 using WebAPI.Errors;
-using WebAPI.Extensions;
 using WebAPI.Interfaces;
 using WebAPI.Models;
 
@@ -60,16 +57,16 @@ namespace WebAPI.Controllers
 
         // api/Account/register
         [HttpPost("register")]
-        public async Task<IActionResult> Register(LoginReqDto loginReq)
+        public async Task<IActionResult> Register(RegisterDto registerDto)
         {
-            _logger.LogInformation("Register attempt for user {Username}", loginReq.Username);
+            _logger.LogInformation("Register attempt for user {Username}", registerDto.Username);
 
             ApiError apiError = new ApiError();
 
             // Validate empty username or password
-            if (loginReq.Username.IsEmpty() || loginReq.Password.IsEmpty())
+            if (string.IsNullOrEmpty(registerDto.Username) || string.IsNullOrEmpty(registerDto.Password))
             {
-                _logger.LogWarning("Registration failed: Username or password cannot be empty for user {Username}", loginReq.Username);
+                _logger.LogWarning("Registration failed: Username or password cannot be empty for user {Username}", registerDto.Username);
 
                 apiError.ErrorCode = BadRequest().StatusCode;
                 apiError.ErrorMessage = "Username or password cannot be empty.";
@@ -77,9 +74,9 @@ namespace WebAPI.Controllers
             }
 
             // Check if user already exists
-            if (await _uow.UserRepository.UserAlreadyExists(loginReq.Username))
+            if (await _uow.UserRepository.UserAlreadyExists(registerDto.Username))
             {
-                _logger.LogWarning("Registration failed: User already exists for username {Username}", loginReq.Username);
+                _logger.LogWarning("Registration failed: User already exists for username {Username}", registerDto.Username);
 
                 apiError.ErrorCode = BadRequest().StatusCode;
                 apiError.ErrorMessage = "User already exists, please login using the same credentials";
@@ -87,10 +84,10 @@ namespace WebAPI.Controllers
             }
 
             // Register the user
-            _uow.UserRepository.Register(loginReq.Username, loginReq.Password);
+            _uow.UserRepository.Register(registerDto.Username, registerDto.Password, registerDto.Email, registerDto.PhoneNumber);
             await _uow.SaveAsync();
 
-            _logger.LogInformation("User {Username} registered successfully", loginReq.Username);
+            _logger.LogInformation("User {Username} registered successfully", registerDto.Username);
 
             return StatusCode(201);
         }

@@ -10,17 +10,19 @@ namespace WebAPI.Data.Repo
     public class UserRepository : IUserRepository
     {
         private readonly DataContext _dataContext;
+
         public UserRepository(DataContext datacontext)
         {
-                _dataContext = datacontext;
+            _dataContext = datacontext;
         }
 
         public async Task<User> Authenticate(string username, string passwordText)
         {
-            var user = await _dataContext.Users.FirstOrDefaultAsync(x => x.Username == username); //&& x.Password == password
-            if(user == null || user.PasswordKey == null)
+            var user = await _dataContext.Users.FirstOrDefaultAsync(x => x.Username == username);
+
+            if (user == null || user.PasswordKey == null)
                 return null;
-           
+
             if (!MatchPasswordHash(passwordText, user.Password, user.PasswordKey))
                 return null;
 
@@ -30,8 +32,8 @@ namespace WebAPI.Data.Repo
         private bool MatchPasswordHash(string passwordText, byte[] password, byte[] passwordKey)
         {
             using (var hmac = new HMACSHA512(passwordKey))
-            { 
-               var passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(passwordText));
+            {
+                var passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(passwordText));
                 for (int i = 0; i < passwordHash.Length; i++)
                 {
                     if (passwordHash[i] != password[i])
@@ -41,22 +43,26 @@ namespace WebAPI.Data.Repo
             }
         }
 
-        public  void Register(string userName, string password)
+        public void Register(string userName, string password, string email, string phoneNumber) // Updated method
         {
             byte[] passwordHash, passwordKey;
 
             using (var hmac = new HMACSHA512())
             {
                 passwordKey = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             }
 
-            User user = new User();
-            user.Username = userName;
-            user.Password = passwordHash;
-            user.PasswordKey = passwordKey;
+            User user = new User
+            {
+                Username = userName,
+                Password = passwordHash,
+                PasswordKey = passwordKey,
+                Email = email,
+                PhoneNumber = phoneNumber
+            };
 
-           _dataContext.Users.Add(user);
+            _dataContext.Users.Add(user);
         }
 
         public async Task<bool> UserAlreadyExists(string userName)

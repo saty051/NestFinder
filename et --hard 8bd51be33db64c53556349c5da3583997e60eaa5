@@ -1,0 +1,131 @@
+[33mcommit c47aa5da5a877043eaead47a6270532926451eec[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Sat Oct 26 16:51:13 2024 +0530
+
+    Remove Telegram Fields
+
+[33mcommit 96934ec4acc1e53253cc25f2fd9019a5676ef095[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Sat Oct 19 22:11:08 2024 +0530
+
+    Add Telegram ID and Phone Number to User registration
+
+[33mcommit 8bd51be33db64c53556349c5da3583997e60eaa5[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Fri Oct 11 16:48:03 2024 +0530
+
+    Fix Like Functionality in UI
+
+[33mcommit a8a7a27265fb72025a6ffcc4a431dde4ab551ba6[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Fri Oct 11 11:19:44 2024 +0530
+
+    Add & Integrate Like Functionality in Angular UI
+
+[33mcommit 468d167befb3dc7d732abbde2c854364b982e4ad[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Sat Sep 28 18:10:48 2024 +0530
+
+    Fix city filter bug
+
+[33mcommit f1188c0daa3fcb4814f0c65dbbab81f0aba75964[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Sat Sep 28 00:04:50 2024 +0530
+
+    Add Like functionality in WebApi
+
+[33mcommit c9db1cc67eec1c7f67a52deb9bbfdeb303644433[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Fri Sep 27 02:54:56 2024 +0530
+
+    Session logout on tab close/reload for the user
+
+[33mcommit 8071875bfd5095e2de78434d37215f20967d57cc[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Thu Sep 26 20:30:48 2024 +0530
+
+    Restrict photo upload to authorized users only
+
+[33mcommit aefa8c3310383e4d6217a8124bb875519e58efd4[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Wed Sep 25 01:06:37 2024 +0530
+
+    Uploading  Images or files in Angular
+
+[33mcommit 2eee8721a89120843d68745108059c3e850d4ea6[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Tue Sep 24 01:30:33 2024 +0530
+
+    Deleting Photo from Photo Gallery using Angular UI
+
+[33mcommit f693adcec7ed8d18301b386bf849c1c020e74e94[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Mon Sep 23 23:43:28 2024 +0530
+
+    Setting Primary Photo using @Output Decorator
+
+[33mcommit a64b2aad198f879cff7828823c67b7daa60acb06[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Mon Sep 23 18:58:44 2024 +0530
+
+    Adding Photo Editor Component
+
+[33mcommit 060ce722b0bf9a7d41ed23d208ab49c073538c30[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Mon Sep 23 14:16:20 2024 +0530
+
+    Update API to Delete a Photo
+
+[33mcommit 4e276d989b6d6fc5f0e1130c07e3875792bfef3c[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Mon Sep 23 11:01:56 2024 +0530
+
+    Update API to Set Primary Photo
+
+[33mcommit 40bda9fb1e8c85ee28cf47fc4780cd32191c9b0a[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Mon Sep 23 08:34:38 2024 +0530
+
+    Update List Page to Display Primary Photo
+
+[33mcommit bbad866834c2a97b71f891b71b75c5f123e0f60c[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Sun Sep 22 19:27:29 2024 +0530
+
+    Display Image from Cloudinary
+
+[33mcommit cbf4bff4e0dff01aad6a64b95bc519b591833e4b[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Sat Sep 21 22:15:58 2024 +0530
+
+    Upload Photo through WebAPI
+
+[33mcommit 70da89813f4f988c3c560648b0ab7e0a4ebbba44[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Fri Sep 20 17:34:34 2024 +0530
+
+    Add Authorization to Add Property Component
+
+[33mcommit 09e31bc0ffbf23eb339ab3baa661444da5e6dcfd[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Fri Sep 20 00:29:01 2024 +0530
+
+    Save Remaining Property Fields to Database
+
+[33mcommit b9f6792c3584f64fd66412de332148b2a828f6e6[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Thu Sep 19 11:00:40 2024 +0530
+
+    Save Property Fields to Database
+
+[33mcommit cff069052d4823457bf73e848d9d018fc953ec0b[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Mon Sep 16 09:44:46 2024 +0530
+
+    Integrate Property Detail Page to WebAPI
+
+[33mcommit 73c2c9857ea22d588e43b18885ad565704c2e730[m
+Author: Satyam <satyamverma0102@gmail.com>
+Date:   Sun Sep 15 09:37:37 2024 +0530
+
+    Integrate Property Detail Page to WebAPI
