@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using WebAPI.Dtos;
-using WebAPI.DTOs;
 using WebAPI.Errors;
 using WebAPI.Interfaces;
 using WebAPI.Models;
@@ -84,12 +85,75 @@ namespace WebAPI.Controllers
             }
 
             // Register the user
-            _uow.UserRepository.Register(registerDto.Username, registerDto.Password, registerDto.Email, registerDto.PhoneNumber);
+            _uow.UserRepository.Register(registerDto.Username, registerDto.Password, registerDto.Email, registerDto.PhoneNumber, registerDto.SecurityQuestion, registerDto.SecurityAnswer);
             await _uow.SaveAsync();
 
             _logger.LogInformation("User {Username} registered successfully", registerDto.Username);
 
             return StatusCode(201);
+        }
+
+        // api/Account/password-regenerate
+        [HttpPost("password-regenerate")]
+        public async Task<IActionResult> PasswordRegenerate([FromBody] PasswordRegenerationDto passwordRegenerationDto)
+        {
+            _logger.LogInformation("Password regeneration attempt for user {Username}", passwordRegenerationDto.Username);
+
+            var user = await _uow.UserRepository.GetUserByUsernameAsync(passwordRegenerationDto.Username);
+
+            if (user == null)
+            {
+                _logger.LogWarning("Password regeneration failed: User not found for username {Username}", passwordRegenerationDto.Username);
+
+                var apiError = new ApiError
+                {
+                    ErrorCode = NotFound().StatusCode,
+                    ErrorMessage = "User not found",
+                    ErrorDetails = "The provided username does not exist."
+                };
+
+                return NotFound(apiError);
+            }
+
+            if (user.SecurityQuestion != passwordRegenerationDto.SecurityQuestion ||
+                user.SecurityAnswer != passwordRegenerationDto.SecurityAnswer)
+            {
+                _logger.LogWarning("Security question/answer mismatch for user {Username}", passwordRegenerationDto.Username);
+
+                var apiError = new ApiError
+                {
+                    ErrorCode = BadRequest().StatusCode,
+                    ErrorMessage = "Security question or answer is incorrect",
+                    ErrorDetails = "The security question or answer provided does not match our records."
+                };
+
+                return BadRequest(apiError);
+            }
+
+            // Generate new password hash
+            byte[] passwordHash, passwordKey;
+            using (var hmac = new HMACSHA512())
+            {
+                passwordKey = hmac.Key;
+                passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(passwordRegenerationDto.NewPassword));
+            }
+
+            user.Password = passwordHash;
+            user.PasswordKey = passwordKey;
+
+            _uow.UserRepository.UpdateUser(user);
+            var result = await _uow.SaveAsync();
+
+            if (result)
+            {
+                _logger.LogInformation("Password reset successfully for user {Username}", user.Username);
+                return Ok(new { Message = "Password has been reset successfully." });
+            }
+            else
+            {
+                _logger.LogError("Error updating password for user {Username}", user.Username);
+                return StatusCode(500, "Error updating password. Please try again later.");
+            }
         }
 
         private string CreateJWT(User user)

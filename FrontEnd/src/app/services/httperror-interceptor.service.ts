@@ -1,55 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable prefer-const */
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse } from '@angular/common/http';
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { AlertifyService } from './alertify.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class HttpErrorInterceptorService implements HttpInterceptor {
   constructor(private alertify: AlertifyService) {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        let errorMessage = this.setError(error);
-        
-        // Displaying the error using Alertify
-        this.alertify.error(errorMessage);
-        console.error('HTTP Error:', errorMessage, error);
+        if (error instanceof HttpErrorResponse) {
+          // Log the error details to the console for developer reference
+          console.error('HTTP Error:', error);
+        }
 
-        return throwError(() => new Error(errorMessage));
+        // Return the error as an observable
+        return throwError(error);
       })
     );
-  }
-
-  private setError(error: HttpErrorResponse): string {
-    let errorMessage = 'An unknown error occurred';
-
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
-      // Handle plain text responses
-      if (typeof error.error === 'string') {
-        errorMessage = error.error;
-      } else {
-        switch (error.status) {
-          case 401:
-            errorMessage = 'You are not authorized to perform this action.';
-            break;
-          case 400:
-            errorMessage = 'Bad request. Please check your input and try again.';
-            break;
-          default:
-            errorMessage = 'A server error occurred. Please try again later.';
-            break;
-        }
-      }
-    }
-
-    return errorMessage;
   }
 }

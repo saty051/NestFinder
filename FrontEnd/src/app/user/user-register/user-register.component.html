@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
                 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 m-auto">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" id="name" class="form-control" formControlName="username"> 
                     </div>
@@ -14,7 +14,7 @@
                         *ngIf="username?.errors?.['required'] && username?.touched || userSubmitted" 
                         class="error">Username is required.
                         </div>
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 mt-2">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" id="email" class="form-control" formControlName="email"> 
                     </div>
@@ -28,7 +28,7 @@
                         class="error">
                         Invalid email address.
                         </div> 
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 mt-2">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" id="password" class="form-control" formControlName="password">
                     </div>
@@ -42,7 +42,7 @@
                         class="error">
                             Password must have 8 characters
                         </div>
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 mt-2">
                         <label for="confirmpassword" class="form-label">Confirm Password</label>
                         <input type="password" id="confirmpassword" class="form-control" formControlName="confirmpassword">
                     </div>
@@ -56,20 +56,35 @@
                         class="error">
                             Passwords do not match
                         </div>
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 mt-2">
                         <label for="phoneNumber" class="form-label">Phone Number</label>
                         <input type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber"> 
                     </div>
                         <div
                         *ngIf="phoneNumber?.errors?.['required'] && phoneNumber?.touched || userSubmitted"
                         class="error">
-                            Mobile is required.
+                            Phone Number is required.
                         </div>
                         <div
                         *ngIf="phoneNumber?.errors?.['maxlength'] && phoneNumber?.touched"
                         class="error">
-                            Mobile must have 10 digits
-                        </div><br>
+                            Phone Number must have 10 digits
+                        </div>
+                        <div class="form-group col-12 mt-2">
+                            <label for="securityQuestion">Security Question</label>
+                            <div class="dropdown-wrapper">
+                                <select class="form-control" formControlName="securityQuestion" required>
+                                    <option value="" disabled selected hidden>Select a Security Question</option>
+                                    <option *ngFor="let question of securityQuestions" [value]="question.value">{{ question.label }}</option>
+                                </select>
+                                <span class="dropdown-icon"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-12 mt-2">
+                            <label for="securityAnswer">Security Answer</label>
+                            <input class="form-control" id="securityAnswer" type="text" formControlName="securityAnswer" required>
+                        </div>
+                        <br>
                     <div class="form-group col-12">
                         <button type="submit" class="btn btn-primary me-2">Submit</button>
                         <button type="reset" class="btn btn-secondary">Cancel</button>

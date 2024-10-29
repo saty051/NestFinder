@@ -1,0 +1,835 @@
+2024-10-29 09:49:53.278 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-29 09:49:56.278 +05:30 [INF] Now listening on: https://localhost:7177
+2024-10-29 09:49:56.299 +05:30 [INF] Now listening on: http://localhost:5150
+2024-10-29 09:49:56.618 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-29 09:49:56.668 +05:30 [INF] Hosting environment: Development
+2024-10-29 09:49:56.679 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-10-29 09:52:20.487 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 09:52:20.854 +05:30 [INF] CORS policy execution successful.
+2024-10-29 09:52:21.130 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 09:52:21.244 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 09:52:22.548 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 09:52:24.552 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-10-29 09:52:41.515 +05:30 [ERR] An error occurred using the connection to database 'NestFinder' on server 'SatyamPC\SQLEXPRESS'.
+2024-10-29 09:52:41.748 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'WebAPI.Data.DataContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=158; handshake=3277; [Login] initialization=7; authentication=15; [Post-Login] complete=11031; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:601ba835-1621-405f-9ca5-dd4742adf06a
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=158; handshake=3277; [Login] initialization=7; authentication=15; [Post-Login] complete=11031; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:601ba835-1621-405f-9ca5-dd4742adf06a
+Error Number:-2,State:0,Class:11
+2024-10-29 09:52:43.670 +05:30 [ERR] Error occurred while fetching property list for SellRent value: 1
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=158; handshake=3277; [Login] initialization=7; authentication=15; [Post-Login] complete=11031; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at WebAPI.Data.Repo.PropertyRepository.GetPropertiesAsync(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Data\Repo\PropertyRepository.cs:line 26
+   at WebAPI.Controllers.PropertyController.GetPropertyList(Int32 sellRent) in C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI\Controllers\PropertyController.cs:line 34
+ClientConnectionId:601ba835-1621-405f-9ca5-dd4742adf06a
+Error Number:-2,State:0,Class:11
+2024-10-29 09:52:43.725 +05:30 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2024-10-29 09:52:43.755 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 22495.7504ms
+2024-10-29 09:52:43.771 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 09:52:43.824 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 500 null text/plain; charset=utf-8 23346.2107ms
+2024-10-29 09:53:40.343 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger - null null
+2024-10-29 09:53:42.681 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger - 301 0 null 2337.4767ms
+2024-10-29 09:53:42.968 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-10-29 09:53:43.284 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 315.7585ms
+2024-10-29 09:53:43.766 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/swagger-ui.css - null null
+2024-10-29 09:53:43.792 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-10-29 09:53:43.769 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/swagger-ui-bundle.js - null null
+2024-10-29 09:53:43.769 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/swagger-ui-standalone-preset.js - null null
+2024-10-29 09:53:43.928 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 135.7674ms
+2024-10-29 09:53:43.768 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.css - null null
+2024-10-29 09:53:43.826 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-29 09:53:44.001 +05:30 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-10-29 09:53:43.835 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-10-29 09:53:44.007 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.css - 200 202 text/css 239.0693ms
+2024-10-29 09:53:44.134 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-10-29 09:53:44.060 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 233.5374ms
+2024-10-29 09:53:44.301 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/swagger-ui.css - 200 152034 text/css 535.0899ms
+2024-10-29 09:53:44.271 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-10-29 09:53:44.388 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/swagger-ui-standalone-preset.js - 200 230293 text/javascript 618.564ms
+2024-10-29 09:53:44.524 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-10-29 09:53:44.535 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/swagger-ui-bundle.js - 200 1452753 text/javascript 766.0433ms
+2024-10-29 09:53:46.024 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2189.2857ms
+2024-10-29 09:53:46.598 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-10-29 09:53:47.219 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 620.2752ms
+2024-10-29 09:54:42.344 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 09:54:42.389 +05:30 [INF] CORS policy execution successful.
+2024-10-29 09:54:42.396 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 09:54:42.402 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 09:54:42.442 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 09:54:44.394 +05:30 [INF] Executed DbCommand (959ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 09:54:44.995 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 09:54:45.001 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 09:54:45.319 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 2911.0558ms
+2024-10-29 09:54:45.325 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 09:54:45.329 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 2985.7635ms
+2024-10-29 09:55:18.033 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 09:55:18.063 +05:30 [INF] CORS policy execution successful.
+2024-10-29 09:55:18.069 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 35.6975ms
+2024-10-29 09:55:18.083 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 53
+2024-10-29 09:55:18.099 +05:30 [INF] CORS policy execution successful.
+2024-10-29 09:55:18.108 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 09:55:18.127 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 09:55:18.274 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 09:55:20.846 +05:30 [INF] Executed DbCommand (2,338ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 09:55:21.053 +05:30 [INF] Login successful for user Archana Verma
+2024-10-29 09:55:21.065 +05:30 [INF] Generating JWT for user Archana Verma
+2024-10-29 09:55:21.594 +05:30 [INF] JWT generated successfully for user Archana Verma
+2024-10-29 09:55:21.600 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.LoginResDto'.
+2024-10-29 09:55:21.609 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 3456.0381ms
+2024-10-29 09:55:21.614 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 09:55:21.619 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 200 248 application/json; charset=utf-8 3536.0214ms
+2024-10-29 09:55:21.731 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 09:55:21.757 +05:30 [INF] CORS policy execution successful.
+2024-10-29 09:55:21.761 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 09:55:21.764 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 09:55:21.778 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 09:55:21.818 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 09:55:21.842 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 09:55:21.846 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 09:55:21.852 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 83.4032ms
+2024-10-29 09:55:21.859 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 09:55:21.864 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 136.1536ms
+2024-10-29 09:55:49.740 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 09:55:49.760 +05:30 [INF] CORS policy execution successful.
+2024-10-29 09:55:49.763 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 23.2462ms
+2024-10-29 09:55:49.768 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 49
+2024-10-29 09:55:49.777 +05:30 [INF] CORS policy execution successful.
+2024-10-29 09:55:49.779 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 09:55:49.782 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 09:55:49.797 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 09:55:49.818 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 09:55:49.849 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 09:55:49.858 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 09:55:49.867 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 80.5074ms
+2024-10-29 09:55:49.873 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 09:55:49.878 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 110.1618ms
+2024-10-29 09:56:06.115 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-29 09:56:06.136 +05:30 [INF] CORS policy execution successful.
+2024-10-29 09:56:06.139 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 24.5844ms
+2024-10-29 09:56:06.148 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 104
+2024-10-29 09:56:06.159 +05:30 [INF] CORS policy execution successful.
+2024-10-29 09:56:06.162 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 09:56:06.180 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 09:56:06.205 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 09:56:06.230 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 09:56:06.246 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-29 09:56:06.251 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 09:56:06.258 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 71.4291ms
+2024-10-29 09:56:06.264 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 09:56:06.269 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 120.896ms
+2024-10-29 10:14:17.638 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 10:14:18.473 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:14:18.649 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 1014.672ms
+2024-10-29 10:14:18.761 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 50
+2024-10-29 10:14:18.851 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:14:18.887 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 10:14:18.968 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:14:19.645 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 10:14:22.391 +05:30 [INF] Executed DbCommand (237ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:14:22.642 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 10:14:22.676 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:14:22.705 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 3727.836ms
+2024-10-29 10:14:22.710 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 10:14:22.718 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 3969.716ms
+2024-10-29 10:14:40.355 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-29 10:14:40.366 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:14:40.369 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 14.8759ms
+2024-10-29 10:14:40.375 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 104
+2024-10-29 10:14:40.392 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:14:40.394 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:14:40.397 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:14:40.418 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 10:14:40.492 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:14:40.534 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-29 10:14:40.542 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:14:40.548 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 146.1441ms
+2024-10-29 10:14:40.552 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:14:40.556 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 181.5748ms
+2024-10-29 10:18:52.737 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 10:18:52.747 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:18:52.756 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 52
+2024-10-29 10:18:52.888 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 13.4005ms
+2024-10-29 10:18:52.924 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:18:53.063 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 10:18:53.066 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:18:53.129 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 10:18:53.333 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:18:53.518 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 10:18:53.522 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:18:53.527 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 456.3179ms
+2024-10-29 10:18:53.531 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 10:18:53.536 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 779.9984ms
+2024-10-29 10:19:12.136 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-29 10:19:12.143 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:19:12.152 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 15.3604ms
+2024-10-29 10:19:12.254 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 104
+2024-10-29 10:19:12.262 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:19:12.265 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:19:12.269 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:19:12.396 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 10:19:12.486 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:19:12.532 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-29 10:19:12.536 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:19:12.541 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 246.1111ms
+2024-10-29 10:19:12.558 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:19:12.572 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 318.8178ms
+2024-10-29 10:27:52.106 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 10:27:52.414 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:27:52.477 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 383.7617ms
+2024-10-29 10:27:52.493 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 49
+2024-10-29 10:27:52.703 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:27:52.844 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 10:27:53.019 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:27:54.141 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 10:27:59.314 +05:30 [INF] Executed DbCommand (505ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:27:59.716 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 10:27:59.803 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:27:59.868 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 6842.1415ms
+2024-10-29 10:27:59.873 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 10:27:59.878 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 7385.2474ms
+2024-10-29 10:28:50.989 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-29 10:28:50.999 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:28:51.005 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 16.0488ms
+2024-10-29 10:28:51.045 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 102
+2024-10-29 10:28:51.228 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:28:51.354 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:28:51.388 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:28:52.312 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 10:28:52.440 +05:30 [INF] Executed DbCommand (77ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:28:52.543 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-29 10:28:52.712 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:28:52.775 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 1381.1478ms
+2024-10-29 10:28:52.779 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:28:52.783 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 1737.8907ms
+2024-10-29 10:37:24.981 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 10:37:25.511 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:37:25.525 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 544.8389ms
+2024-10-29 10:37:25.531 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 48
+2024-10-29 10:37:25.568 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:37:25.636 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 10:37:25.802 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:37:26.080 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 10:37:29.811 +05:30 [INF] Executed DbCommand (197ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:37:32.570 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 10:37:32.890 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:37:33.206 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 7398.372ms
+2024-10-29 10:37:33.213 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 10:37:33.220 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 7688.3786ms
+2024-10-29 10:37:54.086 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-29 10:37:54.145 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:37:54.147 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 61.7313ms
+2024-10-29 10:37:54.152 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 104
+2024-10-29 10:37:54.246 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:37:54.250 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:37:54.271 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:37:54.394 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 10:37:55.938 +05:30 [INF] Executed DbCommand (180ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:37:56.297 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-29 10:37:56.305 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:37:56.498 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 2220.3793ms
+2024-10-29 10:37:56.528 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:37:56.532 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 2379.212ms
+2024-10-29 10:44:17.644 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json-patch+json 161
+2024-10-29 10:44:17.858 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:44:17.961 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:44:18.020 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:44:20.789 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 10:44:24.699 +05:30 [INF] Executed DbCommand (398ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:44:24.931 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-29 10:44:25.003 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:44:25.092 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 7033.8386ms
+2024-10-29 10:44:25.103 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:44:25.110 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 7467.9747ms
+2024-10-29 10:45:10.542 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json-patch+json 157
+2024-10-29 10:45:10.568 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:45:10.588 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:45:10.593 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:45:10.657 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 10:45:10.878 +05:30 [INF] Executed DbCommand (110ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:45:10.923 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-29 10:45:10.927 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:45:10.960 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 335.9593ms
+2024-10-29 10:45:10.968 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:45:10.975 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 433.7961ms
+2024-10-29 10:45:34.261 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json-patch+json 134
+2024-10-29 10:45:34.271 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:45:34.275 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:45:34.292 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:45:34.321 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 10:45:34.438 +05:30 [INF] Executed DbCommand (29ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:45:34.494 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-29 10:45:34.501 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 10:45:34.537 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 237.918ms
+2024-10-29 10:45:34.543 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:45:34.547 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 286.3267ms
+2024-10-29 10:47:29.590 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json-patch+json 156
+2024-10-29 10:47:29.611 +05:30 [INF] CORS policy execution successful.
+2024-10-29 10:47:29.614 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:47:29.617 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 10:47:30.279 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 10:47:30.419 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 10:47:43.995 +05:30 [INF] Executed DbCommand (239ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 8000) (DbType = Binary), @p4='?' (Size = 10), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [Email] = @p0, [LastUpdatedOn] = @p1, [Password] = @p2, [PasswordKey] = @p3, [PhoneNumber] = @p4, [SecurityAnswer] = @p5, [SecurityQuestion] = @p6, [Username] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+2024-10-29 10:47:44.496 +05:30 [INF] Password reset successfully for user Archana Verma
+2024-10-29 10:47:44.501 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-10-29 10:47:46.308 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 16640.2631ms
+2024-10-29 10:47:46.312 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 10:47:46.314 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 200 51 application/json; charset=utf-8 16724.061ms
+2024-10-29 11:05:03.404 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 11:05:04.181 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:05:04.410 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 1007.1934ms
+2024-10-29 11:05:04.793 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 48
+2024-10-29 11:05:05.147 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:05:05.379 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 11:05:05.424 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 11:05:06.314 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 11:05:08.801 +05:30 [INF] Executed DbCommand (497ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 11:05:09.286 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 11:05:09.344 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 11:05:09.391 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 3963.4728ms
+2024-10-29 11:05:09.394 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 11:05:09.397 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 4627.2498ms
+2024-10-29 11:27:02.017 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 11:27:03.422 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:27:04.073 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 2062.5887ms
+2024-10-29 11:27:04.279 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 54
+2024-10-29 11:27:04.316 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:27:04.593 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 11:27:04.735 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 11:27:05.870 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 11:27:11.089 +05:30 [INF] Executed DbCommand (1,129ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 11:27:12.525 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 11:27:12.541 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 11:27:12.605 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 7843.8745ms
+2024-10-29 11:27:12.616 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 11:27:12.618 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 8339.4794ms
+2024-10-29 11:35:55.151 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 11:35:55.307 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:35:55.377 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 227.1079ms
+2024-10-29 11:35:55.381 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 47
+2024-10-29 11:35:55.541 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:35:55.549 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 11:35:55.556 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 11:35:55.651 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 11:35:57.246 +05:30 [INF] Executed DbCommand (684ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 11:35:57.565 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 11:35:57.591 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 11:35:57.597 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 2036.945ms
+2024-10-29 11:35:57.601 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 11:35:57.605 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 2223.6504ms
+2024-10-29 11:39:50.575 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 11:39:50.664 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:39:51.498 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 922.3071ms
+2024-10-29 11:39:51.604 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 47
+2024-10-29 11:39:51.717 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:39:51.991 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 11:39:52.032 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 11:39:52.323 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 11:39:54.588 +05:30 [INF] Executed DbCommand (1,863ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 11:39:54.855 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 11:39:54.861 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 11:39:54.943 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 2906.5297ms
+2024-10-29 11:39:54.946 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 11:39:55.334 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 3730.7624ms
+2024-10-29 11:40:15.416 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-29 11:40:15.423 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:40:15.554 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 138.0445ms
+2024-10-29 11:40:15.791 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 113
+2024-10-29 11:40:16.027 +05:30 [INF] CORS policy execution successful.
+2024-10-29 11:40:16.029 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 11:40:16.073 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 11:40:22.846 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-10-29 11:40:48.497 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 32287.9233ms
+2024-10-29 11:40:48.500 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 11:40:48.702 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 250 application/problem+json; charset=utf-8 32911.2672ms
+2024-10-29 12:11:21.952 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-29 12:11:28.089 +05:30 [INF] Now listening on: https://localhost:7177
+2024-10-29 12:11:28.428 +05:30 [INF] Now listening on: http://localhost:5150
+2024-10-29 12:11:28.584 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-29 12:11:28.595 +05:30 [INF] Hosting environment: Development
+2024-10-29 12:11:28.605 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-10-29 12:11:50.863 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-10-29 12:11:52.710 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 1851.1668ms
+2024-10-29 12:11:54.848 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-29 12:11:54.848 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-10-29 12:11:54.848 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-10-29 12:11:55.028 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 179.9338ms
+2024-10-29 12:11:55.035 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 187.7941ms
+2024-10-29 12:11:56.119 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1271.1525ms
+2024-10-29 12:11:58.488 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-10-29 12:11:59.054 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 601.632ms
+2024-10-29 12:13:43.933 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 12:13:43.957 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:13:43.960 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 27.3458ms
+2024-10-29 12:13:43.976 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 53
+2024-10-29 12:13:43.998 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:13:44.271 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:13:44.332 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 12:13:45.105 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 12:13:46.659 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-10-29 12:13:50.073 +05:30 [INF] Executed DbCommand (1,330ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 12:13:50.191 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 12:13:50.203 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 12:13:50.249 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 5905.1067ms
+2024-10-29 12:13:50.253 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:13:50.267 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 6292.4843ms
+2024-10-29 12:15:11.625 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-29 12:15:11.643 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:15:11.645 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 20.317ms
+2024-10-29 12:15:11.648 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 104
+2024-10-29 12:15:11.656 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:15:11.659 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 12:15:11.668 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 12:15:11.683 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 12:15:11.768 +05:30 [INF] Executed DbCommand (54ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 12:15:11.779 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-29 12:15:11.782 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 12:15:11.785 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 113.3655ms
+2024-10-29 12:15:11.788 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 12:15:11.791 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 142.2121ms
+2024-10-29 12:27:48.953 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 12:27:49.410 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:27:49.575 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 595.4253ms
+2024-10-29 12:27:49.582 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 51
+2024-10-29 12:27:49.696 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:27:49.933 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:27:50.082 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 12:27:50.411 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 12:27:52.854 +05:30 [INF] Executed DbCommand (1,112ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 12:27:53.004 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 12:27:53.009 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 12:27:53.031 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 2944.0704ms
+2024-10-29 12:27:53.034 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:27:53.037 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 3492.6349ms
+2024-10-29 12:28:22.166 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-29 12:28:22.187 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:28:22.190 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 24.4541ms
+2024-10-29 12:28:22.253 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 126
+2024-10-29 12:28:22.284 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:28:22.286 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 12:28:22.289 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 12:28:22.317 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 12:28:22.510 +05:30 [INF] Executed DbCommand (145ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 12:28:23.665 +05:30 [INF] Executed DbCommand (342ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 8000) (DbType = Binary), @p4='?' (Size = 10), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [Email] = @p0, [LastUpdatedOn] = @p1, [Password] = @p2, [PasswordKey] = @p3, [PhoneNumber] = @p4, [SecurityAnswer] = @p5, [SecurityQuestion] = @p6, [Username] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+2024-10-29 12:28:23.703 +05:30 [INF] Password reset successfully for user Archana Verma
+2024-10-29 12:28:23.708 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-10-29 12:28:23.786 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 1492.8486ms
+2024-10-29 12:28:23.790 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 12:28:23.792 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 200 51 application/json; charset=utf-8 1539.5571ms
+2024-10-29 12:28:47.126 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 12:28:47.139 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:28:47.141 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 14.6445ms
+2024-10-29 12:28:47.146 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 53
+2024-10-29 12:28:47.165 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:28:47.167 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:28:47.170 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 12:28:47.207 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 12:28:47.361 +05:30 [INF] Executed DbCommand (144ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 12:28:47.372 +05:30 [INF] Login successful for user Archana Verma
+2024-10-29 12:28:47.550 +05:30 [INF] Generating JWT for user Archana Verma
+2024-10-29 12:28:49.434 +05:30 [INF] JWT generated successfully for user Archana Verma
+2024-10-29 12:28:49.438 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.LoginResDto'.
+2024-10-29 12:28:49.444 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 2269.6007ms
+2024-10-29 12:28:49.447 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:28:49.450 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 200 248 application/json; charset=utf-8 2304.0759ms
+2024-10-29 12:28:50.434 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 12:28:51.341 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:28:51.344 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:28:51.501 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 12:28:52.186 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 12:28:54.264 +05:30 [INF] Executed DbCommand (1,463ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 12:28:54.702 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 12:28:54.717 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 12:28:54.782 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 3274.4236ms
+2024-10-29 12:28:54.787 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:28:54.791 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 4356.6676ms
+2024-10-29 12:30:19.798 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 12:30:19.838 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:30:19.842 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:30:19.846 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 12:30:19.883 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 12:30:20.745 +05:30 [INF] Executed DbCommand (736ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 12:30:21.539 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 12:30:21.561 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 12:30:21.571 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 1716.6476ms
+2024-10-29 12:30:21.614 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:30:21.622 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 1824.8705ms
+2024-10-29 12:30:29.273 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 12:30:29.303 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:30:29.308 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:30:29.313 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 12:30:29.339 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 12:30:29.476 +05:30 [INF] Executed DbCommand (49ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 12:30:29.535 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 12:30:29.539 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 12:30:29.545 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 225.4371ms
+2024-10-29 12:30:29.552 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:30:29.557 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 284.8054ms
+2024-10-29 12:30:50.098 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 12:30:50.129 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:30:50.151 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:30:50.159 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 12:30:50.184 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 12:30:50.786 +05:30 [INF] Executed DbCommand (405ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 12:30:50.819 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 12:30:50.824 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 12:30:50.829 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 660.8084ms
+2024-10-29 12:30:50.836 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:30:50.841 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 742.963ms
+2024-10-29 12:31:06.711 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 12:31:06.909 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:31:06.915 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:31:06.920 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 12:31:06.938 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 12:31:07.489 +05:30 [INF] Executed DbCommand (516ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 12:31:07.514 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 12:31:07.520 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 12:31:07.536 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 605.0516ms
+2024-10-29 12:31:07.551 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:31:07.561 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 850.2664ms
+2024-10-29 12:32:06.422 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 12:32:06.455 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:32:06.460 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:32:06.467 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 12:32:06.711 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 12:32:06.930 +05:30 [INF] Executed DbCommand (188ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 12:32:06.992 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 12:32:07.030 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 12:32:07.071 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 596.2274ms
+2024-10-29 12:32:07.095 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:32:07.101 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 678.4529ms
+2024-10-29 12:32:53.790 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 12:32:53.852 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:32:53.857 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:32:53.862 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 12:32:53.913 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 12:32:54.951 +05:30 [INF] Executed DbCommand (918ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 12:32:55.030 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 12:32:55.080 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 12:32:55.086 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 1214.1902ms
+2024-10-29 12:32:55.093 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:32:55.099 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 1329.9643ms
+2024-10-29 12:33:22.831 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 12:33:22.874 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:33:23.023 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 192.1801ms
+2024-10-29 12:33:23.028 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 54
+2024-10-29 12:33:23.037 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:33:23.038 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:33:23.041 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 12:33:23.223 +05:30 [INF] Login attempt for user Surender Verma
+2024-10-29 12:33:23.666 +05:30 [INF] Executed DbCommand (242ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 12:33:23.722 +05:30 [INF] Login successful for user Surender Verma
+2024-10-29 12:33:23.729 +05:30 [INF] Generating JWT for user Surender Verma
+2024-10-29 12:33:23.835 +05:30 [INF] JWT generated successfully for user Surender Verma
+2024-10-29 12:33:23.839 +05:30 [INF] Executing OkObjectResult, writing value of type 'WebAPI.Dtos.LoginResDto'.
+2024-10-29 12:33:23.844 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 800.0858ms
+2024-10-29 12:33:23.852 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:33:23.857 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 200 251 application/json; charset=utf-8 829.6721ms
+2024-10-29 12:33:24.186 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-29 12:33:24.233 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:33:24.250 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:33:24.260 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-29 12:33:24.364 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-29 12:33:24.713 +05:30 [INF] Executed DbCommand (186ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-29 12:33:24.754 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-29 12:33:24.760 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-29 12:33:24.768 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 442.2718ms
+2024-10-29 12:33:24.774 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-29 12:33:24.781 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 594.763ms
+2024-10-29 12:33:50.845 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-29 12:33:50.860 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:33:50.862 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 17.1126ms
+2024-10-29 12:33:50.866 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 53
+2024-10-29 12:33:50.880 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:33:50.882 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:33:50.890 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 12:33:50.934 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-29 12:33:51.776 +05:30 [INF] Executed DbCommand (439ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 12:33:52.007 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-29 12:33:52.025 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-29 12:33:52.038 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 1142.6638ms
+2024-10-29 12:33:52.044 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-29 12:33:52.053 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 1187.4819ms
+2024-10-29 12:34:06.120 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-29 12:34:06.132 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:34:06.134 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 15.2183ms
+2024-10-29 12:34:06.140 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 126
+2024-10-29 12:34:06.155 +05:30 [INF] CORS policy execution successful.
+2024-10-29 12:34:06.158 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 12:34:06.162 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-29 12:34:06.180 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-29 12:34:06.572 +05:30 [INF] Executed DbCommand (358ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-29 12:34:07.557 +05:30 [INF] Executed DbCommand (38ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 8000) (DbType = Binary), @p4='?' (Size = 10), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [Email] = @p0, [LastUpdatedOn] = @p1, [Password] = @p2, [PasswordKey] = @p3, [PhoneNumber] = @p4, [SecurityAnswer] = @p5, [SecurityQuestion] = @p6, [Username] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+2024-10-29 12:34:07.611 +05:30 [INF] Password reset successfully for user Archana Verma
+2024-10-29 12:34:07.614 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-10-29 12:34:07.618 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 1450.0969ms
+2024-10-29 12:34:07.623 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-29 12:34:07.626 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 200 51 application/json; charset=utf-8 1486.9835ms

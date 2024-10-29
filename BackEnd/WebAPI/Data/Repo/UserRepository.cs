@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
 using WebAPI.Interfaces;
@@ -11,9 +10,9 @@ namespace WebAPI.Data.Repo
     {
         private readonly DataContext _dataContext;
 
-        public UserRepository(DataContext datacontext)
+        public UserRepository(DataContext dataContext)
         {
-            _dataContext = datacontext;
+            _dataContext = dataContext;
         }
 
         public async Task<User> Authenticate(string username, string passwordText)
@@ -43,7 +42,7 @@ namespace WebAPI.Data.Repo
             }
         }
 
-        public void Register(string userName, string password, string email, string phoneNumber) // Updated method
+        public void Register(string userName, string password, string email, string phoneNumber, SecurityQuestion securityQuestion, string securityAnswer)
         {
             byte[] passwordHash, passwordKey;
 
@@ -59,7 +58,9 @@ namespace WebAPI.Data.Repo
                 Password = passwordHash,
                 PasswordKey = passwordKey,
                 Email = email,
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                SecurityQuestion = securityQuestion.ToString(),
+                SecurityAnswer = securityAnswer
             };
 
             _dataContext.Users.Add(user);
@@ -68,6 +69,16 @@ namespace WebAPI.Data.Repo
         public async Task<bool> UserAlreadyExists(string userName)
         {
             return await _dataContext.Users.AnyAsync(x => x.Username == userName);
+        }
+
+        public async Task<User> GetUserByUsernameAsync(string username)
+        {
+            return await _dataContext.Users.FirstOrDefaultAsync(x => x.Username == username);
+        }
+
+        public void UpdateUser(User user)
+        {
+            _dataContext.Users.Update(user);
         }
     }
 }

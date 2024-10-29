@@ -1,28 +1,63 @@
 <div class="row">
     <div class="col-6 m-auto">
-      <div class="card m-auto">
-        <div class="card-header">
-          <h3>Login</h3>
-        </div>
-        <div class="card-body">
-          <form #loginForm = "ngForm" (ngSubmit)="onLogin()">
-            <div class="form-group col-12">
-              <label for="name">User Name</label>
-              <input class="form-control" id="name" name="userName" autocomplete="name" ngModel required>
+        <div class="card m-auto">
+            <div class="card-header">
+                <h3 *ngIf="!isForgotPasswordActive">Login</h3>
+                <h3 *ngIf="isForgotPasswordActive">Reset Password</h3>
             </div>
+            <div class="card-body">
+                <!-- Login Form -->
+                <form *ngIf="!isForgotPasswordActive" #loginForm="ngForm" (ngSubmit)="onLogin()">
+                    <div class="form-group col-12">
+                        <label for="name">User Name</label>
+                        <input class="form-control" id="name" name="userName" autocomplete="name" ngModel required>
+                    </div>
+  
+                    <div class="form-group col-12">
+                        <label for="password">Password</label>
+                        <input class="form-control" id="password" type="password" name="password" ngModel required>
+                    </div>
+  
+                    <div class="form-group col-12"><br>
+                        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+                        <button type="button" class="btn btn-secondary ms-2">Cancel</button>
+                    </div>
+  
+                    <!-- Forgot Password Button -->
+                    <div class="form-group col-12" *ngIf="showForgotPasswordButton"><br>
+                        <button type="button" class="btn btn-warning" (click)="onForgotPassword()">Forgot Password?</button>
+                    </div>
+                </form>
+  
+                <!-- Forgot Password Form -->
+                <form *ngIf="isForgotPasswordActive" [formGroup]="forgotPasswordForm" (ngSubmit)="onResetPassword()">
+                    <div class="form-group col-12 mt-3">
+                        <label for="securityQuestion">Select a Security Question:</label>
+                            <div class="dropdown-wrapper">
+                            <select class="form-control" formControlName="securityQuestion" required>
+                                <option value="" disabled selected hidden>Select a Security Question</option>
+                                <option *ngFor="let question of securityQuestions" [value]="question.value">{{ question.label }}</option>
+                            </select>
+                            <span class="dropdown-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                    </div>
+                                    
+                    <div class="form-group col-12 mt-3">
+                        <label for="securityAnswer">Answer:</label>
+                        <input class="form-control" id="securityAnswer" type="text" formControlName="securityAnswer" required>
+                    </div>
 
-            <div class="form-group col-12">
-                <label for="password">Password</label>
-                <input class="form-control" id="password" type="password" name="password" ngModel required>
-              </div>
+                    <div class="form-group col-12 mt-3">
+                        <label for="newPassword">New Password:</label>
+                        <input class="form-control" id="newPassword" type="password" formControlName="newPassword" required>
+                    </div>
 
-
-            <div class="form-group col-12"><br>
-              <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
-              <button type="button" class="btn btn-secondary ms-2">Cancel</button>
+                    <div class="form-group col-12 mt-3">
+                        <button type="submit" class="btn btn-success" [disabled]="!forgotPasswordForm.valid">Reset Password</button>
+                        <button type="button" class="btn btn-secondary ms-2" (click)="onCancel()">Cancel</button>
+                    </div>
+                </form>
             </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
+</div>

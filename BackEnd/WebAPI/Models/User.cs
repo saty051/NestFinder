@@ -24,5 +24,11 @@ namespace WebAPI.Models
 
         [NotMapped]
         public int LatestUpdatedBy { get; set; }
+
+        // New fields for security question
+        public string SecurityQuestion { get; set; }
+
+        [Required]
+        public string SecurityAnswer { get; set; }
     }
 }

@@ -1,0 +1,470 @@
+2024-10-28 00:08:42.764 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-28 00:08:53.284 +05:30 [INF] Now listening on: https://localhost:7177
+2024-10-28 00:08:53.291 +05:30 [INF] Now listening on: http://localhost:5150
+2024-10-28 00:08:53.648 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-28 00:08:53.680 +05:30 [INF] Hosting environment: Development
+2024-10-28 00:08:53.687 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-10-28 00:10:44.595 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-10-28 00:10:47.316 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 2724.3386ms
+2024-10-28 00:10:55.788 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-10-28 00:10:55.797 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 9.3215ms
+2024-10-28 00:10:55.860 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-28 00:10:55.894 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 34.0849ms
+2024-10-28 00:10:55.997 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-10-28 00:10:56.899 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 901.8268ms
+2024-10-28 00:11:01.573 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-10-28 00:11:01.947 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 374.2324ms
+2024-10-28 00:13:13.500 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-28 00:13:13.799 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:13:19.179 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:13:19.717 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:13:22.054 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-28 00:13:30.821 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-10-28 00:14:13.988 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-28 00:14:14.023 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:14:14.030 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:14:14.034 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:14:14.053 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-28 00:14:17.122 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/2 - null null
+2024-10-28 00:14:17.136 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:14:17.142 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:14:17.156 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:14:17.172 +05:30 [INF] Fetching property list for SellRent value: 2
+2024-10-28 00:14:24.406 +05:30 [INF] Executed DbCommand (6,672ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:14:24.406 +05:30 [INF] Executed DbCommand (8,360ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:14:24.406 +05:30 [INF] Executed DbCommand (45,471ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:14:24.986 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-28 00:14:24.991 +05:30 [INF] 2 properties found for SellRent value: 2
+2024-10-28 00:14:25.014 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:14:25.014 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:14:25.092 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-28 00:14:25.096 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:14:25.556 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 65811.5965ms
+2024-10-28 00:14:25.556 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 11495.7735ms
+2024-10-28 00:14:25.556 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 8372.7488ms
+2024-10-28 00:14:25.587 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:14:25.589 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:14:25.595 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:14:25.631 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/2 - 200 577 application/json; charset=utf-8 8509.2846ms
+2024-10-28 00:14:25.640 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 11652.1445ms
+2024-10-28 00:14:25.631 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 72130.9263ms
+2024-10-28 00:14:25.646 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-28 00:14:25.684 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:14:25.687 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:14:25.690 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:14:25.704 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-28 00:14:33.736 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-28 00:14:33.745 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:14:33.747 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:14:33.750 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:14:33.761 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-28 00:15:02.693 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-10-28 00:15:02.693 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-10-28 00:15:02.695 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-10-28 00:15:02.712 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:02.717 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:02.723 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:02.727 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-10-28 00:15:02.728 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-10-28 00:15:02.731 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-10-28 00:15:02.740 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-10-28 00:15:02.740 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-10-28 00:15:02.740 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-10-28 00:15:02.761 +05:30 [INF] Fetching all cities.
+2024-10-28 00:15:03.433 +05:30 [INF] Executed DbCommand (421ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-10-28 00:15:03.436 +05:30 [INF] Executed DbCommand (667ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-10-28 00:15:03.444 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:03.448 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:03.449 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 700.4071ms
+2024-10-28 00:15:03.454 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 710.3885ms
+2024-10-28 00:15:03.606 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-10-28 00:15:03.634 +05:30 [INF] Executed DbCommand (37,909ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:15:03.690 +05:30 [INF] Executed DbCommand (29,856ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:15:03.695 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 1001.7238ms
+2024-10-28 00:15:03.920 +05:30 [INF] Executed DbCommand (320ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-10-28 00:15:03.692 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-10-28 00:15:04.031 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-28 00:15:04.047 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-28 00:15:04.063 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 1368.9523ms
+2024-10-28 00:15:04.071 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:04.074 +05:30 [INF] 13 cities retrieved successfully.
+2024-10-28 00:15:04.075 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:04.088 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 38391.9745ms
+2024-10-28 00:15:04.092 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 30338.1438ms
+2024-10-28 00:15:04.089 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:04.096 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:04.099 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:04.105 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 38459.5972ms
+2024-10-28 00:15:04.106 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 1352.1219ms
+2024-10-28 00:15:04.108 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 30371.668ms
+2024-10-28 00:15:04.117 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-10-28 00:15:04.127 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 1433.3079ms
+2024-10-28 00:15:04.668 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/2 - null null
+2024-10-28 00:15:04.679 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:04.684 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:04.688 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:15:04.701 +05:30 [INF] Fetching property list for SellRent value: 2
+2024-10-28 00:15:10.939 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-28 00:15:10.953 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:10.955 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:10.959 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:15:10.972 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-28 00:15:12.211 +05:30 [INF] Executed DbCommand (7,498ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:15:12.225 +05:30 [INF] 2 properties found for SellRent value: 2
+2024-10-28 00:15:12.227 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:12.232 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 7538.4222ms
+2024-10-28 00:15:12.238 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:12.241 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/2 - 200 577 application/json; charset=utf-8 7573.8546ms
+2024-10-28 00:15:12.753 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-28 00:15:12.769 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:12.774 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:12.783 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:15:12.799 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-28 00:15:12.831 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:15:12.866 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-28 00:15:12.876 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:12.882 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 92.2099ms
+2024-10-28 00:15:12.897 +05:30 [INF] Executed DbCommand (1,911ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:15:12.906 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:12.924 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 170.775ms
+2024-10-28 00:15:12.931 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-28 00:15:12.963 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:12.969 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 2004.962ms
+2024-10-28 00:15:12.974 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:12.979 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 2039.9671ms
+2024-10-28 00:15:17.946 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/2 - null null
+2024-10-28 00:15:17.963 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:17.965 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:17.973 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:15:17.986 +05:30 [INF] Fetching property list for SellRent value: 2
+2024-10-28 00:15:20.620 +05:30 [INF] Executed DbCommand (2,608ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:15:20.632 +05:30 [INF] 2 properties found for SellRent value: 2
+2024-10-28 00:15:20.635 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:20.639 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 2660.5508ms
+2024-10-28 00:15:20.642 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:20.646 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/2 - 200 577 application/json; charset=utf-8 2699.482ms
+2024-10-28 00:15:23.242 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-28 00:15:23.263 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:23.268 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:23.275 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:15:23.297 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-28 00:15:33.515 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/2 - null null
+2024-10-28 00:15:33.552 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:33.557 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:33.561 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:15:33.574 +05:30 [INF] Fetching property list for SellRent value: 2
+2024-10-28 00:15:50.986 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Propertytype/list - null null
+2024-10-28 00:15:50.986 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/City - null null
+2024-10-28 00:15:50.989 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/furnishingtype/list - null null
+2024-10-28 00:15:50.996 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:51.002 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:51.009 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:51.012 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-10-28 00:15:51.017 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-10-28 00:15:51.018 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-10-28 00:15:51.021 +05:30 [INF] Route matched with {action = "GetPropertyTypes", controller = "PropertyType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyTypes() on controller WebAPI.Controllers.PropertyTypeController (WebAPI).
+2024-10-28 00:15:51.025 +05:30 [INF] Route matched with {action = "GetFurnishingTypes", controller = "FurnishingType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFurnishingTypes() on controller WebAPI.Controllers.FurnishingTypeController (WebAPI).
+2024-10-28 00:15:51.028 +05:30 [INF] Route matched with {action = "GetCities", controller = "City"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCities() on controller WebAPI.Controllers.CityController (WebAPI).
+2024-10-28 00:15:51.073 +05:30 [INF] Fetching all cities.
+2024-10-28 00:15:51.221 +05:30 [INF] Executed DbCommand (180ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[Name]
+FROM [PropertyTypes] AS [p]
+2024-10-28 00:15:51.227 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:51.231 +05:30 [INF] Executed action WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI) in 197.1097ms
+2024-10-28 00:15:51.236 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyTypeController.GetPropertyTypes (WebAPI)'
+2024-10-28 00:15:51.239 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Propertytype/list - 200 78 application/json; charset=utf-8 253.112ms
+2024-10-28 00:15:51.261 +05:30 [INF] Executed DbCommand (204ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name]
+FROM [FurnishingTypes] AS [f]
+2024-10-28 00:15:51.269 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.KeyValuePairDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:51.276 +05:30 [INF] Executed action WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI) in 226.5727ms
+2024-10-28 00:15:51.280 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.FurnishingTypeController.GetFurnishingTypes (WebAPI)'
+2024-10-28 00:15:51.285 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/furnishingtype/list - 200 78 application/json; charset=utf-8 295.6292ms
+2024-10-28 00:15:51.304 +05:30 [INF] Executed DbCommand (27,988ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:15:51.312 +05:30 [INF] Executed DbCommand (17,726ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:15:57.014 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-28 00:15:57.031 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-28 00:15:51.299 +05:30 [INF] Executed DbCommand (214ms) [Parameters=[], CommandType='"Text"', CommandTimeout='300']
+SELECT [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name]
+FROM [Cities] AS [c]
+2024-10-28 00:15:57.038 +05:30 [INF] 2 properties found for SellRent value: 2
+2024-10-28 00:15:57.042 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:15:57.044 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:57.056 +05:30 [INF] 13 cities retrieved successfully.
+2024-10-28 00:15:57.057 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:57.059 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:57.062 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 33774.9574ms
+2024-10-28 00:15:57.064 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.CityDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:15:57.066 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 23500.1867ms
+2024-10-28 00:15:57.069 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 00:15:57.073 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:57.080 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:15:57.077 +05:30 [INF] Executed action WebAPI.Controllers.CityController.GetCities (WebAPI) in 6014.4165ms
+2024-10-28 00:15:57.091 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-28 00:15:57.092 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 33850.8851ms
+2024-10-28 00:15:57.095 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/2 - 200 577 application/json; charset=utf-8 23584.6863ms
+2024-10-28 00:15:57.098 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.CityController.GetCities (WebAPI)'
+2024-10-28 00:15:57.128 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/City - 200 571 application/json; charset=utf-8 6141.2221ms
+2024-10-28 00:17:08.371 +05:30 [INF] Executed DbCommand (71,234ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 00:17:08.415 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-28 00:17:08.419 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 00:17:08.421 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 71336.4133ms
+2024-10-28 00:17:08.433 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 00:17:08.437 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 71422.3745ms
+2024-10-28 00:19:07.220 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/register - null null
+2024-10-28 00:19:07.228 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:19:07.232 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/register - 204 null null 12.4787ms
+2024-10-28 00:19:07.239 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/register - application/json 170
+2024-10-28 00:19:07.248 +05:30 [INF] CORS policy execution successful.
+2024-10-28 00:19:07.250 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Register (WebAPI)'
+2024-10-28 00:19:07.261 +05:30 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebAPI.Dtos.RegisterDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-28 00:19:07.969 +05:30 [INF] Register attempt for user Sparsh Agrawal
+2024-10-28 00:19:08.768 +05:30 [INF] Executed DbCommand (649ms) [Parameters=[@__userName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__userName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-10-28 00:19:09.196 +05:30 [INF] Executed DbCommand (87ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 8000) (DbType = Binary), @p4='?' (Size = 10), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [LastUpdatedOn], [Password], [PasswordKey], [PhoneNumber], [SecurityAnswer], [SecurityQuestion], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2024-10-28 00:19:09.255 +05:30 [INF] User Sparsh Agrawal registered successfully
+2024-10-28 00:19:09.264 +05:30 [INF] Executing StatusCodeResult, setting HTTP status code 201
+2024-10-28 00:19:09.266 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Register (WebAPI) in 2000.4067ms
+2024-10-28 00:19:09.270 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Register (WebAPI)'
+2024-10-28 00:19:09.272 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/register - 201 0 null 2033.452ms
+2024-10-28 01:47:20.113 +05:30 [INF] User profile is available. Using 'C:\Users\archa\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-10-28 01:47:21.758 +05:30 [INF] Now listening on: https://localhost:7177
+2024-10-28 01:47:21.765 +05:30 [INF] Now listening on: http://localhost:5150
+2024-10-28 01:47:21.901 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-10-28 01:47:21.909 +05:30 [INF] Hosting environment: Development
+2024-10-28 01:47:21.916 +05:30 [INF] Content root path: C:\Users\archa\OneDrive\Desktop\NestFinder\BackEnd\WebAPI
+2024-10-28 01:48:07.922 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.html - null null
+2024-10-28 01:48:13.129 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.html - 200 null text/html;charset=utf-8 5210.1801ms
+2024-10-28 01:48:27.839 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/index.js - null null
+2024-10-28 01:48:27.839 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_vs/browserLink - null null
+2024-10-28 01:48:27.839 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-28 01:48:27.860 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/index.js - 200 null application/javascript;charset=utf-8 21.9028ms
+2024-10-28 01:48:27.891 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 53.1295ms
+2024-10-28 01:48:29.509 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1670.661ms
+2024-10-28 01:48:33.536 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-10-28 01:48:33.800 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 263.8323ms
+2024-10-28 01:51:48.826 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/api/Property/list/1 - null null
+2024-10-28 01:51:49.498 +05:30 [INF] CORS policy execution successful.
+2024-10-28 01:51:51.282 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 01:51:51.487 +05:30 [INF] Route matched with {action = "GetPropertyList", controller = "Property"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPropertyList(Int32) on controller WebAPI.Controllers.PropertyController (WebAPI).
+2024-10-28 01:51:53.206 +05:30 [INF] Fetching property list for SellRent value: 1
+2024-10-28 01:51:55.976 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Property'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-10-28 01:52:13.018 +05:30 [INF] Executed DbCommand (4,381ms) [Parameters=[@__sellRent_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='300']
+SELECT [p].[Id], [p].[Address], [p].[Address2], [p].[Age], [p].[BHK], [p].[BuiltArea], [p].[CarpetArea], [p].[CityId], [p].[Description], [p].[EstPossessionOn], [p].[FloorNo], [p].[FurnishingTypeId], [p].[Gated], [p].[LastUpdatedOn], [p].[LatestUpdatedBy], [p].[MainEntrance], [p].[Maintenance], [p].[Name], [p].[PostedBy], [p].[PostedOn], [p].[Price], [p].[PropertyTypeId], [p].[ReadyToMove], [p].[Security], [p].[SellRent], [p].[TotalFloors], [p0].[Id], [p0].[LastUpdatedOn], [p0].[LatestUpdatedBy], [p0].[Name], [c].[Id], [c].[Country], [c].[LastUpdatedOn], [c].[LatestUpdatedBy], [c].[Name], [f].[Id], [f].[LastUpdatedOn], [f].[LatestUpdatedBy], [f].[Name], [p1].[Id], [p1].[ImageUrl], [p1].[IsPrimary], [p1].[LastUpdatedOn], [p1].[LatestUpdatedBy], [p1].[PropertyId], [p1].[PublicId]
+FROM [Properties] AS [p]
+INNER JOIN [PropertyTypes] AS [p0] ON [p].[PropertyTypeId] = [p0].[Id]
+INNER JOIN [Cities] AS [c] ON [p].[CityId] = [c].[Id]
+INNER JOIN [FurnishingTypes] AS [f] ON [p].[FurnishingTypeId] = [f].[Id]
+LEFT JOIN [Photos] AS [p1] ON [p].[Id] = [p1].[PropertyId]
+WHERE [p].[SellRent] = @__sellRent_0
+ORDER BY [p].[Id], [p0].[Id], [c].[Id], [f].[Id]
+2024-10-28 01:52:13.979 +05:30 [INF] 2 properties found for SellRent value: 1
+2024-10-28 01:52:14.004 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebAPI.Dtos.PropertyListDto, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-10-28 01:52:21.149 +05:30 [INF] Executed action WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI) in 29584.916ms
+2024-10-28 01:52:21.156 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.PropertyController.GetPropertyList (WebAPI)'
+2024-10-28 01:52:21.184 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/api/Property/list/1 - 200 658 application/json; charset=utf-8 32384.133ms
+2024-10-28 01:53:42.730 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-28 01:53:42.767 +05:30 [INF] CORS policy execution successful.
+2024-10-28 01:53:42.773 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 42.7995ms
+2024-10-28 01:53:42.783 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 53
+2024-10-28 01:53:42.793 +05:30 [INF] CORS policy execution successful.
+2024-10-28 01:53:42.799 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-28 01:53:42.838 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-28 01:53:42.951 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-28 01:53:43.464 +05:30 [INF] Executed DbCommand (360ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-28 01:53:43.579 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-28 01:53:43.586 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-28 01:53:43.614 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 769.8139ms
+2024-10-28 01:53:43.619 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-28 01:53:43.624 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 840.6147ms
+2024-10-28 02:09:58.160 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-28 02:10:01.084 +05:30 [INF] CORS policy execution successful.
+2024-10-28 02:10:01.868 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/login - null null
+2024-10-28 02:10:02.502 +05:30 [INF] CORS policy execution successful.
+2024-10-28 02:10:03.460 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 5068.1224ms
+2024-10-28 02:10:03.460 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/login - 204 null null 1261.2639ms
+2024-10-28 02:10:03.571 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 54
+2024-10-28 02:10:03.620 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/login - application/json 54
+2024-10-28 02:10:04.094 +05:30 [INF] CORS policy execution successful.
+2024-10-28 02:10:04.109 +05:30 [INF] CORS policy execution successful.
+2024-10-28 02:10:06.116 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-28 02:10:06.116 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-28 02:10:08.603 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-28 02:10:08.603 +05:30 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebAPI.Dtos.LoginReqDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-28 02:10:15.828 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-28 02:10:17.082 +05:30 [INF] Login attempt for user Archana Verma
+2024-10-28 02:10:51.360 +05:30 [INF] Executed DbCommand (1,183ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-28 02:10:51.431 +05:30 [INF] Executed DbCommand (4,760ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-28 02:10:54.830 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-28 02:10:54.840 +05:30 [WRN] Login failed for user Archana Verma: Invalid username or password
+2024-10-28 02:10:55.102 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-28 02:10:55.102 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-28 02:10:55.253 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 46057.0548ms
+2024-10-28 02:10:55.253 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.Login (WebAPI) in 46056.4522ms
+2024-10-28 02:10:55.381 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-28 02:10:55.400 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.Login (WebAPI)'
+2024-10-28 02:10:55.545 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 51963.9251ms
+2024-10-28 02:10:55.545 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/login - 401 150 application/json; charset=utf-8 51883.5641ms
+2024-10-28 02:11:37.776 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - null null
+2024-10-28 02:11:37.942 +05:30 [INF] CORS policy execution successful.
+2024-10-28 02:11:37.983 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7177/api/Account/password-regenerate - 204 null null 207.0215ms
+2024-10-28 02:11:38.458 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json 131
+2024-10-28 02:11:38.967 +05:30 [INF] CORS policy execution successful.
+2024-10-28 02:11:39.050 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-28 02:11:40.563 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-28 02:11:42.268 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-28 02:11:44.097 +05:30 [INF] Executed DbCommand (950ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-28 02:11:44.120 +05:30 [WRN] Security question/answer mismatch for user Archana Verma
+2024-10-28 02:11:44.172 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'WebAPI.Errors.ApiError'.
+2024-10-28 02:11:44.175 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 3580.291ms
+2024-10-28 02:11:44.180 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-28 02:11:44.183 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 400 161 application/json; charset=utf-8 5727.8226ms
+2024-10-28 02:14:22.229 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - null null
+2024-10-28 02:14:22.599 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 344.8026ms
+2024-10-28 02:14:24.544 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - null null
+2024-10-28 02:14:33.872 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7177/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9328.1274ms
+2024-10-28 02:16:47.292 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - application/json-patch+json 143
+2024-10-28 02:16:47.429 +05:30 [INF] CORS policy execution successful.
+2024-10-28 02:16:47.479 +05:30 [INF] Executing endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-28 02:16:47.482 +05:30 [INF] Route matched with {action = "PasswordRegenerate", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PasswordRegenerate(WebAPI.Dtos.PasswordRegenerationDto) on controller WebAPI.Controllers.AccountController (WebAPI).
+2024-10-28 02:16:48.205 +05:30 [INF] Password regeneration attempt for user Archana Verma
+2024-10-28 02:16:51.236 +05:30 [INF] Executed DbCommand (2,549ms) [Parameters=[@__username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[LastUpdatedOn], [u].[Password], [u].[PasswordKey], [u].[PhoneNumber], [u].[SecurityAnswer], [u].[SecurityQuestion], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__username_0
+2024-10-28 02:17:05.760 +05:30 [INF] Executed DbCommand (1,541ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 8000) (DbType = Binary), @p3='?' (Size = 8000) (DbType = Binary), @p4='?' (Size = 10), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='300']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [Email] = @p0, [LastUpdatedOn] = @p1, [Password] = @p2, [PasswordKey] = @p3, [PhoneNumber] = @p4, [SecurityAnswer] = @p5, [SecurityQuestion] = @p6, [Username] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+2024-10-28 02:17:06.297 +05:30 [INF] Password reset successfully for user Archana Verma
+2024-10-28 02:17:06.304 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-10-28 02:17:06.890 +05:30 [INF] Executed action WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI) in 19392.8161ms
+2024-10-28 02:17:06.894 +05:30 [INF] Executed endpoint 'WebAPI.Controllers.AccountController.PasswordRegenerate (WebAPI)'
+2024-10-28 02:17:06.897 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7177/api/Account/password-regenerate - 200 51 application/json; charset=utf-8 19605.651ms
