@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse } from '@angular/common/http';
+import { HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse, HttpEvent } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AlertifyService } from 'src/app/services/alertify.service';
@@ -12,12 +12,11 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error instanceof HttpErrorResponse) {
-          // Log the error details to the console for developer reference
-          console.error('HTTP Error:', error);
+        if (error instanceof HttpErrorResponse && request.headers.has('X-Custom-Error')) {
+          this.alertify.error(error.error || 'Unknown Error Occured');
+        } else {
+          this.alertify.error('An error occurred. Please try again.');
         }
-
-        // Return the error as an observable
         return throwError(error);
       })
     );

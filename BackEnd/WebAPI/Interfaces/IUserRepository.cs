@@ -8,6 +8,7 @@ namespace WebAPI.Interfaces
         void Register(string username, string password, string email, string phoneNumber, SecurityQuestion securityQuestion, string securityAnswer);
         Task<bool> UserAlreadyExists(string userName);
         Task<User> GetUserByUsernameAsync(string username);
+        Task<User> GetUserContactInfoByIdAsync(int userId);
         void UpdateUser(User user);
     }
 }

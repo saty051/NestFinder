@@ -239,5 +239,18 @@ namespace WebAPI.Controllers
 
             return BadRequest("Failed to delete photo");
         }
+
+        [HttpGet("contact/{propertyId}")]
+        public async Task<IActionResult> GetPropertyContact(int propertyId)
+        {
+            var property = await _uow.PropertyRepository.GetPropertyByIdAsync(propertyId);
+            if (property == null)
+                return NotFound();
+
+            var owner = await _uow.UserRepository.GetUserContactInfoByIdAsync(property.LatestUpdatedBy);
+            if (owner == null)
+                return NotFound();
+            return Ok(new { owner.Email, owner.PhoneNumber });
+        }
     }
 }

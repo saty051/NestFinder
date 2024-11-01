@@ -4,6 +4,7 @@ import { Property } from 'src/app/model/property';
 import { HousingService } from 'src/app/services/housing.service';
 import { LikeService } from 'src/app/services/like.service';
 import { AlertifyService } from 'src/app/services/alertify.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { NgxGalleryImage } from '@kolkov/ngx-gallery';
 import { NgxGalleryAnimation } from '@kolkov/ngx-gallery';
@@ -14,21 +15,25 @@ import { NgxGalleryAnimation } from '@kolkov/ngx-gallery';
   styleUrls: ['./property-detail.component.css']
 })
 export class PropertyDetailComponent implements OnInit {
-  public propertyId!: number;
-  public mainPhotoUrl: string | null = null;
+  public propertyId!: number;  // Stores the ID of the current property
+  public mainPhotoUrl: string | null = null;  // Stores the main photo URL if available
   property: Property = new Property();
+  contactEmail: string | null = null;
+  contactPhone: string | null = null;
   galleryOptions!: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[] = [];
   isLiked = false;
   totalLikes = 0;
   errorMessage: string | null = null;
+  isUserLoggedIn = false;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private housingService: HousingService,
     private likeService: LikeService,
-    private alertify: AlertifyService
+    private alertify: AlertifyService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -38,10 +43,20 @@ export class PropertyDetailComponent implements OnInit {
       this.getLikesForProperty();
     });
 
+    // Check if the user is logged in
+    this.isUserLoggedIn = this.authService.loggedIn();
+
+    // If the user is logged in, load contact info
+    if (this.isUserLoggedIn) {
+      this.fetchContactDetails();
+    }
+
+    // Set the property age if possession date is available
     if (this.property?.estPossessionOn) {
       this.property.age = this.housingService.getPropertyAge(this.property.estPossessionOn);
     }
 
+    // Initialize gallery options for property photos
     this.galleryOptions = [
       {
         width: '100%',
@@ -53,10 +68,26 @@ export class PropertyDetailComponent implements OnInit {
       }
     ];
 
+    // Load the gallery images for the property
     this.galleryImages = this.getPropertyPhotos();
 
-    // Only check if the property is liked if the user is logged in
-    this.checkIfUserIsLoggedIn();
+    // Check if the property is liked, only if the user is logged in
+    if (this.isUserLoggedIn) {
+      this.checkIfLiked(this.propertyId);
+    }
+  }
+
+  fetchContactDetails() {
+    this.housingService.getContactDetails(this.propertyId).subscribe({
+      next: (contact) => {
+        this.contactEmail = contact.email;
+        this.contactPhone = contact.phoneNumber;
+      },
+      error: (error) => {
+        console.error('Error fetching contact details:', error);
+        this.alertify.error('Unable to fetch contact info');
+      }
+    });
   }
 
   changePrimaryPhoto(mainPhotoUrl: string) {
@@ -92,13 +123,6 @@ export class PropertyDetailComponent implements OnInit {
     );
   }
 
-  checkIfUserIsLoggedIn(): void {
-    const token = localStorage.getItem('token');
-    if (token) {
-      this.checkIfLiked(this.propertyId);
-    }
-  }
-
   checkIfLiked(propertyId: number): void {
     this.likeService.isPropertyLiked(propertyId).subscribe(
       (isLiked: boolean) => {
@@ -111,8 +135,7 @@ export class PropertyDetailComponent implements OnInit {
   }
 
   toggleLike(): void {
-    const token = localStorage.getItem('token');
-    if (!token) {
+    if (!this.isUserLoggedIn) {
       this.alertify.error('Kindly log in to like the property');
       this.router.navigate(['/user/login']);
       return;

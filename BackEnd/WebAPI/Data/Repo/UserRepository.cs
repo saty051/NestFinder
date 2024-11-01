@@ -76,6 +76,18 @@ namespace WebAPI.Data.Repo
             return await _dataContext.Users.FirstOrDefaultAsync(x => x.Username == username);
         }
 
+        public async Task<User> GetUserContactInfoByIdAsync(int userId)
+        {
+            return await _dataContext.Users
+                .Where(u => u.Id == userId)
+                .Select(u => new User
+                {
+                    Email = u.Email,
+                    PhoneNumber = u.PhoneNumber
+                })
+                .FirstOrDefaultAsync();
+        }
+
         public void UpdateUser(User user)
         {
             _dataContext.Users.Update(user);

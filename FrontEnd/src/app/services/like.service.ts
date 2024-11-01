@@ -12,28 +12,28 @@ export class LikeService {
 
   constructor(private http: HttpClient) {}
 
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({
+      Authorization: token ? `Bearer ${token}` : '',
+      'X-Custom-Error': 'true'
+    });
+  }
+
   // Add like to a property
   addLike(propertyId: number): Observable<any> {
-    const token = localStorage.getItem('token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        Authorization: token ? `Bearer ${token}` : ''
-      }),
-      responseType: 'text' as 'json' // Specify response type as text
-    };
-    return this.http.post(`${this.baseUrl}Like/${propertyId}`, {}, httpOptions);
+    return this.http.post(`${this.baseUrl}Like/${propertyId}`, {}, {
+      headers: this.getAuthHeaders(),
+      responseType: 'text' as 'json'
+    });
   }
 
   // Remove like from a property using propertyId
   removeLike(propertyId: number): Observable<any> {
-    const token = localStorage.getItem('token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        Authorization: token ? `Bearer ${token}` : ''
-      }),
-      responseType: 'text' as 'json' // Specify response type as text
-    };
-    return this.http.delete(`${this.baseUrl}Like/${propertyId}`, httpOptions);
+    return this.http.delete(`${this.baseUrl}Like/${propertyId}`, {
+      headers: this.getAuthHeaders(),
+      responseType: 'text' as 'json'
+    });
   }
 
   // Check if the property is liked by the current user

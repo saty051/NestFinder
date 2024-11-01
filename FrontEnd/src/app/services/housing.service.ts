@@ -14,6 +14,14 @@ export class HousingService {
 
   baseUrl = environment.baseUrl;
 
+  private getAuthHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({
+      Authorization: token ? `Bearer ${token}` : '',
+      'X-Custom-Error': 'true'
+    });
+  }
+
   getAllCities(): Observable<string[]> {
     return this.http.get<string[]>(`${this.baseUrl}City`);
   }
@@ -37,13 +45,7 @@ export class HousingService {
   }
 
   addProperty(property: Property) {
-    const token = localStorage.getItem('token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        Authorization: token ? `Bearer ${token}` : ''
-      })
-    };
-    return this.http.post(`${this.baseUrl}Property/add`, property, httpOptions);
+    return this.http.post(`${this.baseUrl}Property/add`, property, { headers: this.getAuthHeaders() });
   }
 
   newPropID() {
@@ -79,22 +81,22 @@ export class HousingService {
   }
 
   setPrimaryPhoto(propertyId: number, propertyPhotoId: string) {
-    const token = localStorage.getItem('token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        Authorization: token ? `Bearer ${token}` : ''
-      })
-    };
-    return this.http.post(`${this.baseUrl}Property/set-primary-photo/${propertyId.toString()}/${propertyPhotoId}`, {}, httpOptions);
-  }
+  return this.http.post(
+    `${this.baseUrl}Property/set-primary-photo/${propertyId}/${propertyPhotoId}`,
+    {},
+    { headers: this.getAuthHeaders() }
+  );
+}
 
   deletePhoto(propertyId: number, propertyPhotoId: string) {
-    const token = localStorage.getItem('token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        Authorization: token ? `Bearer ${token}` : ''
-      })
-    };
-    return this.http.delete(`${this.baseUrl}Property/delete-photo/${propertyId.toString()}/${propertyPhotoId}`, httpOptions);
+  return this.http.delete(`${this.baseUrl}Property/delete-photo/${propertyId}/${propertyPhotoId}`, {
+    headers: this.getAuthHeaders()
+  });
+}
+
+  getContactDetails(propertyId: number): Observable<{ email: string; phoneNumber: string }> {
+    return this.http.get<{ email: string; phoneNumber: string }>(
+      `${this.baseUrl}Property/contact/${propertyId}`
+    );
   }
 }

@@ -122,10 +122,18 @@
         <tab heading="Upload/Edit Photos">
           <app-photo-editor [property]="property" (mainPhotoChangedEvent)="changePrimaryPhoto($event)"></app-photo-editor>
         </tab>
-
-        <tab heading="Contact">
-          This should be restricted and only registered user should be able to see seller's contact details
-        </tab>
+        <!-- Contact Tab (Visible only to logged-in users) -->
+      <tab heading="Contact">
+        <div *ngIf="isUserLoggedIn; else loginPrompt">
+          <h4>Contact Details</h4>
+          <p><strong>Email:</strong> {{ contactEmail || 'Not provided' }}</p>
+          <p><strong>Phone:</strong> {{ contactPhone || 'Not provided' }}</p>
+        </div>
+        <ng-template #loginPrompt>
+          <p class="text-warning">Please log in to view contact details.</p>
+          <button class="btn btn-primary" (click)="router.navigate(['/user/login'])">Login</button>
+        </ng-template>
+      </tab>        
       </tabset>
     </div>
   </div>

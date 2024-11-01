@@ -100,22 +100,35 @@ export class PhotoEditorComponent {
   }
 
   setPrimaryPhoto(propertyId: number, photo: Photo) {
-    this.housingService.setPrimaryPhoto(propertyId, photo.publicId).subscribe(() => {
-      this.mainPhotoChanged(photo.imageUrl);
-      this.property.photos?.forEach((p) => {
-        if (p.isPrimary) {
-          p.isPrimary = false;
-        }
-        if (p.publicId === photo.publicId) {
-          p.isPrimary = true;
-        }
-      });
+    this.housingService.setPrimaryPhoto(propertyId, photo.publicId).subscribe({
+      next: () => {
+        this.mainPhotoChanged(photo.imageUrl);
+        this.property.photos?.forEach((p) => {
+          if (p.isPrimary) {
+            p.isPrimary = false;
+          }
+          if (p.publicId === photo.publicId) {
+            p.isPrimary = true;
+          }
+        });
+        this.alertify.success('Primary photo set successfully.');
+      },
+      error: (error) => {
+        console.error('Error setting primary photo:', error);
+        this.alertify.error('Failed to set the primary photo. Please try again.');
+      }
     });
   }
+  
 
   deletePhoto(propertyId: number, photo: Photo) {
-    this.housingService.deletePhoto(propertyId, photo.publicId).subscribe(() => {
-      this.property.photos = this.property.photos?.filter((p) => p.publicId !== photo.publicId);
+    this.housingService.deletePhoto(propertyId, photo.publicId).subscribe({
+      next: () => {
+        this.property.photos = this.property.photos?.filter((p) => p.publicId !== photo.publicId);
+      },
+      error: (error) => {
+        this.alertify.error('An error occurred while deleting the photo');
+      }
     });
-  }
+  }  
 }
